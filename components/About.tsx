@@ -22,16 +22,11 @@ export default function About() {
             <div className="flex flex-col items-center lg:items-start">
               <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl mb-6">
                 <Image
-                  src="/juan-profile.jpg"
+                  src="/me.jpeg"
                   alt="Juan Sebastian B. - Engineering Manager & Automation Expert"
                   width={192}
                   height={192}
                   className="object-cover w-full h-full"
-                  onError={(e) => {
-                    // Fallback to logo if profile image not found
-                    const target = e.target as HTMLImageElement
-                    target.src = '/Vexlo_logo.png'
-                  }}
                 />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Juan Sebastian B.</h3>
