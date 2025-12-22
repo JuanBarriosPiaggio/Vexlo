@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: 'Vexlo - Business Automation for UK SMBs',
     description: 'Automate your business operations and save time. Intelligent automation solutions for UK small and medium businesses.',
     images: [`${siteUrl}/Vexlo_logo.png`],
-    creator: '@vexlo',
+    creator: '@juan_barrios_p',
   },
   robots: {
     index: true,

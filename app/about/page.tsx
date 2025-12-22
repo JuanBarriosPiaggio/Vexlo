@@ -7,7 +7,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 
 export const metadata: Metadata = {
   title: 'About Vexlo - Meet Your Automation Expert',
-  description: 'Learn about Juan Sebastian B., Engineering Manager with 16+ years of experience in business automation. Trusted by UK SMBs to deliver intelligent automation solutions.',
+  description: 'Learn about Juan, Engineering Manager with 16+ years of experience in business automation. Trusted by UK SMBs to deliver intelligent automation solutions.',
   keywords: [
     'business automation expert UK',
     'automation consultant',
@@ -49,11 +49,11 @@ export default function AboutPage() {
             '@context': 'https://schema.org',
             '@type': 'AboutPage',
             name: 'About Vexlo',
-            description: 'Learn about Juan Sebastian B., Engineering Manager with 16+ years of experience in business automation.',
+            description: 'Learn about Juan, Engineering Manager with 16+ years of experience in business automation.',
             url: `${siteUrl}/about`,
             mainEntity: {
               '@type': 'Person',
-              name: 'Juan Sebastian B.',
+              name: 'Juan',
               jobTitle: 'Engineering Manager & Automation Expert',
               description: 'Methodical, innovative, and vision-driven Engineering Manager with 16+ years of experience transforming businesses through intelligent automation.',
               knowsAbout: [
