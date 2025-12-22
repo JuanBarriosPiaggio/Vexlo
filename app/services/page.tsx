@@ -74,12 +74,12 @@ const services = [
 ]
 
 const integrations = [
-  { name: 'Salesforce', icon: Database },
-  { name: 'QuickBooks', icon: FileText },
-  { name: 'Xero', icon: DollarSign },
-  { name: 'HubSpot', icon: TrendingUp },
   { name: 'Slack', icon: Mail },
-  { name: 'Microsoft 365', icon: Calendar },
+  { name: 'Zapier', icon: Database },
+  { name: 'Google Sheets', icon: FileText },
+  { name: 'Airtable', icon: Database },
+  { name: 'Mailchimp', icon: Mail },
+  { name: 'Stripe', icon: DollarSign },
 ]
 
 export default function ServicesPage() {
@@ -225,7 +225,7 @@ export default function ServicesPage() {
           </div>
           <div className="mt-12 text-center">
             <p className="text-gray-600">
-              Don&apos;t see your tool? We can integrate with most platforms via API.
+              Don&apos;t see your tool? We can integrate with most platforms that offer API key access. Complex integrations requiring OAuth or developer accounts may require additional setup.
             </p>
           </div>
         </div>
