@@ -13,15 +13,16 @@ export default function Header() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center gap-3">
               <Image
                 src="/Vexlo_logo.png"
                 alt="Vexlo Logo"
-                width={180}
-                height={60}
-                className="h-14 w-auto"
+                width={240}
+                height={80}
+                className="h-16 w-auto"
                 priority
               />
+              <span className="text-2xl font-bold text-primary hidden sm:block">Vexlo</span>
             </Link>
           </div>
 
