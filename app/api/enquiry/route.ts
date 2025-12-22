@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
 
     const data = validationResult.data
 
-    // Save to database
+    // Save to MongoDB
     const enquiry = await prisma.enquiry.create({
       data: {
         fullName: data.fullName,
@@ -44,6 +44,7 @@ export async function POST(request: NextRequest) {
         automationNeeds: data.automationNeeds,
         monthlyRevenue: data.monthlyRevenue,
         referralSource: data.referralSource,
+        submittedAt: new Date(),
       },
     })
 

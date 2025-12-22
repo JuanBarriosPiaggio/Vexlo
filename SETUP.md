@@ -31,8 +31,8 @@ npm install
 Create a `.env` file in the root directory:
 
 ```bash
-# Database (use your local PostgreSQL or Railway connection string)
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/vexlo"
+# Database (use your local MongoDB or Railway connection string)
+MONGO_URL="mongodb://localhost:27017/vexlo"
 
 # Admin email for notifications
 ADMIN_EMAIL="admin@vexlo.co.uk"
@@ -53,7 +53,7 @@ NEXT_PUBLIC_GA_ID=""
 ### Step 3: Set Up Database
 
 ```bash
-# Push the Prisma schema to your database
+# Push the Prisma schema to your MongoDB database
 npx prisma db push
 
 # (Optional) Open Prisma Studio to view data
@@ -72,10 +72,10 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Database Connection Issues
 
-If you're using a local PostgreSQL:
-1. Make sure PostgreSQL is running
-2. Create a database: `createdb vexlo`
-3. Update `DATABASE_URL` in `.env`
+If you're using a local MongoDB:
+1. Make sure MongoDB is running
+2. The database will be created automatically on first connection
+3. Update `MONGO_URL` in `.env`
 
 ### Port Already in Use
 

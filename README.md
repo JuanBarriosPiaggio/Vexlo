@@ -6,7 +6,7 @@ A modern, high-converting landing page for Vexlo (vexlo.co.uk) - a business auto
 
 - **Frontend**: Next.js 14+ (App Router)
 - **Styling**: Tailwind CSS
-- **Database**: PostgreSQL (Railway-hosted)
+- **Database**: MongoDB
 - **ORM**: Prisma
 - **Deployment**: Railway with Docker
 
@@ -15,7 +15,7 @@ A modern, high-converting landing page for Vexlo (vexlo.co.uk) - a business auto
 ### Prerequisites
 
 - Node.js 20+
-- PostgreSQL (or use Docker Compose)
+- MongoDB (or use Docker Compose)
 - npm or yarn
 
 ### Installation
@@ -38,7 +38,7 @@ cp .env.example .env
 
 Edit `.env` and add your configuration:
 ```
-DATABASE_URL="postgresql://user:password@host:port/database"
+MONGO_URL="mongodb://user:password@host:port/database"
 ADMIN_EMAIL="admin@vexlo.co.uk"
 SMTP_HOST=""
 SMTP_PORT=""
@@ -68,7 +68,7 @@ docker-compose up
 ```
 
 This will start:
-- PostgreSQL database on port 5432
+- MongoDB database on port 27017
 - Next.js application on port 3000
 
 ## Database Management
