@@ -113,6 +113,10 @@ vexlo/
 
 See `.env.example` for all required environment variables.
 
+## Development Workflow
+
+Changes are automatically committed and pushed to the GitHub repository.
+
 ## License
 
 Copyright © 2024 Vexlo. All rights reserved.
