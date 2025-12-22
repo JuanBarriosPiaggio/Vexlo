@@ -3,16 +3,11 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Install OpenSSL and other dependencies for Prisma
-RUN apk add --no-cache openssl openssl-dev
-
 # Copy package files
 COPY package.json package-lock.json* ./
 
 # Install dependencies (use npm install if package-lock.json doesn't exist)
 RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
-
-# No Prisma needed - using native MongoDB driver
 
 # Copy application files
 COPY . .
@@ -26,9 +21,6 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
-
-# Install OpenSSL and other dependencies for Prisma
-RUN apk add --no-cache openssl
 
 # Create non-root user
 RUN addgroup --system --gid 1001 nodejs
