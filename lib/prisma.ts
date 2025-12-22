@@ -14,24 +14,42 @@ function normalizeMongoUrl(url: string): string {
     throw new Error('MONGO_URL must start with mongodb:// or mongodb+srv://')
   }
   
-  // Check if database name is missing and add it
-  // Format should be: mongodb://host:port/database or mongodb://host:port/database?options
-  // Split by '?' to separate options
-  const [baseUrl, options] = url.split('?')
+  // Split by '?' to separate base URL and options
+  const [baseUrl, existingOptions] = url.split('?')
   
-  // Check if there's a database name (after the last '/')
+  // Parse existing options
+  const options = new URLSearchParams(existingOptions || '')
+  
+  // Check if database name is missing
+  // Format: mongodb://[user:pass@]host:port[/database][?options]
   const lastSlashIndex = baseUrl.lastIndexOf('/')
   const afterSlash = baseUrl.substring(lastSlashIndex + 1)
   
-  // If there's no database name (empty or just host:port), add default
-  if (lastSlashIndex === -1 || afterSlash === '' || afterSlash.includes(':')) {
+  // Check if after the last slash is a host:port (contains ':') or empty
+  const hasDatabaseName = lastSlashIndex !== -1 && 
+                          afterSlash !== '' && 
+                          !afterSlash.includes(':') &&
+                          !afterSlash.includes('@')
+  
+  let normalized = baseUrl
+  
+  // Add database name if missing
+  if (!hasDatabaseName) {
     const defaultDb = 'vexlo'
-    const normalized = `${baseUrl}/${defaultDb}${options ? `?${options}` : ''}`
-    console.log(`INFO: Database name missing in MONGO_URL. Using default: ${defaultDb}`)
-    return normalized
+    normalized = `${baseUrl}/${defaultDb}`
+    console.log(`INFO: Database name missing in MONGO_URL. Added: ${defaultDb}`)
   }
   
-  return url
+  // Add authSource if authentication is present and authSource is not specified
+  // This is needed for Railway MongoDB with root user
+  if (normalized.includes('@') && !options.has('authSource')) {
+    options.set('authSource', 'admin')
+    console.log('INFO: Added authSource=admin for authentication')
+  }
+  
+  // Reconstruct URL with options
+  const optionsString = options.toString()
+  return optionsString ? `${normalized}?${optionsString}` : normalized
 }
 
 function getPrismaClient(): PrismaClient {
