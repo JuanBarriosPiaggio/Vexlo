@@ -76,6 +76,12 @@ function normalizeMongoUrl(url: string): string {
     console.log('INFO: Added authSource=admin for authentication')
   }
   
+  // Add directConnection to avoid replica set requirement for simple operations
+  if (!options.has('directConnection')) {
+    options.set('directConnection', 'true')
+    console.log('INFO: Added directConnection=true to avoid replica set requirement')
+  }
+  
   // Reconstruct URL with options
   const optionsString = options.toString()
   return optionsString ? `${normalized}?${optionsString}` : normalized
@@ -97,6 +103,11 @@ function getPrismaClient(): PrismaClient {
       db: {
         url: mongoUrl,
       },
+    },
+    // Skip transaction validation for MongoDB without replica set
+    transactionOptions: {
+      maxWait: 5000,
+      timeout: 10000,
     },
   })
 }
