@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Mail, Phone, MapPin } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -21,24 +20,6 @@ export default function Footer() {
             <p className="mb-4 max-w-md">
               Automating business operations for UK SMBs. Save time, reduce errors, and scale your business with intelligent automation solutions.
             </p>
-            <div className="space-y-2">
-              <div className="flex items-center space-x-2">
-                <Mail size={18} />
-                <a href="mailto:info@vexlo.co.uk" className="hover:text-white transition-colors">
-                  info@vexlo.co.uk
-                </a>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Phone size={18} />
-                <a href="tel:+441234567890" className="hover:text-white transition-colors">
-                  +44 123 456 7890
-                </a>
-              </div>
-              <div className="flex items-center space-x-2">
-                <MapPin size={18} />
-                <span>United Kingdom</span>
-              </div>
-            </div>
           </div>
 
           {/* Quick Links */}
