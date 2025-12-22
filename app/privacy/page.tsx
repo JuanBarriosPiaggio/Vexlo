@@ -22,7 +22,7 @@ export default function PrivacyPage() {
               Introduction
             </h2>
             <p className="text-gray-600 mb-4">
-              Vexlo ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+              Vexlo (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
             </p>
 
             <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">

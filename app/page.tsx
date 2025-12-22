@@ -68,19 +68,19 @@ export default function Home() {
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <div className="flex flex-col p-6 rounded-lg bg-white border border-gray-200">
               <p className="text-gray-600 mb-4">
-                "Vexlo has saved us 15 hours per week by automating our invoicing and reporting processes."
+                &quot;Vexlo has saved us 15 hours per week by automating our invoicing and reporting processes.&quot;
               </p>
               <p className="text-sm font-semibold text-gray-900">— Small Business Owner</p>
             </div>
             <div className="flex flex-col p-6 rounded-lg bg-white border border-gray-200">
               <p className="text-gray-600 mb-4">
-                "The implementation was smooth and the results were immediate. Highly recommend!"
+                &quot;The implementation was smooth and the results were immediate. Highly recommend!&quot;
               </p>
               <p className="text-sm font-semibold text-gray-900">— Operations Manager</p>
             </div>
             <div className="flex flex-col p-6 rounded-lg bg-white border border-gray-200">
               <p className="text-gray-600 mb-4">
-                "We've reduced errors by 90% and can now focus on growth instead of manual tasks."
+                &quot;We&apos;ve reduced errors by 90% and can now focus on growth instead of manual tasks.&quot;
               </p>
               <p className="text-sm font-semibold text-gray-900">— Finance Director</p>
             </div>
@@ -96,7 +96,7 @@ export default function Home() {
               Ready to Automate Your Business?
             </h2>
             <p className="mt-4 text-lg text-blue-100">
-              Get started today with a free consultation. Let's discuss how we can help streamline your operations.
+              Get started today with a free consultation. Let&apos;s discuss how we can help streamline your operations.
             </p>
             <div className="mt-10">
               <Link

@@ -17,7 +17,7 @@ export default function EnquiryPage() {
               Get Started
             </h1>
             <p className="mt-4 text-lg text-gray-600">
-              Tell us about your business and automation needs. We'll get back to you within 24 hours with a tailored solution.
+              Tell us about your business and automation needs. We&apos;ll get back to you within 24 hours with a tailored solution.
             </p>
           </div>
           <div className="rounded-lg bg-white p-8 shadow-sm">

@@ -225,7 +225,7 @@ export default function ServicesPage() {
           </div>
           <div className="mt-12 text-center">
             <p className="text-gray-600">
-              Don't see your tool? We can integrate with most platforms via API.
+              Don&apos;t see your tool? We can integrate with most platforms via API.
             </p>
           </div>
         </div>

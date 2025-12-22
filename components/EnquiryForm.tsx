@@ -123,7 +123,7 @@ export default function EnquiryForm() {
           Thank You!
         </h3>
         <p className="text-gray-600">
-          We've received your enquiry and will get back to you within 24 hours.
+          We&apos;ve received your enquiry and will get back to you within 24 hours.
         </p>
       </div>
     )
