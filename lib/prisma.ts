@@ -4,14 +4,43 @@ const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined
 }
 
+function buildMongoUrl(): string {
+  // Try to use MONGO_URL first
+  if (process.env.MONGO_URL) {
+    return process.env.MONGO_URL
+  }
+  
+  // Otherwise, construct from individual components
+  const host = process.env.MONGOHOST
+  const port = process.env.MONGOPORT || '27017'
+  const user = process.env.MONGOUSER || process.env.MONGO_INITDB_ROOT_USERNAME
+  const password = process.env.MONGOPASSWORD || process.env.MONGO_INITDB_ROOT_PASSWORD
+  
+  if (!host) {
+    throw new Error('Either MONGO_URL or MONGOHOST must be set in Railway environment variables.')
+  }
+  
+  // Build connection string
+  let url = 'mongodb://'
+  
+  // Add authentication if credentials are available
+  if (user && password) {
+    url += `${encodeURIComponent(user)}:${encodeURIComponent(password)}@`
+  }
+  
+  url += `${host}:${port}`
+  
+  return url
+}
+
 function normalizeMongoUrl(url: string): string {
   if (!url) {
-    throw new Error('MONGO_URL environment variable is not set. Please configure it in Railway environment variables.')
+    throw new Error('MongoDB connection string is not available. Please configure MONGO_URL or MongoDB connection variables in Railway.')
   }
   
   // Basic validation for MongoDB connection string format
   if (!url.startsWith('mongodb://') && !url.startsWith('mongodb+srv://')) {
-    throw new Error('MONGO_URL must start with mongodb:// or mongodb+srv://')
+    throw new Error('MongoDB connection string must start with mongodb:// or mongodb+srv://')
   }
   
   // Split by '?' to separate base URL and options
@@ -37,7 +66,7 @@ function normalizeMongoUrl(url: string): string {
   if (!hasDatabaseName) {
     const defaultDb = 'vexlo'
     normalized = `${baseUrl}/${defaultDb}`
-    console.log(`INFO: Database name missing in MONGO_URL. Added: ${defaultDb}`)
+    console.log(`INFO: Database name missing. Added: ${defaultDb}`)
   }
   
   // Add authSource if authentication is present and authSource is not specified
@@ -53,9 +82,9 @@ function normalizeMongoUrl(url: string): string {
 }
 
 function getPrismaClient(): PrismaClient {
-  // Validate and normalize MongoDB connection string
-  const rawUrl = process.env.MONGO_URL
-  const mongoUrl = normalizeMongoUrl(rawUrl || '')
+  // Build MongoDB connection string from available variables
+  const rawUrl = buildMongoUrl()
+  const mongoUrl = normalizeMongoUrl(rawUrl)
   
   // Additional validation
   if (mongoUrl.includes('?') && !mongoUrl.match(/\/[^?]+\?/)) {
