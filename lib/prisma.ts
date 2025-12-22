@@ -110,7 +110,10 @@ function getPrisma(): PrismaClient {
   const isBuildPhase = process.env.NEXT_PHASE === 'phase-production-build' || 
                        process.env.NEXT_PHASE === 'phase-development-build'
   
-  if (isBuildPhase || !process.env.MONGO_URL) {
+  // Check if we have either MONGO_URL or the components to build it
+  const hasMongoConfig = process.env.MONGO_URL || process.env.MONGOHOST
+  
+  if (isBuildPhase || !hasMongoConfig) {
     // During build, return a no-op client
     // This will be replaced at runtime when MONGO_URL is available
     if (!prismaInstance) {
