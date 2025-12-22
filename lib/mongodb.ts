@@ -88,25 +88,18 @@ function getMongoUrl(): string {
   return normalizeMongoUrl(rawUrl)
 }
 
-if (process.env.NODE_ENV === 'development') {
-  // In development, use a global variable to preserve the client across hot reloads
-  const globalWithMongo = global as typeof globalThis & {
-    _mongoClient?: MongoClient
-    _mongoClientPromise?: Promise<MongoClient>
-  }
+// Use a global variable to preserve the client across hot reloads in development
+const globalWithMongo = global as typeof globalThis & {
+  _mongoClient?: MongoClient
+  _mongoClientPromise?: Promise<MongoClient>
+}
 
-  if (!globalWithMongo._mongoClientPromise) {
-    const url = getMongoUrl()
-    client = new MongoClient(url)
-    globalWithMongo._mongoClientPromise = client.connect()
-  }
-  clientPromise = globalWithMongo._mongoClientPromise
-} else {
-  // In production, create a new client
+if (!globalWithMongo._mongoClientPromise) {
   const url = getMongoUrl()
   client = new MongoClient(url)
-  clientPromise = client.connect()
+  globalWithMongo._mongoClientPromise = client.connect()
 }
+clientPromise = globalWithMongo._mongoClientPromise
 
 export async function getDb(): Promise<Db> {
   const client = await clientPromise
