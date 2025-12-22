@@ -11,6 +11,14 @@ export async function GET() {
       )
     }
 
+    // Check if prisma client is properly initialized
+    if (!prisma || typeof (prisma as any).$runCommandRaw !== 'function') {
+      return NextResponse.json(
+        { status: 'unhealthy', error: 'Database client not initialized' },
+        { status: 503 }
+      )
+    }
+
     // Check database connection (MongoDB)
     await prisma.$runCommandRaw({ ping: 1 })
     
