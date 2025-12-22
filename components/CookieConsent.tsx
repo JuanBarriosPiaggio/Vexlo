@@ -13,9 +13,18 @@ export default function CookieConsent() {
     }
   }, [])
 
-  const acceptCookies = () => {
+  const handleAccept = () => {
     localStorage.setItem('cookie-consent', 'accepted')
     setShowBanner(false)
+    // Trigger a custom event to notify analytics component
+    window.dispatchEvent(new CustomEvent('cookie-consent-updated', { detail: 'accepted' }))
+  }
+
+  const handleDeny = () => {
+    localStorage.setItem('cookie-consent', 'denied')
+    setShowBanner(false)
+    // Trigger a custom event to notify analytics component
+    window.dispatchEvent(new CustomEvent('cookie-consent-updated', { detail: 'denied' }))
   }
 
   if (!showBanner) return null
@@ -26,7 +35,7 @@ export default function CookieConsent() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex-1">
             <p className="text-sm">
-              We use cookies to enhance your experience and analyse site usage. By continuing, you agree to our use of cookies.{' '}
+              We use cookies and analytics to enhance your experience and analyse site usage. You can choose to accept or deny tracking.{' '}
               <a href="/privacy" className="underline hover:text-gray-300">
                 Learn more
               </a>
@@ -34,10 +43,16 @@ export default function CookieConsent() {
           </div>
           <div className="flex items-center gap-4">
             <button
-              onClick={acceptCookies}
+              onClick={handleAccept}
               className="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent-light transition-colors"
             >
               Accept
+            </button>
+            <button
+              onClick={handleDeny}
+              className="rounded-md bg-gray-700 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-600 transition-colors"
+            >
+              Deny
             </button>
             <button
               onClick={() => setShowBanner(false)}
