@@ -1,7 +1,7 @@
 import { MongoClient, Db } from 'mongodb'
 
 let client: MongoClient | null = null
-let clientPromise: Promise<MongoClient>
+let clientPromise: Promise<MongoClient> | null = null
 
 function buildMongoUrl(): string {
   // Try to use MONGO_URL first
@@ -104,6 +104,12 @@ function getClientPromise(): Promise<MongoClient> {
     return Promise.reject(new Error('MongoDB client not available during build phase'))
   }
   
+  // Use a global variable to preserve the client across hot reloads in development
+  const globalWithMongo = global as typeof globalThis & {
+    _mongoClient?: MongoClient
+    _mongoClientPromise?: Promise<MongoClient>
+  }
+  
   if (!globalWithMongo._mongoClientPromise) {
     try {
       const url = getMongoUrl()
@@ -118,8 +124,6 @@ function getClientPromise(): Promise<MongoClient> {
   }
   return globalWithMongo._mongoClientPromise
 }
-
-clientPromise = getClientPromise()
 
 export async function getDb(): Promise<Db> {
   const client = await getClientPromise()
