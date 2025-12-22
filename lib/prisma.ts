@@ -104,11 +104,6 @@ function getPrismaClient(): PrismaClient {
         url: mongoUrl,
       },
     },
-    // Skip transaction validation for MongoDB without replica set
-    transactionOptions: {
-      maxWait: 5000,
-      timeout: 10000,
-    },
   })
 }
 

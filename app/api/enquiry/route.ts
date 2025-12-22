@@ -32,30 +32,21 @@ export async function POST(request: NextRequest) {
 
     const data = validationResult.data
 
-    // Save to MongoDB (using $transaction with isolationLevel to avoid replica set requirement)
-    const enquiry = await prisma.$transaction(
-      async (tx) => {
-        return await tx.enquiry.create({
-          data: {
-            fullName: data.fullName,
-            companyName: data.companyName,
-            email: data.email,
-            phoneNumber: data.phoneNumber || null,
-            companySize: data.companySize,
-            currentTools: data.currentTools || null,
-            automationNeeds: data.automationNeeds,
-            monthlyRevenue: data.monthlyRevenue,
-            referralSource: data.referralSource,
-            submittedAt: new Date(),
-          },
-        })
+    // Save to MongoDB (directConnection=true allows this to work without replica set)
+    const enquiry = await prisma.enquiry.create({
+      data: {
+        fullName: data.fullName,
+        companyName: data.companyName,
+        email: data.email,
+        phoneNumber: data.phoneNumber || null,
+        companySize: data.companySize,
+        currentTools: data.currentTools || null,
+        automationNeeds: data.automationNeeds,
+        monthlyRevenue: data.monthlyRevenue,
+        referralSource: data.referralSource,
+        submittedAt: new Date(),
       },
-      {
-        isolationLevel: 'ReadCommitted',
-        maxWait: 5000,
-        timeout: 10000,
-      }
-    )
+    })
 
     // Send email notification (non-blocking)
     sendEnquiryEmail(data).catch((error) => {
