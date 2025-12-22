@@ -41,29 +41,35 @@ function getPrismaClient(): PrismaClient {
 }
 
 // Lazy initialization - only create client when accessed, not at module load time
-export const prisma: PrismaClient = (() => {
+// This prevents build-time errors when MONGO_URL is not available
+let prismaInstance: PrismaClient | null = null
+
+function getPrisma(): PrismaClient {
   if (globalForPrisma.prisma) {
     return globalForPrisma.prisma
   }
   
-  // Only initialize if we're in runtime (not during build)
-  if (typeof window === 'undefined' && process.env.NODE_ENV !== 'test') {
-    try {
-      const client = getPrismaClient()
+  if (!prismaInstance) {
+    // During build time, create a minimal client that won't fail
+    // The actual connection will be validated at runtime
+    if (process.env.NEXT_PHASE === 'phase-production-build' || !process.env.MONGO_URL) {
+      // Return a proxy that will throw helpful errors at runtime
+      prismaInstance = new Proxy({} as PrismaClient, {
+        get() {
+          throw new Error('Prisma client not initialized. MONGO_URL must be set at runtime.')
+        }
+      })
+    } else {
+      prismaInstance = getPrismaClient()
       if (process.env.NODE_ENV !== 'production') {
-        globalForPrisma.prisma = client
+        globalForPrisma.prisma = prismaInstance
       }
-      return client
-    } catch (error) {
-      // During build time, return a mock client that will fail gracefully
-      if (process.env.NEXT_PHASE === 'phase-production-build') {
-        return {} as PrismaClient
-      }
-      throw error
     }
   }
   
-  return {} as PrismaClient
-})()
+  return prismaInstance
+}
+
+export const prisma = getPrisma()
 
 
