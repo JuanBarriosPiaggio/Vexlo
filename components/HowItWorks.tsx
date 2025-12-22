@@ -32,15 +32,20 @@ export default function HowItWorks() {
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-            {steps.map((step) => (
-              <div key={step.name} className="flex flex-col">
-                <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                  <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-primary">
+            {steps.map((step, index) => (
+              <div key={step.name} className="group flex flex-col relative">
+                {/* Connecting line (hidden on last item) */}
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute left-5 top-12 w-0.5 h-full bg-gradient-to-b from-primary/30 to-transparent"></div>
+                )}
+                <dt className="flex items-center gap-x-4 text-base font-semibold leading-7 text-gray-900 mb-4">
+                  <div className="relative h-12 w-12 flex items-center justify-center rounded-xl bg-gradient-to-br from-primary to-primary-dark shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform duration-300 z-10">
                     <step.icon className="h-6 w-6 text-white" />
+                    <div className="absolute inset-0 rounded-xl bg-primary/20 blur-xl group-hover:opacity-100 opacity-0 transition-opacity"></div>
                   </div>
-                  {step.name}
+                  <span className="text-lg">{step.name}</span>
                 </dt>
-                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                <dd className="mt-2 flex flex-auto flex-col text-base leading-7 text-gray-600 pl-16">
                   <p className="flex-auto">{step.description}</p>
                 </dd>
               </div>

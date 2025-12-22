@@ -87,32 +87,32 @@ export default function Home() {
             </p>
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            <div className="flex flex-col p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Sales Automation</h3>
-              <p className="text-gray-600 mb-4">
+            <div className="group flex flex-col p-8 rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary transition-colors">Sales Automation</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">
                 Streamline your sales process with automated lead management, follow-ups, and CRM integration.
               </p>
             </div>
-            <div className="flex flex-col p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Operations Automation</h3>
-              <p className="text-gray-600 mb-4">
+            <div className="group flex flex-col p-8 rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary transition-colors">Operations Automation</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">
                 Optimise workflows, reduce manual tasks, and improve efficiency across your operations.
               </p>
             </div>
-            <div className="flex flex-col p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Finance & HR</h3>
-              <p className="text-gray-600 mb-4">
+            <div className="group flex flex-col p-8 rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary transition-colors">Finance & HR</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">
                 Automate invoicing, payroll, reporting, and HR processes to save time and reduce errors.
               </p>
             </div>
           </div>
-          <div className="mt-12 text-center">
+            <div className="mt-12 text-center">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-base font-semibold text-white hover:bg-primary-dark transition-colors"
+              className="group inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:bg-primary-dark transition-all transform hover:scale-105 hover:-translate-y-1"
             >
               View All Services
-              <ArrowRight size={20} />
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>
@@ -130,20 +130,20 @@ export default function Home() {
             </p>
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            <div className="flex flex-col p-6 rounded-lg bg-white border border-gray-200">
-              <p className="text-gray-600 mb-4">
+            <div className="flex flex-col p-8 rounded-2xl bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <p className="text-gray-600 mb-6 leading-relaxed text-lg">
                 &quot;Vexlo has saved us 15 hours per week by automating our invoicing and reporting processes.&quot;
               </p>
               <p className="text-sm font-semibold text-gray-900">— Small Business Owner</p>
             </div>
-            <div className="flex flex-col p-6 rounded-lg bg-white border border-gray-200">
-              <p className="text-gray-600 mb-4">
+            <div className="flex flex-col p-8 rounded-2xl bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <p className="text-gray-600 mb-6 leading-relaxed text-lg">
                 &quot;The implementation was smooth and the results were immediate. Highly recommend!&quot;
               </p>
               <p className="text-sm font-semibold text-gray-900">— Operations Manager</p>
             </div>
-            <div className="flex flex-col p-6 rounded-lg bg-white border border-gray-200">
-              <p className="text-gray-600 mb-4">
+            <div className="flex flex-col p-8 rounded-2xl bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <p className="text-gray-600 mb-6 leading-relaxed text-lg">
                 &quot;We&apos;ve reduced errors by 90% and can now focus on growth instead of manual tasks.&quot;
               </p>
               <p className="text-sm font-semibold text-gray-900">— Finance Director</p>
@@ -165,10 +165,11 @@ export default function Home() {
             <div className="mt-10">
               <Link
                 href="/enquiry"
-                className="rounded-md bg-accent px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-accent-light transition-all transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent inline-flex items-center gap-2"
+                className="group relative rounded-xl bg-accent px-8 py-4 text-base font-semibold text-white shadow-lg shadow-accent/50 hover:shadow-xl hover:shadow-accent/60 transition-all transform hover:scale-105 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent inline-flex items-center gap-2 overflow-hidden"
               >
-                Get Started
-                <ArrowRight size={20} />
+                <span className="absolute inset-0 bg-gradient-to-r from-accent-light to-accent opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <span className="relative">Get Started</span>
+                <ArrowRight size={20} className="relative group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>

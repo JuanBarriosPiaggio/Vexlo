@@ -36,18 +36,19 @@ export default function Benefits() {
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-4">
-          {benefits.map((benefit) => (
+          {benefits.map((benefit, index) => (
             <div
               key={benefit.name}
-              className="flex flex-col items-center text-center p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow"
+              className="group flex flex-col items-center text-center p-8 rounded-2xl border border-gray-200 bg-white hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="rounded-md bg-primary/10 p-3 mb-4">
-                <benefit.icon className="h-6 w-6 text-primary" />
+              <div className="rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <benefit.icon className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary transition-colors">
                 {benefit.name}
               </h3>
-              <p className="text-gray-600">{benefit.description}</p>
+              <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
             </div>
           ))}
         </div>
