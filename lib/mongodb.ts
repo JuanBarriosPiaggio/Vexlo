@@ -4,6 +4,15 @@ let client: MongoClient | null = null
 let clientPromise: Promise<MongoClient> | null = null
 
 function buildMongoUrl(): string {
+  // Skip during build phase
+  const isBuildPhase = process.env.NEXT_PHASE === 'phase-production-build' || 
+                       process.env.NEXT_PHASE === 'phase-development-build'
+  
+  if (isBuildPhase) {
+    // Return a dummy URL during build - will be replaced at runtime
+    return 'mongodb://localhost:27017/vexlo'
+  }
+  
   // Try to use MONGO_URL first
   if (process.env.MONGO_URL) {
     return process.env.MONGO_URL
