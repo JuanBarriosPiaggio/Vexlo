@@ -4,7 +4,7 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 
 # Install OpenSSL and other dependencies for Prisma
-RUN apk add --no-cache openssl openssl-dev libc6-compat
+RUN apk add --no-cache openssl openssl-dev
 
 # Copy package files
 COPY package.json package-lock.json* ./
@@ -32,7 +32,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 # Install OpenSSL and other dependencies for Prisma
-RUN apk add --no-cache openssl libc6-compat
+RUN apk add --no-cache openssl
 
 # Create non-root user
 RUN addgroup --system --gid 1001 nodejs
