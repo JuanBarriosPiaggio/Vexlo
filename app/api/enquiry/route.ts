@@ -59,6 +59,17 @@ export async function POST(request: NextRequest) {
     )
   } catch (error) {
     console.error('Error submitting enquiry:', error)
+    
+    // Provide more helpful error messages
+    if (error instanceof Error) {
+      if (error.message.includes('connection string') || error.message.includes('MONGO_URL')) {
+        return NextResponse.json(
+          { error: 'Database configuration error. Please contact support.' },
+          { status: 500 }
+        )
+      }
+    }
+    
     return NextResponse.json(
       { error: 'Failed to submit enquiry. Please try again.' },
       { status: 500 }
