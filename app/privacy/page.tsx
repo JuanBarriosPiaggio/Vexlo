@@ -1,8 +1,30 @@
 import type { Metadata } from 'next'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
+
 export const metadata: Metadata = {
-  title: 'Privacy Policy - Vexlo',
-  description: 'Privacy policy for Vexlo business automation services.',
+  title: 'Privacy Policy | Vexlo Business Automation',
+  description: 'Privacy policy for Vexlo business automation services. Learn how we collect, use, and protect your information. GDPR compliant data handling for UK businesses.',
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: 'Privacy Policy | Vexlo Business Automation',
+    description: 'Privacy policy for Vexlo business automation services. GDPR compliant data handling for UK businesses.',
+    url: `${siteUrl}/privacy`,
+    images: [
+      {
+        url: `${siteUrl}/Vexlo_logo.png`,
+        width: 1200,
+        height: 630,
+        alt: 'Vexlo Privacy Policy',
+      },
+    ],
+  },
+  alternates: {
+    canonical: `${siteUrl}/privacy`,
+  },
 }
 
 export default function PrivacyPage() {

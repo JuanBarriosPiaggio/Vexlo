@@ -1,12 +1,76 @@
+import type { Metadata } from 'next'
 import Hero from '@/components/Hero'
 import Benefits from '@/components/Benefits'
 import HowItWorks from '@/components/HowItWorks'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
+
+export const metadata: Metadata = {
+  title: 'Business Automation for UK SMBs | Save Time & Scale Efficiently',
+  description: 'Transform your UK SMB with intelligent automation. Reduce manual work, eliminate errors, and scale efficiently. Free consultation available. Trusted by UK businesses.',
+  keywords: [
+    'business automation UK',
+    'SME automation services',
+    'workflow automation',
+    'automate business processes',
+    'UK business automation company',
+    'small business automation',
+  ],
+  openGraph: {
+    title: 'Vexlo - Business Automation for UK SMBs | Save Time & Scale Efficiently',
+    description: 'Transform your UK SMB with intelligent automation. Reduce manual work, eliminate errors, and scale efficiently. Free consultation available.',
+    url: siteUrl,
+    images: [
+      {
+        url: `${siteUrl}/Vexlo_logo.png`,
+        width: 1200,
+        height: 630,
+        alt: 'Vexlo - Business Automation for UK SMBs',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vexlo - Business Automation for UK SMBs',
+    description: 'Transform your UK SMB with intelligent automation. Reduce manual work, eliminate errors, and scale efficiently.',
+    images: [`${siteUrl}/Vexlo_logo.png`],
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+}
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            name: 'Vexlo - Business Automation for UK SMBs',
+            description: 'Transform your UK SMB with intelligent automation. Reduce manual work, eliminate errors, and scale efficiently.',
+            url: siteUrl,
+            mainEntity: {
+              '@type': 'Service',
+              name: 'Business Automation Services',
+              provider: {
+                '@type': 'Organization',
+                name: 'Vexlo',
+                logo: `${siteUrl}/Vexlo_logo.png`,
+              },
+              areaServed: {
+                '@type': 'Country',
+                name: 'United Kingdom',
+              },
+              serviceType: 'Business Process Automation',
+            },
+          }),
+        }}
+      />
       <Hero />
       <Benefits />
       <HowItWorks />

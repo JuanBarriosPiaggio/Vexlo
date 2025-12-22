@@ -12,10 +12,42 @@ import {
   Database
 } from 'lucide-react'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
+
 export const metadata: Metadata = {
-  title: 'Services - Vexlo Business Automation',
-  description: 'Comprehensive automation services for UK SMBs. Sales, Operations, Finance, and HR automation solutions.',
-  keywords: 'business automation services UK, sales automation, operations automation, finance automation',
+  title: 'Business Automation Services | Sales, Operations, Finance & HR',
+  description: 'Comprehensive automation services for UK SMBs. Sales automation, operations automation, finance automation, and HR automation solutions. Integrate with Slack, Zapier, Google Sheets, and more.',
+  keywords: [
+    'business automation services UK',
+    'sales automation',
+    'operations automation',
+    'finance automation',
+    'HR automation',
+    'workflow automation services',
+    'process automation UK',
+  ],
+  openGraph: {
+    title: 'Business Automation Services | Sales, Operations, Finance & HR - Vexlo',
+    description: 'Comprehensive automation services for UK SMBs. Sales, Operations, Finance, and HR automation solutions with easy API integrations.',
+    url: `${siteUrl}/services`,
+    images: [
+      {
+        url: `${siteUrl}/Vexlo_logo.png`,
+        width: 1200,
+        height: 630,
+        alt: 'Vexlo Business Automation Services',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Business Automation Services - Vexlo',
+    description: 'Comprehensive automation services for UK SMBs. Sales, Operations, Finance, and HR automation solutions.',
+    images: [`${siteUrl}/Vexlo_logo.png`],
+  },
+  alternates: {
+    canonical: `${siteUrl}/services`,
+  },
 }
 
 const services = [
