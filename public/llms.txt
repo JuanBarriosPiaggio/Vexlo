@@ -1,0 +1,21 @@
+# Vexlo - Business Automation for UK SMBs
+
+## About
+Vexlo provides intelligent business automation solutions for UK small and medium businesses. We help automate workflows, reduce errors, and scale efficiently.
+
+## Services
+- Sales Automation
+- Operations Automation
+- Finance Automation
+- HR Automation
+
+## Contact
+Email: info@vexlo.co.uk
+Website: https://vexlo.co.uk
+
+## Key Pages
+- Home: https://vexlo.co.uk
+- Services: https://vexlo.co.uk/services
+- Get Started: https://vexlo.co.uk/enquiry
+- Privacy Policy: https://vexlo.co.uk/privacy
+
