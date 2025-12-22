@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Mail, Phone, MapPin } from 'lucide-react'
 
 export default function Footer() {
@@ -8,7 +9,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold text-white mb-4">Vexlo</h3>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/Vexlo_logo.png"
+                alt="Vexlo Logo"
+                width={120}
+                height={40}
+                className="h-10 w-auto brightness-0 invert"
+              />
+            </Link>
             <p className="mb-4 max-w-md">
               Automating business operations for UK SMBs. Save time, reduce errors, and scale your business with intelligent automation solutions.
             </p>

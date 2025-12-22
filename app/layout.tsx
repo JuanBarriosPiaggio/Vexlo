@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   description: 'Automate your business operations and save time. Vexlo provides intelligent automation solutions for UK small and medium businesses.',
   keywords: 'business automation UK, SME automation, workflow automation for small business, automate business processes UK',
   authors: [{ name: 'Vexlo' }],
+  icons: {
+    icon: '/Vexlo_logo.png',
+    shortcut: '/Vexlo_logo.png',
+    apple: '/Vexlo_logo.png',
+  },
   openGraph: {
     title: 'Vexlo - Business Automation for UK SMBs',
     description: 'Automate your business operations and save time with Vexlo.',
@@ -20,11 +25,20 @@ export const metadata: Metadata = {
     siteName: 'Vexlo',
     locale: 'en_GB',
     type: 'website',
+    images: [
+      {
+        url: '/Vexlo_logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Vexlo Logo',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Vexlo - Business Automation for UK SMBs',
     description: 'Automate your business operations and save time with Vexlo.',
+    images: ['/Vexlo_logo.png'],
   },
   robots: {
     index: true,
