@@ -3,6 +3,9 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+# Install OpenSSL and other dependencies for Prisma
+RUN apk add --no-cache openssl1.1-compat libc6-compat
+
 # Copy package files
 COPY package.json package-lock.json* ./
 
@@ -12,8 +15,8 @@ RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
 # Copy Prisma schema
 COPY prisma ./prisma
 
-# Generate Prisma Client
-RUN npx prisma generate
+# Generate Prisma Client with proper binary targets
+RUN npx prisma generate --generator client
 
 # Copy application files
 COPY . .
@@ -27,6 +30,9 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
+
+# Install OpenSSL and other dependencies for Prisma
+RUN apk add --no-cache openssl1.1-compat libc6-compat
 
 # Create non-root user
 RUN addgroup --system --gid 1001 nodejs
