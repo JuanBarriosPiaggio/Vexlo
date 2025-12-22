@@ -94,20 +94,40 @@ const globalWithMongo = global as typeof globalThis & {
   _mongoClientPromise?: Promise<MongoClient>
 }
 
-if (!globalWithMongo._mongoClientPromise) {
-  const url = getMongoUrl()
-  client = new MongoClient(url)
-  globalWithMongo._mongoClientPromise = client.connect()
+function getClientPromise(): Promise<MongoClient> {
+  // Skip initialization during build phase
+  const isBuildPhase = process.env.NEXT_PHASE === 'phase-production-build' || 
+                       process.env.NEXT_PHASE === 'phase-development-build'
+  
+  if (isBuildPhase) {
+    // Return a promise that will fail gracefully if accessed during build
+    return Promise.reject(new Error('MongoDB client not available during build phase'))
+  }
+  
+  if (!globalWithMongo._mongoClientPromise) {
+    try {
+      const url = getMongoUrl()
+      client = new MongoClient(url)
+      globalWithMongo._mongoClientPromise = client.connect()
+    } catch (error) {
+      // If MONGO_URL is not set, create a promise that will fail at runtime
+      globalWithMongo._mongoClientPromise = Promise.reject(
+        error instanceof Error ? error : new Error('Failed to initialize MongoDB client')
+      )
+    }
+  }
+  return globalWithMongo._mongoClientPromise
 }
-clientPromise = globalWithMongo._mongoClientPromise
+
+clientPromise = getClientPromise()
 
 export async function getDb(): Promise<Db> {
-  const client = await clientPromise
+  const client = await getClientPromise()
   // Extract database name from connection string
   const url = getMongoUrl()
   const dbName = url.split('/').pop()?.split('?')[0] || 'vexlo'
   return client.db(dbName)
 }
 
-export default clientPromise
+export default getClientPromise()
 
