@@ -16,21 +16,19 @@ function normalizeMongoUrl(url: string): string {
   
   // Check if database name is missing and add it
   // Format should be: mongodb://host:port/database or mongodb://host:port/database?options
-  const urlObj = new URL(url)
+  // Split by '?' to separate options
+  const [baseUrl, options] = url.split('?')
   
-  // If pathname is empty or just '/', add default database name
-  if (!urlObj.pathname || urlObj.pathname === '/') {
+  // Check if there's a database name (after the last '/')
+  const lastSlashIndex = baseUrl.lastIndexOf('/')
+  const afterSlash = baseUrl.substring(lastSlashIndex + 1)
+  
+  // If there's no database name (empty or just host:port), add default
+  if (lastSlashIndex === -1 || afterSlash === '' || afterSlash.includes(':')) {
     const defaultDb = 'vexlo'
-    urlObj.pathname = `/${defaultDb}`
+    const normalized = `${baseUrl}/${defaultDb}${options ? `?${options}` : ''}`
     console.log(`INFO: Database name missing in MONGO_URL. Using default: ${defaultDb}`)
-    return urlObj.toString()
-  }
-  
-  // Check if pathname is just '/' with no database name
-  if (urlObj.pathname === '/') {
-    urlObj.pathname = '/vexlo'
-    console.log('INFO: Database name missing in MONGO_URL. Using default: vexlo')
-    return urlObj.toString()
+    return normalized
   }
   
   return url
