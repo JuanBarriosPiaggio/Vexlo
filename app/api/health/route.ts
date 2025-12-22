@@ -1,7 +1,12 @@
 import { NextResponse } from 'next/server'
-import { getDb } from '@/lib/mongodb'
+
+// Mark as dynamic to prevent build-time execution
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
 
 export async function GET() {
+  // Lazy import MongoDB to avoid build-time execution
+  const { getDb } = await import('@/lib/mongodb')
   try {
     // Check if we have MongoDB configuration
     const hasMongoConfig = process.env.MONGO_URL || process.env.MONGOHOST

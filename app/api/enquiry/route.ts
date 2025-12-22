@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getDb } from '@/lib/mongodb'
 import { enquirySchema } from '@/lib/validations'
 import { sendEnquiryEmail } from '@/lib/email'
 import { checkRateLimit } from '@/lib/rate-limit'
 
+// Mark as dynamic to prevent build-time execution
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
+
 export async function POST(request: NextRequest) {
+  // Lazy import MongoDB to avoid build-time execution
+  const { getDb } = await import('@/lib/mongodb')
   try {
     // Get client IP for rate limiting
     const forwarded = request.headers.get('x-forwarded-for')
