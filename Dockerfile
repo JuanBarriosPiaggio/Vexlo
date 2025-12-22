@@ -12,11 +12,7 @@ COPY package.json package-lock.json* ./
 # Install dependencies (use npm install if package-lock.json doesn't exist)
 RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
 
-# Copy Prisma schema
-COPY prisma ./prisma
-
-# Generate Prisma Client with proper binary targets
-RUN npx prisma generate --generator client
+# No Prisma needed - using native MongoDB driver
 
 # Copy application files
 COPY . .
@@ -42,9 +38,6 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules/.prisma ./node_modules/.prisma
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma ./node_modules/@prisma
-COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 
 USER nextjs
 

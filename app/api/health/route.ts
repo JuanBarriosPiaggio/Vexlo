@@ -1,26 +1,20 @@
 import { NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { getDb } from '@/lib/mongodb'
 
 export async function GET() {
   try {
-    // Check if MONGO_URL is set
-    if (!process.env.MONGO_URL) {
+    // Check if we have MongoDB configuration
+    const hasMongoConfig = process.env.MONGO_URL || process.env.MONGOHOST
+    if (!hasMongoConfig) {
       return NextResponse.json(
-        { status: 'unhealthy', error: 'MONGO_URL environment variable not set' },
-        { status: 503 }
-      )
-    }
-
-    // Check if prisma client is properly initialized
-    if (!prisma || typeof (prisma as any).$runCommandRaw !== 'function') {
-      return NextResponse.json(
-        { status: 'unhealthy', error: 'Database client not initialized' },
+        { status: 'unhealthy', error: 'MongoDB configuration not set' },
         { status: 503 }
       )
     }
 
     // Check database connection (MongoDB)
-    await prisma.$runCommandRaw({ ping: 1 })
+    const db = await getDb()
+    await db.admin().ping()
     
     return NextResponse.json(
       { status: 'healthy', timestamp: new Date().toISOString() },

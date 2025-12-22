@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { getDb } from '@/lib/mongodb'
 import { enquirySchema } from '@/lib/validations'
 import { sendEnquiryEmail } from '@/lib/email'
 import { checkRateLimit } from '@/lib/rate-limit'
@@ -32,21 +32,26 @@ export async function POST(request: NextRequest) {
 
     const data = validationResult.data
 
-    // Save to MongoDB (directConnection=true allows this to work without replica set)
-    const enquiry = await prisma.enquiry.create({
-      data: {
-        fullName: data.fullName,
-        companyName: data.companyName,
-        email: data.email,
-        phoneNumber: data.phoneNumber || null,
-        companySize: data.companySize,
-        currentTools: data.currentTools || null,
-        automationNeeds: data.automationNeeds,
-        monthlyRevenue: data.monthlyRevenue,
-        referralSource: data.referralSource,
-        submittedAt: new Date(),
-      },
-    })
+    // Save to MongoDB - simple and straightforward!
+    const db = await getDb()
+    const collection = db.collection('enquiries')
+    
+    const enquiry = {
+      fullName: data.fullName,
+      companyName: data.companyName,
+      email: data.email,
+      phoneNumber: data.phoneNumber || null,
+      companySize: data.companySize,
+      currentTools: data.currentTools || null,
+      automationNeeds: data.automationNeeds,
+      monthlyRevenue: data.monthlyRevenue,
+      referralSource: data.referralSource,
+      submittedAt: new Date(),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }
+    
+    const result = await collection.insertOne(enquiry)
 
     // Send email notification (non-blocking)
     sendEnquiryEmail(data).catch((error) => {
@@ -54,7 +59,7 @@ export async function POST(request: NextRequest) {
     })
 
     return NextResponse.json(
-      { message: 'Enquiry submitted successfully', id: enquiry.id },
+      { message: 'Enquiry submitted successfully', id: result.insertedId.toString() },
       { status: 201 }
     )
   } catch (error) {
