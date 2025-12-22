@@ -45,31 +45,43 @@ function getPrismaClient(): PrismaClient {
 let prismaInstance: PrismaClient | null = null
 
 function getPrisma(): PrismaClient {
+  // Skip initialization during build phase
+  const isBuildPhase = process.env.NEXT_PHASE === 'phase-production-build' || 
+                       process.env.NEXT_PHASE === 'phase-development-build'
+  
+  if (isBuildPhase || !process.env.MONGO_URL) {
+    // During build, return a no-op client
+    // This will be replaced at runtime when MONGO_URL is available
+    if (!prismaInstance) {
+      prismaInstance = {} as PrismaClient
+    }
+    return prismaInstance
+  }
+  
   if (globalForPrisma.prisma) {
     return globalForPrisma.prisma
   }
   
   if (!prismaInstance) {
-    // During build time, create a minimal client that won't fail
-    // The actual connection will be validated at runtime
-    if (process.env.NEXT_PHASE === 'phase-production-build' || !process.env.MONGO_URL) {
-      // Return a proxy that will throw helpful errors at runtime
-      prismaInstance = new Proxy({} as PrismaClient, {
-        get() {
-          throw new Error('Prisma client not initialized. MONGO_URL must be set at runtime.')
-        }
-      })
-    } else {
-      prismaInstance = getPrismaClient()
-      if (process.env.NODE_ENV !== 'production') {
-        globalForPrisma.prisma = prismaInstance
-      }
+    prismaInstance = getPrismaClient()
+    if (process.env.NODE_ENV !== 'production') {
+      globalForPrisma.prisma = prismaInstance
     }
   }
   
   return prismaInstance
 }
 
-export const prisma = getPrisma()
+// Export a getter function instead of direct initialization
+export const prisma = new Proxy({} as PrismaClient, {
+  get(target, prop) {
+    const client = getPrisma()
+    const value = (client as any)[prop]
+    if (typeof value === 'function') {
+      return value.bind(client)
+    }
+    return value
+  }
+})
 
 
