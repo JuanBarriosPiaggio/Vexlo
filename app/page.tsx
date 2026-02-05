@@ -3,38 +3,40 @@ import Hero from '@/components/Hero'
 import Benefits from '@/components/Benefits'
 import HowItWorks from '@/components/HowItWorks'
 import Link from 'next/link'
-import { ArrowRight, Star } from 'lucide-react'
+import { ArrowRight, Star, Mic, Workflow, Bot } from 'lucide-react'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 
 export const metadata: Metadata = {
-  title: 'Business Automation for UK SMBs | Save Time & Scale Efficiently',
-  description: 'Transform your UK SMB with intelligent automation. Reduce manual work, eliminate errors, and scale efficiently. Free consultation available. Trusted by UK businesses.',
+  title: 'AI Voice Assistants & Workflow Automation for UK Business | Vexlo',
+  description: 'Transform your UK SMB with AI Voice Assistants and intelligent Workflow Automation. Reduce manual work, handle customer calls 24/7, and scale efficiently.',
   keywords: [
-    'business automation UK',
-    'SME automation services',
+    'AI voice assistants',
     'workflow automation',
-    'automate business processes',
-    'UK business automation company',
-    'small business automation',
+    'AI phone agents',
+    'business automation UK',
+    'automate customer service',
+    'SME automation services',
+    'voice AI for business',
+    'intelligent workflows',
   ],
   openGraph: {
-    title: 'Vexlo - Business Automation for UK SMBs | Save Time & Scale Efficiently',
-    description: 'Transform your UK SMB with intelligent automation. Reduce manual work, eliminate errors, and scale efficiently. Free consultation available.',
+    title: 'Vexlo - AI Voice Assistants & Workflow Automation',
+    description: 'Deploy AI Voice Assistants and automate complex workflows. Scale your UK business with intelligent automation.',
     url: siteUrl,
     images: [
       {
         url: `${siteUrl}/Vexlo_logo.png`,
         width: 1200,
         height: 630,
-        alt: 'Vexlo - Business Automation for UK SMBs',
+        alt: 'Vexlo - AI Business Automation',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vexlo - Business Automation for UK SMBs',
-    description: 'Transform your UK SMB with intelligent automation. Reduce manual work, eliminate errors, and scale efficiently.',
+    title: 'Vexlo - AI Voice Assistants & Workflow Automation',
+    description: 'Deploy AI Voice Assistants and automate complex workflows. Scale your UK business with intelligent automation.',
     images: [`${siteUrl}/Vexlo_logo.png`],
   },
   alternates: {
@@ -51,12 +53,12 @@ export default function Home() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'WebPage',
-            name: 'Vexlo - Business Automation for UK SMBs',
-            description: 'Transform your UK SMB with intelligent automation. Reduce manual work, eliminate errors, and scale efficiently.',
+            name: 'Vexlo - AI Voice Assistants & Workflow Automation',
+            description: 'Transform your UK SMB with intelligent automation. Deploy AI Voice Assistants and automate workflows.',
             url: siteUrl,
             mainEntity: {
               '@type': 'Service',
-              name: 'Business Automation Services',
+              name: 'AI Automation Services',
               provider: {
                 '@type': 'Organization',
                 name: 'Vexlo',
@@ -66,7 +68,28 @@ export default function Home() {
                 '@type': 'Country',
                 name: 'United Kingdom',
               },
-              serviceType: 'Business Process Automation',
+              hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Automation Services',
+                itemListElement: [
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'AI Voice Assistants',
+                      description: 'Intelligent phone agents that handle inbound/outbound calls 24/7.'
+                    }
+                  },
+                  {
+                    '@type': 'Offer',
+                    itemOffered: {
+                      '@type': 'Service',
+                      name: 'Workflow Automation',
+                      description: 'End-to-end automation of business processes and data entry.'
+                    }
+                  }
+                ]
+              }
             },
           }),
         }}
@@ -82,28 +105,34 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Our Services
+              Intelligent Solutions
             </h2>
             <p className="mt-4 text-lg text-gray-400">
-              Comprehensive automation solutions tailored to your business needs.
+              Comprehensive automation tailored to your business needs.
             </p>
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {[
               {
-                title: "Sales Automation",
-                desc: "Streamline your sales process with automated lead management, follow-ups, and CRM integration."
+                title: "AI Voice Assistants",
+                desc: "Deploy intelligent voice agents to handle customer inquiries, bookings, and support calls 24/7 without human intervention.",
+                icon: Mic
               },
               {
-                title: "Operations Automation",
-                desc: "Optimise workflows, reduce manual tasks, and improve efficiency across your operations."
+                title: "Workflow Automation",
+                desc: "Connect your apps and automate repetitive tasks. From lead capture to invoicing, let AI handle the process.",
+                icon: Workflow
               },
               {
-                title: "Finance & HR",
-                desc: "Automate invoicing, payroll, reporting, and HR processes to save time and reduce errors."
+                title: "AI Business Agents",
+                desc: "Custom AI agents that act as virtual employees, managing emails, scheduling, and data entry with precision.",
+                icon: Bot
               }
             ].map((service, i) => (
                 <div key={i} className="glass-card group flex flex-col p-8 rounded-2xl hover:border-primary/50 hover:shadow-glow transition-all duration-300 transform hover:-translate-y-2">
+                  <div className="mb-4 inline-block p-3 rounded-lg bg-white/5 border border-white/10 group-hover:bg-primary/20 group-hover:border-primary/50 transition-colors">
+                    <service.icon className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
+                  </div>
                   <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
                   <p className="text-gray-400 mb-4 leading-relaxed group-hover:text-gray-300">
                     {service.desc}
@@ -138,9 +167,9 @@ export default function Home() {
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {[
-               { quote: "Vexlo has saved us 15 hours per week by automating our invoicing and reporting processes.", author: "Small Business Owner" },
-               { quote: "The implementation was smooth and the results were immediate. Highly recommend!", author: "Operations Manager" },
-               { quote: "We've reduced errors by 90% and can now focus on growth instead of manual tasks.", author: "Finance Director" }
+               { quote: "The AI voice assistant handles all our out-of-hours calls perfectly. It's like having a receptionist 24/7.", author: "Clinic Manager" },
+               { quote: "Our workflow automation saves us 15 hours a week on manual data entry. The ROI was immediate.", author: "Operations Director" },
+               { quote: "Vexlo's AI agents integrated seamlessly with our CRM. We've seen a 40% increase in lead conversion.", author: "Sales Head" }
             ].map((testimonial, i) => (
                 <div key={i} className="flex flex-col p-8 rounded-2xl bg-surface border border-white/5 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300 transform hover:-translate-y-1">
                   <div className="flex gap-1 mb-4">
@@ -167,7 +196,7 @@ export default function Home() {
               Ready to Automate Your Business?
             </h2>
             <p className="mt-4 text-lg text-gray-300">
-              Get started today with a free consultation. Let&apos;s discuss how we can help streamline your operations.
+              Get started today with a free consultation. Let&apos;s discuss how AI Voice Assistants and Workflow Automation can help you scale.
             </p>
             <div className="mt-10">
               <Link

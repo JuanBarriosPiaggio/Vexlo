@@ -13,20 +13,21 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Vexlo - Business Automation for UK SMBs | Save Time & Scale Efficiently',
+    default: 'Vexlo - AI Voice Assistants & Workflow Automation for UK SMBs',
     template: '%s | Vexlo',
   },
-  description: 'Automate your business operations and save time. Vexlo provides intelligent automation solutions for UK small and medium businesses. Streamline workflows, reduce errors, and scale efficiently.',
+  description: 'Transform your business with AI Voice Assistants and intelligent Workflow Automation. Vexlo helps UK SMBs reduce manual work, handle customer calls 24/7, and scale efficiently.',
   keywords: [
-    'business automation UK',
-    'SME automation',
+    'AI voice assistants UK',
+    'AI phone agents',
+    'business workflow automation',
     'workflow automation for small business',
-    'automate business processes UK',
+    'AI business agents',
+    'automate customer service',
     'UK business automation',
-    'small business automation',
+    'SME automation',
     'process automation',
-    'workflow automation',
-    'business process automation',
+    'Vexlo automation',
   ],
   authors: [{ name: 'Vexlo', url: siteUrl }],
   creator: 'Vexlo',
@@ -50,22 +51,22 @@ export const metadata: Metadata = {
     locale: 'en_GB',
     url: siteUrl,
     siteName: 'Vexlo',
-    title: 'Vexlo - Business Automation for UK SMBs | Save Time & Scale Efficiently',
-    description: 'Automate your business operations and save time. Vexlo provides intelligent automation solutions for UK small and medium businesses. Streamline workflows, reduce errors, and scale efficiently.',
+    title: 'Vexlo - AI Voice Assistants & Workflow Automation for UK SMBs',
+    description: 'Transform your business with AI Voice Assistants and intelligent Workflow Automation. Reduce manual work and handle customer calls 24/7.',
     images: [
       {
         url: `${siteUrl}/Vexlo_logo.png`,
         width: 1200,
         height: 630,
-        alt: 'Vexlo - Business Automation for UK SMBs',
+        alt: 'Vexlo - AI Business Automation',
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vexlo - Business Automation for UK SMBs',
-    description: 'Automate your business operations and save time. Intelligent automation solutions for UK small and medium businesses.',
+    title: 'Vexlo - AI Voice Assistants & Workflow Automation',
+    description: 'Transform your business with AI Voice Assistants and intelligent Workflow Automation.',
     images: [`${siteUrl}/Vexlo_logo.png`],
     creator: '@juan_barrios_p',
   },
@@ -106,11 +107,11 @@ export default function RootLayout({
               '@type': 'ProfessionalService',
               '@id': `${siteUrl}/#organization`,
               name: 'Vexlo',
-              alternateName: 'Vexlo Business Automation',
+              alternateName: 'Vexlo AI Automation',
               url: siteUrl,
               logo: `${siteUrl}/Vexlo_logo.png`,
               image: `${siteUrl}/Vexlo_logo.png`,
-              description: 'Business automation services for UK small and medium businesses. Automate workflows, reduce errors, and scale efficiently.',
+              description: 'AI Voice Assistants and Workflow Automation services for UK small and medium businesses.',
               address: {
                 '@type': 'PostalAddress',
                 addressCountry: 'GB',
@@ -119,11 +120,27 @@ export default function RootLayout({
                 '@type': 'Country',
                 name: 'United Kingdom',
               },
-              serviceType: 'Business Automation',
+              serviceType: 'AI Automation Services',
               priceRange: '$$',
-              sameAs: [
-                // Add social media links when available
-              ],
+              sameAs: [],
+              offers: [
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Service',
+                    name: 'AI Voice Assistants',
+                    description: '24/7 AI phone agents to handle customer inquiries and bookings.'
+                  }
+                },
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Service',
+                    name: 'Workflow Automation',
+                    description: 'Streamline business processes and reduce manual tasks.'
+                  }
+                }
+              ]
             }),
           }}
         />
@@ -138,4 +155,3 @@ export default function RootLayout({
     </html>
   )
 }
-

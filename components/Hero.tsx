@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight, Sparkles, Mic, Workflow } from 'lucide-react'
 import HeroContactForm from '@/components/HeroContactForm'
 
 export default function Hero() {
@@ -13,21 +13,21 @@ export default function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
+        
         <div className="text-center mb-16">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm mb-8 animate-fade-in">
             <span className="flex h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_rgba(0,255,163,0.8)]"></span>
-            <span className="text-sm font-medium text-primary-light">Next Gen Business Automation</span>
+            <span className="text-sm font-medium text-primary-light">AI Voice Assistants & Workflow Automation</span>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
-            Automate Your Future <br />
+            Automate Your Business <br />
             <span className="text-gradient drop-shadow-[0_0_15px_rgba(0,255,163,0.3)]">With Intelligent AI</span>
           </h1>
 
           <p className="mt-6 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
-            Transform your operations with AI-driven automation. Reduce manual work, eliminate errors, and scale efficiently with Vexlo&apos;s cutting-edge technology.
+            Deploy <span className="text-white font-semibold">AI Voice Assistants</span> that handle calls 24/7 and streamline operations with custom <span className="text-white font-semibold">Workflow Automation</span>. Scale your UK business without increasing overhead.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in">
@@ -42,15 +42,26 @@ export default function Hero() {
               href="/services"
               className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 hover:border-primary/30 transition-all duration-300 flex items-center justify-center gap-2"
             >
-              Explore Services
+              Explore Solutions
               <ArrowRight size={18} />
             </Link>
+          </div>
+          
+          <div className="mt-8 flex items-center justify-center gap-6 text-gray-500 text-sm">
+             <div className="flex items-center gap-2">
+                <Mic size={16} className="text-primary" />
+                <span>AI Phone Agents</span>
+             </div>
+             <div className="flex items-center gap-2">
+                <Workflow size={16} className="text-secondary" />
+                <span>End-to-End Workflows</span>
+             </div>
           </div>
         </div>
 
         {/* Contact Form Container */}
         <div className="mt-10 animate-fade-in delay-300">
-          <HeroContactForm />
+           <HeroContactForm />
         </div>
       </div>
     </section>
