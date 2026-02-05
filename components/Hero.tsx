@@ -13,7 +13,7 @@ export default function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         <div className="text-center mb-16">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm mb-8 animate-fade-in">
@@ -46,22 +46,22 @@ export default function Hero() {
               <ArrowRight size={18} />
             </Link>
           </div>
-          
+
           <div className="mt-8 flex items-center justify-center gap-6 text-gray-500 text-sm">
-             <div className="flex items-center gap-2">
-                <Mic size={16} className="text-primary" />
-                <span>AI Phone Agents</span>
-             </div>
-             <div className="flex items-center gap-2">
-                <Workflow size={16} className="text-secondary" />
-                <span>End-to-End Workflows</span>
-             </div>
+            <div className="flex items-center gap-2">
+              <Mic size={16} className="text-primary" />
+              <span>AI Phone Agents</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Workflow size={16} className="text-secondary" />
+              <span>End-to-End Workflows</span>
+            </div>
           </div>
         </div>
 
         {/* Contact Form Container */}
         <div className="mt-10 animate-fade-in delay-300">
-           <HeroContactForm />
+          <HeroContactForm />
         </div>
       </div>
     </section>

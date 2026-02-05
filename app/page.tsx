@@ -94,14 +94,14 @@ export default function Home() {
           }),
         }}
       />
-      
+
       <Hero />
       <Benefits />
       <HowItWorks />
-      
+
       {/* Services Overview */}
       <section className="py-24 sm:py-32 relative">
-         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-surface/50 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-surface/50 pointer-events-none"></div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -129,18 +129,18 @@ export default function Home() {
                 icon: Bot
               }
             ].map((service, i) => (
-                <div key={i} className="glass-card group flex flex-col p-8 rounded-2xl hover:border-primary/50 hover:shadow-glow transition-all duration-300 transform hover:-translate-y-2">
-                  <div className="mb-4 inline-block p-3 rounded-lg bg-white/5 border border-white/10 group-hover:bg-primary/20 group-hover:border-primary/50 transition-colors">
-                    <service.icon className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-                  <p className="text-gray-400 mb-4 leading-relaxed group-hover:text-gray-300">
-                    {service.desc}
-                  </p>
+              <div key={i} className="glass-card group flex flex-col p-8 rounded-2xl hover:border-primary/50 hover:shadow-glow transition-all duration-300 transform hover:-translate-y-2">
+                <div className="mb-4 inline-block p-3 rounded-lg bg-white/5 border border-white/10 group-hover:bg-primary/20 group-hover:border-primary/50 transition-colors">
+                  <service.icon className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
                 </div>
+                <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
+                <p className="text-gray-400 mb-4 leading-relaxed group-hover:text-gray-300">
+                  {service.desc}
+                </p>
+              </div>
             ))}
           </div>
-            <div className="mt-12 text-center">
+          <div className="mt-12 text-center">
             <Link
               href="/services"
               className="group inline-flex items-center gap-2 rounded-xl bg-white/5 px-8 py-4 text-base font-semibold text-white border border-white/10 hover:bg-white/10 hover:border-primary/30 transition-all transform hover:scale-105 hover:-translate-y-1"
@@ -155,7 +155,7 @@ export default function Home() {
       {/* Social Proof Section */}
       <section className="py-24 sm:py-32 relative">
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[100px] -z-10"></div>
-        
+
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -167,19 +167,19 @@ export default function Home() {
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {[
-               { quote: "The AI voice assistant handles all our out-of-hours calls perfectly. It's like having a receptionist 24/7.", author: "Clinic Manager" },
-               { quote: "Our workflow automation saves us 15 hours a week on manual data entry. The ROI was immediate.", author: "Operations Director" },
-               { quote: "Vexlo's AI agents integrated seamlessly with our CRM. We've seen a 40% increase in lead conversion.", author: "Sales Head" }
+              { quote: "The AI voice assistant handles all our out-of-hours calls perfectly. It's like having a receptionist 24/7.", author: "Clinic Manager" },
+              { quote: "Our workflow automation saves us 15 hours a week on manual data entry. The ROI was immediate.", author: "Operations Director" },
+              { quote: "Vexlo's AI agents integrated seamlessly with our CRM. We've seen a 40% increase in lead conversion.", author: "Sales Head" }
             ].map((testimonial, i) => (
-                <div key={i} className="flex flex-col p-8 rounded-2xl bg-surface border border-white/5 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300 transform hover:-translate-y-1">
-                  <div className="flex gap-1 mb-4">
-                     {[1,2,3,4,5].map(star => <Star key={star} size={16} className="text-accent fill-accent" />)}
-                  </div>
-                  <p className="text-gray-300 mb-6 leading-relaxed text-lg italic">
-                    &quot;{testimonial.quote}&quot;
-                  </p>
-                  <p className="text-sm font-semibold text-white text-right">— {testimonial.author}</p>
+              <div key={i} className="flex flex-col p-8 rounded-2xl bg-surface border border-white/5 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300 transform hover:-translate-y-1">
+                <div className="flex gap-1 mb-4">
+                  {[1, 2, 3, 4, 5].map(star => <Star key={star} size={16} className="text-accent fill-accent" />)}
                 </div>
+                <p className="text-gray-300 mb-6 leading-relaxed text-lg italic">
+                  &quot;{testimonial.quote}&quot;
+                </p>
+                <p className="text-sm font-semibold text-white text-right">— {testimonial.author}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -189,7 +189,7 @@ export default function Home() {
       <section className="py-24 sm:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary/10 backdrop-blur-3xl"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-primary/5"></div>
-        
+
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl drop-shadow-lg">
