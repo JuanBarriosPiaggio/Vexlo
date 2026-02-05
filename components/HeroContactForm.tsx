@@ -34,11 +34,11 @@ export default function HeroContactForm() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-           ...formData,
-           // Fill defaults for required fields not in this form
-           companySize: '1-10',
-           monthlyRevenue: '<£50k',
-           referralSource: 'Hero Form'
+          ...formData,
+          // Fill defaults for required fields not in this form
+          companySize: '1-10',
+          monthlyRevenue: '<£50k',
+          referralSource: 'Hero Form'
         }),
       })
 
@@ -85,7 +85,7 @@ export default function HeroContactForm() {
             required
           />
         </div>
-        
+
         <div>
           <input
             type="email"
@@ -129,7 +129,7 @@ export default function HeroContactForm() {
         >
           {isSubmitting ? <Loader2 className="animate-spin" /> : (
             <>
-              Get My Free Plan
+              Send Enquiry
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </>
           )}

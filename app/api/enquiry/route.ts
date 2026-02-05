@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { enquirySchema } from '@/lib/validations'
 import { sendEnquiryEmail } from '@/lib/email'
 import { checkRateLimit } from '@/lib/rate-limit'
+import redis from '@/lib/redis'
 
 // Mark as dynamic to prevent build-time execution
 export const dynamic = 'force-dynamic'
@@ -37,10 +38,6 @@ export async function POST(request: NextRequest) {
 
     const data = validationResult.data
 
-    // Save to MongoDB - simple and straightforward!
-    const db = await getDb()
-    const collection = db.collection('enquiries')
-    
     const enquiry = {
       fullName: data.fullName,
       companyName: data.companyName,
@@ -56,7 +53,29 @@ export async function POST(request: NextRequest) {
       updatedAt: new Date(),
     }
     
-    const result = await collection.insertOne(enquiry)
+    // Save to MongoDB
+    let mongoId = 'unknown'
+    try {
+        const db = await getDb()
+        const collection = db.collection('enquiries')
+        const result = await collection.insertOne(enquiry)
+        mongoId = result.insertedId.toString()
+    } catch (e) {
+        console.error("Failed to save to MongoDB", e)
+        // Don't fail the request if Mongo fails but Redis succeeds? 
+        // Or should we fail? Usually we want at least one persistence.
+        // Continuing to Redis attempt.
+    }
+
+    // Save to Redis
+    try {
+        await redis.lpush('enquiries', JSON.stringify({ ...enquiry, mongoId }))
+    } catch (e) {
+        console.error("Failed to save to Redis", e)
+        if (mongoId === 'unknown') {
+             throw new Error("Failed to save to both MongoDB and Redis")
+        }
+    }
 
     // Send email notification (non-blocking)
     sendEnquiryEmail(data).catch((error) => {
@@ -64,7 +83,7 @@ export async function POST(request: NextRequest) {
     })
 
     return NextResponse.json(
-      { message: 'Enquiry submitted successfully', id: result.insertedId.toString() },
+      { message: 'Enquiry submitted successfully', id: mongoId },
       { status: 201 }
     )
   } catch (error) {
@@ -86,5 +105,3 @@ export async function POST(request: NextRequest) {
     )
   }
 }
-
-

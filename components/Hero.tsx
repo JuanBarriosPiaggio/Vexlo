@@ -13,44 +13,44 @@ export default function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         <div className="text-center mb-16">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm mb-8 animate-fade-in">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm mb-8 animate-fade-in">
             <span className="flex h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_rgba(0,255,163,0.8)]"></span>
             <span className="text-sm font-medium text-primary-light">Next Gen Business Automation</span>
-            </div>
+          </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
             Automate Your Future <br />
             <span className="text-gradient drop-shadow-[0_0_15px_rgba(0,255,163,0.3)]">With Intelligent AI</span>
-            </h1>
+          </h1>
 
-            <p className="mt-6 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
+          <p className="mt-6 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
             Transform your operations with AI-driven automation. Reduce manual work, eliminate errors, and scale efficiently with Vexlo&apos;s cutting-edge technology.
-            </p>
+          </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in">
             <Link
-                href="/enquiry"
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-primary text-black font-bold shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-light hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+              href="/enquiry"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-primary text-black font-bold shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-light hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
             >
-                <Sparkles size={20} />
-                Start Automating
+              <Sparkles size={20} />
+              Start Automating
             </Link>
             <Link
-                href="/services"
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 hover:border-primary/30 transition-all duration-300 flex items-center justify-center gap-2"
+              href="/services"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 hover:border-primary/30 transition-all duration-300 flex items-center justify-center gap-2"
             >
-                Explore Services
-                <ArrowRight size={18} />
+              Explore Services
+              <ArrowRight size={18} />
             </Link>
-            </div>
+          </div>
         </div>
 
         {/* Contact Form Container */}
         <div className="mt-10 animate-fade-in delay-300">
-           <HeroContactForm />
+          <HeroContactForm />
         </div>
       </div>
     </section>
