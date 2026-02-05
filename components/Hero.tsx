@@ -25,7 +25,7 @@ export default function Hero() {
         </h1>
 
         <p className="mt-6 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
-          Transform your operations with AI-driven automation. Reduce manual work, eliminate errors, and scale efficiently with Vexlo's cutting-edge technology.
+          Transform your operations with AI-driven automation. Reduce manual work, eliminate errors, and scale efficiently with Vexlo&apos;s cutting-edge technology.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in">
