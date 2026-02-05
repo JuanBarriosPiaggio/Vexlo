@@ -27,7 +27,6 @@ export default function HeroContactForm() {
 
     try {
       // Reusing the same API endpoint, just sending partial data
-      // Ideally the API should handle partial data or we validate loosely
       const response = await fetch('/api/enquiry', {
         method: 'POST',
         headers: {
@@ -38,15 +37,21 @@ export default function HeroContactForm() {
           // Fill defaults for required fields not in this form
           companySize: '1-10',
           monthlyRevenue: '<£50k',
-          referralSource: 'Hero Form'
+          referralSource: 'Other' // Must match validation schema enum
         }),
       })
 
-      if (!response.ok) throw new Error('Failed')
+      const data = await response.json()
+      
+      if (!response.ok) {
+        console.error('Server error:', data)
+        throw new Error(data.error || 'Failed to submit')
+      }
+      
       setIsSuccess(true)
     } catch (error) {
-      console.error(error)
-      alert('Something went wrong. Please try again.')
+      console.error('Submission error:', error)
+      alert(error instanceof Error ? error.message : 'Something went wrong. Please try again.')
     } finally {
       setIsSubmitting(false)
     }

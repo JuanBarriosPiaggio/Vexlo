@@ -25,10 +25,12 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json()
+    console.log('Received enquiry submission:', { ...body, email: '***' }) // Log without exposing email
 
     // Validate input
     const validationResult = enquirySchema.safeParse(body)
     if (!validationResult.success) {
+      console.error('Validation failed:', validationResult.error.errors)
       return NextResponse.json(
         { error: 'Validation failed', details: validationResult.error.errors },
         { status: 400 }
@@ -57,6 +59,7 @@ export async function POST(request: NextRequest) {
     }
     
     const result = await collection.insertOne(enquiry)
+    console.log('Enquiry saved to MongoDB:', result.insertedId.toString())
 
     // Send email notification (non-blocking)
     sendEnquiryEmail(data).catch((error) => {
