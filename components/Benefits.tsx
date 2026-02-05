@@ -45,9 +45,9 @@ export default function Benefits() {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="rounded-xl bg-white/5 p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg border border-white/10 group-hover:border-primary/50 group-hover:bg-primary/20">
-                <benefit.icon className="h-8 w-8 text-primary-light group-hover:text-white transition-colors" />
+                <benefit.icon className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-primary-light transition-colors">
+              <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-primary transition-colors">
                 {benefit.name}
               </h3>
               <p className="text-gray-400 leading-relaxed group-hover:text-gray-300">{benefit.description}</p>

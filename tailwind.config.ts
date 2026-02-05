@@ -9,32 +9,32 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#030014', // Deep space dark
-        surface: '#0F0B29', // Lighter dark for cards
+        background: '#020403', // Very dark green-tinted black
+        surface: '#0A120C', // Slightly lighter dark green for cards
         primary: {
-          DEFAULT: '#7000FF', // Electric Violet
-          light: '#A259FF',
-          dark: '#4B00AC',
+          DEFAULT: '#00FFA3', // Cyber Neon Green
+          light: '#5CFFC4',
+          dark: '#00CC82',
         },
         secondary: {
-          DEFAULT: '#00C2FF', // Cyan
-          light: '#00E0FF',
-          dark: '#009ACD',
+          DEFAULT: '#00F0FF', // Cyber Cyan
+          light: '#70F7FF',
+          dark: '#00C0CC',
         },
         accent: {
-          DEFAULT: '#FF0080', // Magenta
-          light: '#FF4DA6',
+          DEFAULT: '#CCFF00', // Lime Green
+          light: '#E5FF80',
         },
         gray: {
-          100: '#E2E8F0',
-          200: '#CBD5E1',
-          300: '#94A3B8',
-          400: '#64748B',
-          500: '#475569',
-          600: '#334155',
-          700: '#1E293B',
-          800: '#0F172A',
-          900: '#020617',
+          100: '#E6F4EB',
+          200: '#CBE5D6',
+          300: '#94B8A3',
+          400: '#648F7A',
+          500: '#476655',
+          600: '#334D40',
+          700: '#1E3329',
+          800: '#0F1F18',
+          900: '#020A06',
         }
       },
       fontFamily: {
@@ -42,7 +42,7 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-glow': 'conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #a853ba 180deg, #e92a67 360deg)',
+        'hero-glow': 'conic-gradient(from 180deg at 50% 50%, #00FFA3 0deg, #00F0FF 180deg, #CCFF00 360deg)',
       },
       animation: {
         blob: 'blob 7s infinite',

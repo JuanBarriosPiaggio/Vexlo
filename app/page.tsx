@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-white selection:bg-primary selection:text-white overflow-hidden">
+    <main className="min-h-screen bg-background text-white selection:bg-primary selection:text-black overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -71,14 +71,14 @@ export default function Home() {
           }),
         }}
       />
-
+      
       <Hero />
       <Benefits />
       <HowItWorks />
-
+      
       {/* Services Overview */}
       <section className="py-24 sm:py-32 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-surface/50 pointer-events-none"></div>
+         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-surface/50 pointer-events-none"></div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -103,18 +103,18 @@ export default function Home() {
                 desc: "Automate invoicing, payroll, reporting, and HR processes to save time and reduce errors."
               }
             ].map((service, i) => (
-              <div key={i} className="glass-card group flex flex-col p-8 rounded-2xl hover:border-secondary/50 hover:shadow-glow-accent transition-all duration-300 transform hover:-translate-y-2">
-                <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-secondary transition-colors">{service.title}</h3>
-                <p className="text-gray-400 mb-4 leading-relaxed group-hover:text-gray-300">
-                  {service.desc}
-                </p>
-              </div>
+                <div key={i} className="glass-card group flex flex-col p-8 rounded-2xl hover:border-primary/50 hover:shadow-glow transition-all duration-300 transform hover:-translate-y-2">
+                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
+                  <p className="text-gray-400 mb-4 leading-relaxed group-hover:text-gray-300">
+                    {service.desc}
+                  </p>
+                </div>
             ))}
           </div>
-          <div className="mt-12 text-center">
+            <div className="mt-12 text-center">
             <Link
               href="/services"
-              className="group inline-flex items-center gap-2 rounded-xl bg-white/10 px-8 py-4 text-base font-semibold text-white border border-white/10 hover:bg-white/20 transition-all transform hover:scale-105 hover:-translate-y-1"
+              className="group inline-flex items-center gap-2 rounded-xl bg-white/5 px-8 py-4 text-base font-semibold text-white border border-white/10 hover:bg-white/10 hover:border-primary/30 transition-all transform hover:scale-105 hover:-translate-y-1"
             >
               View All Services
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -126,7 +126,7 @@ export default function Home() {
       {/* Social Proof Section */}
       <section className="py-24 sm:py-32 relative">
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[100px] -z-10"></div>
-
+        
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -138,19 +138,19 @@ export default function Home() {
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {[
-              { quote: "Vexlo has saved us 15 hours per week by automating our invoicing and reporting processes.", author: "Small Business Owner" },
-              { quote: "The implementation was smooth and the results were immediate. Highly recommend!", author: "Operations Manager" },
-              { quote: "We've reduced errors by 90% and can now focus on growth instead of manual tasks.", author: "Finance Director" }
+               { quote: "Vexlo has saved us 15 hours per week by automating our invoicing and reporting processes.", author: "Small Business Owner" },
+               { quote: "The implementation was smooth and the results were immediate. Highly recommend!", author: "Operations Manager" },
+               { quote: "We've reduced errors by 90% and can now focus on growth instead of manual tasks.", author: "Finance Director" }
             ].map((testimonial, i) => (
-              <div key={i} className="flex flex-col p-8 rounded-2xl bg-surface border border-white/5 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300 transform hover:-translate-y-1">
-                <div className="flex gap-1 mb-4">
-                  {[1, 2, 3, 4, 5].map(star => <Star key={star} size={16} className="text-accent fill-accent" />)}
+                <div key={i} className="flex flex-col p-8 rounded-2xl bg-surface border border-white/5 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="flex gap-1 mb-4">
+                     {[1,2,3,4,5].map(star => <Star key={star} size={16} className="text-accent fill-accent" />)}
+                  </div>
+                  <p className="text-gray-300 mb-6 leading-relaxed text-lg italic">
+                    &quot;{testimonial.quote}&quot;
+                  </p>
+                  <p className="text-sm font-semibold text-white text-right">— {testimonial.author}</p>
                 </div>
-                <p className="text-gray-300 mb-6 leading-relaxed text-lg italic">
-                  &quot;{testimonial.quote}&quot;
-                </p>
-                <p className="text-sm font-semibold text-white text-right">— {testimonial.author}</p>
-              </div>
             ))}
           </div>
         </div>
@@ -158,9 +158,9 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-24 sm:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/20 backdrop-blur-3xl"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/80 to-background/90"></div>
-
+        <div className="absolute inset-0 bg-primary/10 backdrop-blur-3xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-primary/5"></div>
+        
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl drop-shadow-lg">
@@ -172,7 +172,7 @@ export default function Home() {
             <div className="mt-10">
               <Link
                 href="/enquiry"
-                className="group relative rounded-xl bg-gradient-to-r from-secondary to-primary px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all transform hover:scale-105 hover:-translate-y-1 inline-flex items-center gap-2 overflow-hidden"
+                className="group relative rounded-xl bg-primary px-8 py-4 text-base font-bold text-black shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all transform hover:scale-105 hover:-translate-y-1 inline-flex items-center gap-2 overflow-hidden"
               >
                 <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                 <span className="relative">Get Started</span>

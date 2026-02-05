@@ -21,9 +21,9 @@ const steps = [
 export default function HowItWorks() {
   return (
     <section className="py-24 sm:py-32 relative overflow-hidden">
-      {/* Background mesh */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
-
+        {/* Background mesh */}
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+        
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -41,10 +41,10 @@ export default function HowItWorks() {
                 {index < steps.length - 1 && (
                   <div className="hidden lg:block absolute left-6 top-14 w-[calc(100%-3rem)] h-[2px] bg-gradient-to-r from-primary/50 to-transparent"></div>
                 )}
-
+                
                 <dt className="flex flex-col items-center text-center gap-y-4 text-base font-semibold leading-7 text-white mb-4">
                   <div className="relative h-14 w-14 flex items-center justify-center rounded-2xl bg-surface border border-white/10 shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform duration-300 z-10 group-hover:border-primary/50">
-                    <step.icon className="h-6 w-6 text-primary-light" />
+                    <step.icon className="h-6 w-6 text-primary" />
                     <div className="absolute inset-0 rounded-2xl bg-primary/20 blur-md group-hover:opacity-100 opacity-0 transition-opacity"></div>
                   </div>
                   <span className="text-xl mt-4">{step.name}</span>
