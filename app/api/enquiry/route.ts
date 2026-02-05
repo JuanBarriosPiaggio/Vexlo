@@ -52,29 +52,29 @@ export async function POST(request: NextRequest) {
       createdAt: new Date(),
       updatedAt: new Date(),
     }
-    
+
     // Save to MongoDB
     let mongoId = 'unknown'
     try {
-        const db = await getDb()
-        const collection = db.collection('enquiries')
-        const result = await collection.insertOne(enquiry)
-        mongoId = result.insertedId.toString()
+      const db = await getDb()
+      const collection = db.collection('enquiries')
+      const result = await collection.insertOne(enquiry)
+      mongoId = result.insertedId.toString()
     } catch (e) {
-        console.error("Failed to save to MongoDB", e)
-        // Don't fail the request if Mongo fails but Redis succeeds? 
-        // Or should we fail? Usually we want at least one persistence.
-        // Continuing to Redis attempt.
+      console.error("Failed to save to MongoDB", e)
+      // Don't fail the request if Mongo fails but Redis succeeds? 
+      // Or should we fail? Usually we want at least one persistence.
+      // Continuing to Redis attempt.
     }
 
     // Save to Redis
     try {
-        await redis.lpush('enquiries', JSON.stringify({ ...enquiry, mongoId }))
+      await redis.lpush('enquiries', JSON.stringify({ ...enquiry, mongoId }))
     } catch (e) {
-        console.error("Failed to save to Redis", e)
-        if (mongoId === 'unknown') {
-             throw new Error("Failed to save to both MongoDB and Redis")
-        }
+      console.error("Failed to save to Redis", e)
+      if (mongoId === 'unknown') {
+        throw new Error("Failed to save to both MongoDB and Redis")
+      }
     }
 
     // Send email notification (non-blocking)
@@ -88,7 +88,7 @@ export async function POST(request: NextRequest) {
     )
   } catch (error) {
     console.error('Error submitting enquiry:', error)
-    
+
     // Provide more helpful error messages
     if (error instanceof Error) {
       if (error.message.includes('connection string') || error.message.includes('MONGO_URL')) {
@@ -98,7 +98,7 @@ export async function POST(request: NextRequest) {
         )
       }
     }
-    
+
     return NextResponse.json(
       { error: 'Failed to submit enquiry. Please try again.' },
       { status: 500 }
