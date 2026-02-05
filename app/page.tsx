@@ -3,7 +3,7 @@ import Hero from '@/components/Hero'
 import Benefits from '@/components/Benefits'
 import HowItWorks from '@/components/HowItWorks'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Star } from 'lucide-react'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <>
+    <main className="min-h-screen bg-background text-white selection:bg-primary selection:text-white overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -71,45 +71,50 @@ export default function Home() {
           }),
         }}
       />
+
       <Hero />
       <Benefits />
       <HowItWorks />
-      
+
       {/* Services Overview */}
-      <section className="py-24 sm:py-32 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-24 sm:py-32 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-surface/50 pointer-events-none"></div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Our Services
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-gray-400">
               Comprehensive automation solutions tailored to your business needs.
             </p>
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            <div className="group flex flex-col p-8 rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary transition-colors">Sales Automation</h3>
-              <p className="text-gray-600 mb-4 leading-relaxed">
-                Streamline your sales process with automated lead management, follow-ups, and CRM integration.
-              </p>
-            </div>
-            <div className="group flex flex-col p-8 rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary transition-colors">Operations Automation</h3>
-              <p className="text-gray-600 mb-4 leading-relaxed">
-                Optimise workflows, reduce manual tasks, and improve efficiency across your operations.
-              </p>
-            </div>
-            <div className="group flex flex-col p-8 rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary transition-colors">Finance & HR</h3>
-              <p className="text-gray-600 mb-4 leading-relaxed">
-                Automate invoicing, payroll, reporting, and HR processes to save time and reduce errors.
-              </p>
-            </div>
+            {[
+              {
+                title: "Sales Automation",
+                desc: "Streamline your sales process with automated lead management, follow-ups, and CRM integration."
+              },
+              {
+                title: "Operations Automation",
+                desc: "Optimise workflows, reduce manual tasks, and improve efficiency across your operations."
+              },
+              {
+                title: "Finance & HR",
+                desc: "Automate invoicing, payroll, reporting, and HR processes to save time and reduce errors."
+              }
+            ].map((service, i) => (
+              <div key={i} className="glass-card group flex flex-col p-8 rounded-2xl hover:border-secondary/50 hover:shadow-glow-accent transition-all duration-300 transform hover:-translate-y-2">
+                <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-secondary transition-colors">{service.title}</h3>
+                <p className="text-gray-400 mb-4 leading-relaxed group-hover:text-gray-300">
+                  {service.desc}
+                </p>
+              </div>
+            ))}
           </div>
-            <div className="mt-12 text-center">
+          <div className="mt-12 text-center">
             <Link
               href="/services"
-              className="group inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:bg-primary-dark transition-all transform hover:scale-105 hover:-translate-y-1"
+              className="group inline-flex items-center gap-2 rounded-xl bg-white/10 px-8 py-4 text-base font-semibold text-white border border-white/10 hover:bg-white/20 transition-all transform hover:scale-105 hover:-translate-y-1"
             >
               View All Services
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -119,55 +124,57 @@ export default function Home() {
       </section>
 
       {/* Social Proof Section */}
-      <section className="py-24 sm:py-32 bg-gray-50">
+      <section className="py-24 sm:py-32 relative">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[100px] -z-10"></div>
+
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Trusted by UK Businesses
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-lg text-gray-400">
               Join growing businesses that have transformed their operations with Vexlo.
             </p>
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            <div className="flex flex-col p-8 rounded-2xl bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <p className="text-gray-600 mb-6 leading-relaxed text-lg">
-                &quot;Vexlo has saved us 15 hours per week by automating our invoicing and reporting processes.&quot;
-              </p>
-              <p className="text-sm font-semibold text-gray-900">— Small Business Owner</p>
-            </div>
-            <div className="flex flex-col p-8 rounded-2xl bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <p className="text-gray-600 mb-6 leading-relaxed text-lg">
-                &quot;The implementation was smooth and the results were immediate. Highly recommend!&quot;
-              </p>
-              <p className="text-sm font-semibold text-gray-900">— Operations Manager</p>
-            </div>
-            <div className="flex flex-col p-8 rounded-2xl bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <p className="text-gray-600 mb-6 leading-relaxed text-lg">
-                &quot;We&apos;ve reduced errors by 90% and can now focus on growth instead of manual tasks.&quot;
-              </p>
-              <p className="text-sm font-semibold text-gray-900">— Finance Director</p>
-            </div>
+            {[
+              { quote: "Vexlo has saved us 15 hours per week by automating our invoicing and reporting processes.", author: "Small Business Owner" },
+              { quote: "The implementation was smooth and the results were immediate. Highly recommend!", author: "Operations Manager" },
+              { quote: "We've reduced errors by 90% and can now focus on growth instead of manual tasks.", author: "Finance Director" }
+            ].map((testimonial, i) => (
+              <div key={i} className="flex flex-col p-8 rounded-2xl bg-surface border border-white/5 shadow-lg hover:shadow-xl hover:border-primary/30 transition-all duration-300 transform hover:-translate-y-1">
+                <div className="flex gap-1 mb-4">
+                  {[1, 2, 3, 4, 5].map(star => <Star key={star} size={16} className="text-accent fill-accent" />)}
+                </div>
+                <p className="text-gray-300 mb-6 leading-relaxed text-lg italic">
+                  &quot;{testimonial.quote}&quot;
+                </p>
+                <p className="text-sm font-semibold text-white text-right">— {testimonial.author}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 sm:py-32 bg-primary">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-24 sm:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-primary/20 backdrop-blur-3xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/80 to-background/90"></div>
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl drop-shadow-lg">
               Ready to Automate Your Business?
             </h2>
-            <p className="mt-4 text-lg text-blue-100">
+            <p className="mt-4 text-lg text-gray-300">
               Get started today with a free consultation. Let&apos;s discuss how we can help streamline your operations.
             </p>
             <div className="mt-10">
               <Link
                 href="/enquiry"
-                className="group relative rounded-xl bg-accent px-8 py-4 text-base font-semibold text-white shadow-lg shadow-accent/50 hover:shadow-xl hover:shadow-accent/60 transition-all transform hover:scale-105 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent inline-flex items-center gap-2 overflow-hidden"
+                className="group relative rounded-xl bg-gradient-to-r from-secondary to-primary px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all transform hover:scale-105 hover:-translate-y-1 inline-flex items-center gap-2 overflow-hidden"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-accent-light to-accent opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                 <span className="relative">Get Started</span>
                 <ArrowRight size={20} className="relative group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -175,8 +182,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </main>
   )
 }
-
-

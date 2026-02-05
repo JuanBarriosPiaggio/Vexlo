@@ -6,26 +6,34 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply text-gray-900 antialiased;
+    @apply bg-background text-white antialiased selection:bg-primary selection:text-white;
   }
 }
 
 @layer utilities {
   .glass {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
-  
+
+  .glass-card {
+    background: rgba(15, 11, 41, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-light via-secondary to-primary-light;
+  }
+
   .shadow-glow {
-    box-shadow: 0 0 20px rgba(30, 64, 175, 0.3);
+    box-shadow: 0 0 40px rgba(112, 0, 255, 0.3);
   }
-  
+
   .shadow-glow-accent {
-    box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+    box-shadow: 0 0 40px rgba(0, 194, 255, 0.3);
   }
 }
-
-

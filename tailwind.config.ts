@@ -9,22 +9,45 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        background: '#030014', // Deep space dark
+        surface: '#0F0B29', // Lighter dark for cards
         primary: {
-          DEFAULT: '#1e40af',
-          dark: '#1e3a8a',
-          light: '#3b82f6',
+          DEFAULT: '#7000FF', // Electric Violet
+          light: '#A259FF',
+          dark: '#4B00AC',
+        },
+        secondary: {
+          DEFAULT: '#00C2FF', // Cyan
+          light: '#00E0FF',
+          dark: '#009ACD',
         },
         accent: {
-          DEFAULT: '#f97316',
-          light: '#fb923c',
+          DEFAULT: '#FF0080', // Magenta
+          light: '#FF4DA6',
         },
+        gray: {
+          100: '#E2E8F0',
+          200: '#CBD5E1',
+          300: '#94A3B8',
+          400: '#64748B',
+          500: '#475569',
+          600: '#334155',
+          700: '#1E293B',
+          800: '#0F172A',
+          900: '#020617',
+        }
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'hero-glow': 'conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #a853ba 180deg, #e92a67 360deg)',
+      },
       animation: {
         blob: 'blob 7s infinite',
         'fade-in': 'fadeIn 0.5s ease-in',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         blob: {
@@ -57,5 +80,3 @@ const config: Config = {
   plugins: [],
 }
 export default config
-
-

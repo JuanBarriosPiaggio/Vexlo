@@ -1,48 +1,67 @@
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-br from-primary via-primary-dark to-primary overflow-hidden">
-      {/* Animated background pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-20 animate-pulse"></div>
-      
-      {/* Gradient orbs for depth */}
-      <div className="absolute top-0 -left-4 w-72 h-72 bg-accent/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-      <div className="absolute top-0 -right-4 w-72 h-72 bg-primary-light/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-      <div className="absolute -bottom-8 left-20 w-72 h-72 bg-accent-light/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-      
-      <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-8 animate-fade-in">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl drop-shadow-lg">
-              Automate Your Business Operations
-            </h1>
-          </div>
-          <p className="mt-6 text-lg leading-8 text-blue-100 drop-shadow-md">
-            Transform your UK SMB with intelligent automation. Reduce manual work, eliminate errors, and scale efficiently. Focus on what matters most—growing your business.
-          </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Link
-              href="/enquiry"
-              className="group relative rounded-xl bg-accent px-8 py-4 text-base font-semibold text-white shadow-lg shadow-accent/50 hover:shadow-xl hover:shadow-accent/60 transition-all transform hover:scale-105 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent flex items-center gap-2 overflow-hidden"
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-accent-light to-accent opacity-0 group-hover:opacity-100 transition-opacity"></span>
-              <span className="relative">Get Started</span>
-              <ArrowRight size={20} className="relative group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/services"
-              className="group text-base font-semibold leading-6 text-white hover:text-blue-100 transition-colors flex items-center gap-2"
-            >
-              Learn more
-              <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
-            </Link>
+    <section className="relative overflow-hidden pt-32 pb-20 lg:pt-48 lg:pb-32">
+      {/* Background Effects */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
+        <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen animate-pulse-slow"></div>
+        <div className="absolute top-[10%] right-[-10%] w-[400px] h-[400px] bg-secondary/20 rounded-full blur-[100px] mix-blend-screen animate-pulse-slow delay-1000"></div>
+        <div className="absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] bg-primary-dark/10 rounded-full blur-[120px] mix-blend-screen"></div>
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-8 animate-fade-in">
+          <span className="flex h-2 w-2 rounded-full bg-secondary"></span>
+          <span className="text-sm font-medium text-gray-300">Next Gen Business Automation</span>
+        </div>
+
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
+          Automate Your Future <br />
+          <span className="text-gradient">With Intelligent AI</span>
+        </h1>
+
+        <p className="mt-6 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
+          Transform your operations with AI-driven automation. Reduce manual work, eliminate errors, and scale efficiently with Vexlo's cutting-edge technology.
+        </p>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in">
+          <Link
+            href="/enquiry"
+            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-primary-dark text-white font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <Sparkles size={20} />
+            Start Automating
+          </Link>
+          <Link
+            href="/services"
+            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            Explore Services
+            <ArrowRight size={18} />
+          </Link>
+        </div>
+
+        {/* Floating UI Elements / Dashboard Preview Placeholder */}
+        <div className="mt-20 relative mx-auto max-w-5xl rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-2 shadow-2xl animate-fade-in delay-300">
+          <div className="rounded-xl overflow-hidden bg-background aspect-video relative group">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/5 opacity-50"></div>
+            {/* Mock UI Elements */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+              <p className="text-gray-500 text-sm mb-2">System Status</p>
+              <div className="text-4xl font-mono text-secondary font-bold">OPTIMAL</div>
+              <div className="mt-4 flex gap-2 justify-center">
+                <div className="h-2 w-12 rounded-full bg-primary/50 animate-pulse"></div>
+                <div className="h-2 w-8 rounded-full bg-secondary/50 animate-pulse delay-75"></div>
+                <div className="h-2 w-16 rounded-full bg-accent/50 animate-pulse delay-150"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   )
 }
-
-

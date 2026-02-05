@@ -25,30 +25,32 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section className="py-24 sm:py-32 bg-white">
+    <section className="py-24 sm:py-32 relative">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px] -z-10"></div>
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Why Choose Vexlo?
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            We help UK SMBs streamline operations and achieve measurable results.
+          <p className="mt-4 text-lg text-gray-400">
+            We help UK SMBs streamline operations and achieve measurable results with advanced AI.
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-4">
           {benefits.map((benefit, index) => (
             <div
               key={benefit.name}
-              className="group flex flex-col items-center text-center p-8 rounded-2xl border border-gray-200 bg-white hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-2"
+              className="glass-card group flex flex-col items-center text-center p-8 rounded-2xl hover:border-primary/50 hover:shadow-glow transition-all duration-300 transform hover:-translate-y-2"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <benefit.icon className="h-8 w-8 text-primary" />
+              <div className="rounded-xl bg-white/5 p-4 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg border border-white/10 group-hover:border-primary/50 group-hover:bg-primary/20">
+                <benefit.icon className="h-8 w-8 text-primary-light group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary transition-colors">
+              <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-primary-light transition-colors">
                 {benefit.name}
               </h3>
-              <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+              <p className="text-gray-400 leading-relaxed group-hover:text-gray-300">{benefit.description}</p>
             </div>
           ))}
         </div>
@@ -56,5 +58,3 @@ export default function Benefits() {
     </section>
   )
 }
-
-

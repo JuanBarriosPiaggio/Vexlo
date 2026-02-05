@@ -8,13 +8,6 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 export const metadata: Metadata = {
   title: 'About Vexlo - Meet Your Automation Expert',
   description: 'Learn about Juan, Engineering Manager with 16+ years of experience in business automation. Trusted by UK SMBs to deliver intelligent automation solutions.',
-  keywords: [
-    'business automation expert UK',
-    'automation consultant',
-    'engineering manager automation',
-    'UK automation specialist',
-    'business process automation expert',
-  ],
   openGraph: {
     title: 'About Vexlo - Meet Your Automation Expert',
     description: '16+ years of experience transforming businesses through intelligent automation. Trusted by UK SMBs.',
@@ -41,7 +34,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <>
+    <div className="bg-background min-h-screen text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -67,25 +60,27 @@ export default function AboutPage() {
           }),
         }}
       />
-      <div className="pt-16">
+      <div className="pt-20">
         <About />
-        
+
         {/* CTA Section */}
-        <section className="py-24 sm:py-32 bg-primary">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <section className="py-24 sm:py-32 relative overflow-hidden">
+          <div className="absolute inset-0 bg-primary/10 backdrop-blur-3xl"></div>
+
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 Ready to Transform Your Business?
               </h2>
-              <p className="mt-4 text-lg text-blue-100">
+              <p className="mt-4 text-lg text-gray-300">
                 Let&apos;s discuss how my 16+ years of experience can help automate your operations and drive growth.
               </p>
               <div className="mt-10">
                 <Link
                   href="/enquiry"
-                  className="group relative rounded-xl bg-accent px-8 py-4 text-base font-semibold text-white shadow-lg shadow-accent/50 hover:shadow-xl hover:shadow-accent/60 transition-all transform hover:scale-105 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent inline-flex items-center gap-2 overflow-hidden"
+                  className="group relative rounded-xl bg-gradient-to-r from-secondary to-primary px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all transform hover:scale-105 hover:-translate-y-1 inline-flex items-center gap-2 overflow-hidden"
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-accent-light to-accent opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                  <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   <span className="relative">Get Started Today</span>
                   <ArrowRight size={20} className="relative group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -94,7 +89,6 @@ export default function AboutPage() {
           </div>
         </section>
       </div>
-    </>
+    </div>
   )
 }
-
