@@ -62,15 +62,15 @@ export default function NichePage({
 }: NichePageProps) {
   
   const getImage = (badgeText: string) => {
-    if (badgeText.includes('Cleaning')) return 'https://images.unsplash.com/photo-1584622050111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' // Professional cleaner
-    if (badgeText.includes('Plumbers')) return 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' // Plumber
-    if (badgeText.includes('Dental')) return 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' // Dentist
-    if (badgeText.includes('Estate')) return 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' // Keys
-    if (badgeText.includes('Roofing')) return 'https://images.unsplash.com/photo-1632759145351-1d592919f522?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' // Roofer
-    if (badgeText.includes('Beauty')) return 'https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' // Salon
-    if (badgeText.includes('Property')) return 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' // Maintenance
+    if (badgeText.includes('Cleaning')) return '/images/cleaning.jpg' // Professional cleaner
+    if (badgeText.includes('Plumbers')) return '/images/plumber.jpg' // Plumber
+    if (badgeText.includes('Dental')) return '/images/dentist.jpg' // Dentist
+    if (badgeText.includes('Estate')) return '/images/estate.jpg' // Keys
+    if (badgeText.includes('Roofing')) return '/images/roofer.jpg' // Roofer
+    if (badgeText.includes('Beauty')) return '/images/salon.jpg' // Salon
+    if (badgeText.includes('Property')) return '/images/property.jpg' // Maintenance
     
-    return 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' // Default office
+    return '/images/hero.jpg' // Default office
   }
 
   const heroImage = getImage(badge)

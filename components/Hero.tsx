@@ -59,7 +59,7 @@ export default function Hero() {
           <div className="relative lg:h-[600px] w-full flex items-center justify-center lg:justify-end">
             <div className="relative w-full max-w-[500px] aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl shadow-slate-200 border border-slate-100">
               <Image 
-                src="https://images.unsplash.com/photo-1523961131990-a629ce8752dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="/images/hero.jpg"
                 alt="Professional receptionist on phone"
                 fill
                 className="object-cover"
