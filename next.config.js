@@ -14,7 +14,6 @@ const nextConfig = {
       bodySizeLimit: '2mb',
     },
   },
-  // Add headers to prevent aggressive caching
   async headers() {
     return [
       {
@@ -25,6 +24,45 @@ const nextConfig = {
             value: 'public, max-age=0, must-revalidate',
           },
         ],
+      },
+    ]
+  },
+  async redirects() {
+    return [
+      {
+        source: '/industries/cleaning-companies',
+        destination: '/ai-receptionist-cleaning-companies',
+        permanent: true,
+      },
+      {
+        source: '/industries/plumbers-heating-engineers',
+        destination: '/ai-receptionist-plumbers',
+        permanent: true,
+      },
+      {
+        source: '/industries/dental-clinics',
+        destination: '/ai-receptionist-dentists',
+        permanent: true,
+      },
+      {
+        source: '/industries/estate-agents',
+        destination: '/ai-receptionist-estate-agents',
+        permanent: true,
+      },
+      {
+        source: '/industries/roofing-companies',
+        destination: '/ai-receptionist-roofing-companies',
+        permanent: true,
+      },
+      {
+        source: '/industries/beauty-salons-barbers',
+        destination: '/ai-receptionist-salons-barbers',
+        permanent: true,
+      },
+      {
+        source: '/industries/property-maintenance',
+        destination: '/ai-receptionist-property-maintenance',
+        permanent: true,
       },
     ]
   },

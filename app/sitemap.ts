@@ -28,6 +28,49 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    // Niche landing pages — high priority for local SEO
+    {
+      url: `${baseUrl}/ai-receptionist-cleaning-companies`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/ai-receptionist-plumbers`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/ai-receptionist-dentists`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/ai-receptionist-estate-agents`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/ai-receptionist-roofing-companies`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/ai-receptionist-salons-barbers`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/ai-receptionist-property-maintenance`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
     {
       url: `${baseUrl}/privacy`,
       lastModified: new Date(),
@@ -36,5 +79,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 }
-
-
