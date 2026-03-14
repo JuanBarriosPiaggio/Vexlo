@@ -20,19 +20,15 @@ export async function sendEnquiryEmail(data: EnquiryFormData) {
   const mailOptions = {
     from: process.env.SMTP_USER,
     to: process.env.ADMIN_EMAIL,
-    subject: `New Enquiry from ${data.companyName}`,
+    subject: `New Enquiry from ${data.fullName} (${data.industryType})`,
     html: `
       <h2>New Enquiry Received</h2>
       <p><strong>Full Name:</strong> ${data.fullName}</p>
-      <p><strong>Company Name:</strong> ${data.companyName}</p>
       <p><strong>Email:</strong> ${data.email}</p>
-      ${data.phoneNumber ? `<p><strong>Phone:</strong> ${data.phoneNumber}</p>` : ''}
-      <p><strong>Company Size:</strong> ${data.companySize}</p>
-      <p><strong>Monthly Revenue:</strong> ${data.monthlyRevenue}</p>
-      <p><strong>Current Tools:</strong> ${data.currentTools || 'Not specified'}</p>
-      <p><strong>Automation Needs:</strong></p>
-      <p>${data.automationNeeds}</p>
-      <p><strong>Referral Source:</strong> ${data.referralSource}</p>
+      <p><strong>Industry Type:</strong> ${data.industryType}</p>
+      ${data.companyName ? `<p><strong>Company Name:</strong> ${data.companyName}</p>` : ''}
+      <p><strong>Message:</strong></p>
+      <p>${data.message}</p>
     `,
   }
 
@@ -43,5 +39,3 @@ export async function sendEnquiryEmail(data: EnquiryFormData) {
     // Don't throw - we don't want email failures to break form submission
   }
 }
-
-
