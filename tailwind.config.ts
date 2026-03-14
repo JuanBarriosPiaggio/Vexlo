@@ -9,61 +9,36 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#020403', // Very dark green-tinted black
-        surface: '#0A120C', // Slightly lighter dark green for cards
+        background: '#FFFFFF', // Clean White
+        surface: '#F3F4F6', // Light Gray-50/100
         primary: {
-          DEFAULT: '#00FFA3', // Cyber Neon Green
-          light: '#5CFFC4',
-          dark: '#00CC82',
+          DEFAULT: '#2563EB', // Royal Blue
+          light: '#60A5FA',
+          dark: '#1E40AF',
         },
         secondary: {
-          DEFAULT: '#00F0FF', // Cyber Cyan
-          light: '#70F7FF',
-          dark: '#00C0CC',
+          DEFAULT: '#0F172A', // Slate 900
+          light: '#334155',
+          dark: '#020617',
         },
         accent: {
-          DEFAULT: '#CCFF00', // Lime Green
-          light: '#E5FF80',
+          DEFAULT: '#F97316', // Orange 500
+          light: '#FB923C',
+          dark: '#EA580C',
         },
-        gray: {
-          100: '#E6F4EB',
-          200: '#CBE5D6',
-          300: '#94B8A3',
-          400: '#648F7A',
-          500: '#476655',
-          600: '#334D40',
-          700: '#1E3329',
-          800: '#0F1F18',
-          900: '#020A06',
-        }
+        // Keeping gray scale for text
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-glow': 'conic-gradient(from 180deg at 50% 50%, #00FFA3 0deg, #00F0FF 180deg, #CCFF00 360deg)',
+      boxShadow: {
+        'clean': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+        'clean-lg': '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025)',
       },
       animation: {
-        blob: 'blob 7s infinite',
         'fade-in': 'fadeIn 0.5s ease-in',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
-        blob: {
-          '0%': {
-            transform: 'translate(0px, 0px) scale(1)',
-          },
-          '33%': {
-            transform: 'translate(30px, -50px) scale(1.1)',
-          },
-          '66%': {
-            transform: 'translate(-20px, 20px) scale(0.9)',
-          },
-          '100%': {
-            transform: 'translate(0px, 0px) scale(1)',
-          },
-        },
         fadeIn: {
           '0%': {
             opacity: '0',

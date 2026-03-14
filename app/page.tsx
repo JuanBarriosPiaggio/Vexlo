@@ -235,14 +235,13 @@ export default function Home() {
       <Benefits />
 
       {/* PROBLEM SECTION */}
-      <section className="py-24 sm:py-32 relative">
-        <div className="absolute inset-0 bg-surface/50 -z-10"></div>
+      <section className="py-24 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               The Problem Every Local Business Faces
             </h2>
-            <p className="mt-4 text-lg text-gray-400">
+            <p className="mt-4 text-lg text-slate-600">
               Studies show that 25–40% of calls to local service businesses go unanswered. That&apos;s not a small problem — it&apos;s revenue walking out the door every single day.
             </p>
           </div>
@@ -250,14 +249,14 @@ export default function Home() {
             {problems.map((problem) => (
               <div
                 key={problem.headline}
-                className="glass-card group flex gap-5 p-8 rounded-2xl hover:border-red-500/30 transition-all duration-300"
+                className="group flex gap-5 p-8 rounded-2xl bg-white border border-slate-200 shadow-clean hover:shadow-clean-lg transition-all duration-300"
               >
-                <div className="flex-shrink-0 rounded-xl bg-red-500/10 p-3 h-fit border border-red-500/20 group-hover:bg-red-500/20 transition-colors">
-                  <problem.icon className="h-6 w-6 text-red-400" />
+                <div className="flex-shrink-0 rounded-xl bg-red-50 p-3 h-fit border border-red-100 group-hover:bg-red-100 transition-colors">
+                  <problem.icon className="h-6 w-6 text-red-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{problem.headline}</h3>
-                  <p className="text-gray-400 leading-relaxed">{problem.description}</p>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">{problem.headline}</h3>
+                  <p className="text-slate-600 leading-relaxed text-sm">{problem.description}</p>
                 </div>
               </div>
             ))}
@@ -269,14 +268,13 @@ export default function Home() {
       <HowItWorks />
 
       {/* SOLUTION / SERVICES SECTION */}
-      <section className="py-24 sm:py-32 relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px] -z-10"></div>
+      <section className="py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Everything You Need to Stop Losing Business
             </h2>
-            <p className="mt-4 text-lg text-gray-400">
+            <p className="mt-4 text-lg text-slate-600">
               Vexlo combines AI phone answering, lead capture, CRM, and review automation into one simple system — built specifically for UK service businesses.
             </p>
           </div>
@@ -284,22 +282,22 @@ export default function Home() {
             {services.map((service) => (
               <div
                 key={service.name}
-                className="glass-card group flex flex-col p-8 rounded-2xl hover:border-primary/50 hover:shadow-glow transition-all duration-300 transform hover:-translate-y-2"
+                className="group flex flex-col p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-white hover:border-blue-100 hover:shadow-clean-lg transition-all duration-300"
               >
-                <div className="rounded-xl bg-white/5 p-3 mb-5 w-fit border border-white/10 group-hover:border-primary/50 group-hover:bg-primary/20 transition-all">
+                <div className="rounded-xl bg-white p-3 mb-5 w-fit border border-slate-200 shadow-sm group-hover:border-blue-200 group-hover:bg-blue-50 transition-all">
                   <service.icon className="h-7 w-7 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors">
                   {service.name}
                 </h3>
-                <p className="text-gray-400 leading-relaxed text-sm">{service.description}</p>
+                <p className="text-slate-600 leading-relaxed text-sm">{service.description}</p>
               </div>
             ))}
           </div>
           <div className="mt-12 text-center">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-8 py-4 text-base font-semibold text-white hover:bg-white/10 hover:border-primary/30 transition-all"
+              className="inline-flex items-center gap-2 rounded-xl bg-white border border-slate-200 px-8 py-4 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-900 transition-all shadow-sm"
             >
               Explore All Features
               <ArrowRight size={20} />
@@ -309,14 +307,13 @@ export default function Home() {
       </section>
 
       {/* NICHE SECTIONS */}
-      <section className="py-24 sm:py-32 relative">
-        <div className="absolute inset-0 bg-surface/50 -z-10"></div>
+      <section className="py-24 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Built for UK Local Businesses
             </h2>
-            <p className="mt-4 text-lg text-gray-400">
+            <p className="mt-4 text-lg text-slate-600">
               Whatever industry you&apos;re in, if you rely on the phone for new business, Vexlo is for you.
             </p>
           </div>
@@ -324,25 +321,25 @@ export default function Home() {
             {niches.map((niche) => (
               <div
                 key={niche.slug}
-                className="glass-card group flex flex-col p-8 rounded-2xl hover:border-primary/50 hover:shadow-glow transition-all duration-300"
+                className="group flex flex-col p-8 rounded-2xl bg-white border border-slate-200 shadow-clean hover:shadow-clean-lg transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-3xl">{niche.emoji}</span>
-                  <h3 className="text-xl font-semibold text-white group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">
                     {niche.cta}
                   </h3>
                 </div>
-                <p className="text-gray-400 mb-2 text-sm leading-relaxed">
-                  <span className="font-medium text-gray-300">The problem: </span>
+                <p className="text-slate-600 mb-2 text-sm leading-relaxed">
+                  <span className="font-semibold text-slate-900">The problem: </span>
                   {niche.pain}
                 </p>
-                <p className="text-gray-400 mb-5 text-sm leading-relaxed">
-                  <span className="font-medium text-gray-300">The opportunity: </span>
+                <p className="text-slate-600 mb-6 text-sm leading-relaxed">
+                  <span className="font-semibold text-slate-900">The opportunity: </span>
                   {niche.value}
                 </p>
                 <Link
                   href={`/${niche.slug}`}
-                  className="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-primary hover:text-primary-light transition-colors"
+                  className="mt-auto inline-flex items-center gap-1 text-sm font-bold text-primary hover:text-primary-dark transition-colors"
                 >
                   Learn more
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -354,14 +351,13 @@ export default function Home() {
       </section>
 
       {/* SOCIAL PROOF */}
-      <section className="py-24 sm:py-32 relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[100px] -z-10"></div>
+      <section className="py-24 bg-slate-900 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               UK Businesses Already Using Vexlo
             </h2>
-            <p className="mt-4 text-lg text-gray-400">
+            <p className="mt-4 text-lg text-slate-400">
               Real results from real business owners who stopped missing calls and started winning more jobs.
             </p>
           </div>
@@ -369,20 +365,20 @@ export default function Home() {
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.name}
-                className="glass-card flex flex-col p-8 rounded-2xl hover:border-primary/30 hover:shadow-glow transition-all duration-300 transform hover:-translate-y-1"
+                className="flex flex-col p-8 rounded-2xl bg-slate-800 border border-slate-700 shadow-lg"
               >
-                <div className="flex gap-1 mb-5">
+                <div className="flex gap-1 mb-6">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-primary fill-primary" />
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
                   ))}
                 </div>
-                <p className="text-gray-400 mb-6 leading-relaxed text-sm italic flex-1">
+                <p className="text-slate-300 mb-6 leading-relaxed text-sm italic flex-1">
                   &quot;{testimonial.quote}&quot;
                 </p>
                 <div>
-                  <p className="text-sm font-semibold text-white">{testimonial.name}</p>
-                  <p className="text-xs text-gray-500">{testimonial.role}</p>
-                  <p className="text-xs text-primary mt-1">{testimonial.location}</p>
+                  <p className="text-sm font-bold text-white">{testimonial.name}</p>
+                  <p className="text-xs text-slate-500">{testimonial.role}</p>
+                  <p className="text-xs text-primary-light mt-1">{testimonial.location}</p>
                 </div>
               </div>
             ))}
@@ -391,33 +387,32 @@ export default function Home() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-24 sm:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5 -z-10"></div>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[120px] -z-10"></div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-primary relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               See How an AI Receptionist Could Work for Your Business
             </h2>
-            <p className="mt-4 text-lg text-gray-400">
+            <p className="mt-4 text-lg text-blue-100">
               Book a free 15-minute demo. We&apos;ll show you exactly how many leads you&apos;re currently losing — and how to get them back.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/enquiry"
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-primary text-black font-bold shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-light hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white text-primary font-bold shadow-xl hover:bg-blue-50 transition-all hover:-translate-y-1 flex items-center justify-center gap-2"
               >
                 Book a Free 15-Minute Demo
                 <ArrowRight size={20} />
               </Link>
               <Link
                 href="/services"
-                className="text-base font-semibold text-gray-400 hover:text-white transition-colors"
+                className="text-base font-semibold text-white hover:text-blue-100 transition-colors"
               >
                 Explore all features →
               </Link>
             </div>
-            <p className="mt-6 text-sm text-gray-500">
+            <p className="mt-6 text-sm text-blue-200 opacity-80">
               No commitment. No technical setup required on your part.
             </p>
           </div>

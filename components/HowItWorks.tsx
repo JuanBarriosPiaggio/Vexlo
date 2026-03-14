@@ -3,92 +3,65 @@ import { Phone, UserCheck, MessageSquare, CalendarCheck, Star } from 'lucide-rea
 const steps = [
   {
     number: '01',
-    name: 'AI Answers the Call',
+    name: 'AI Answers',
     description:
-      "Whether you're on a job, with a client, or it's 11pm on a Sunday — your AI receptionist answers instantly, sounds professional, and handles the conversation.",
+      "You're busy on a job. Your AI receptionist answers instantly, professionally, 24/7.",
     icon: Phone,
   },
   {
     number: '02',
-    name: 'Lead is Captured',
+    name: 'Lead Captured',
     description:
-      "The caller's details, their enquiry, and their intent are automatically saved into your CRM. Every lead is logged — nothing slips through.",
+      "Details are logged in your CRM. If you miss a call, they get an instant text back.",
     icon: UserCheck,
   },
   {
     number: '03',
-    name: 'Automatic SMS Follow-Up',
+    name: 'Job Booked',
     description:
-      'If a call is missed, the customer immediately receives a text: "Sorry we missed you — here\'s how to book or get a quote." Most reply within minutes.',
-    icon: MessageSquare,
-  },
-  {
-    number: '04',
-    name: 'Job Gets Booked',
-    description:
-      'The system sends appointment reminders, confirms bookings, and keeps your diary full — without you lifting a finger.',
+      "The system qualifies the lead and books the appointment directly into your calendar.",
     icon: CalendarCheck,
   },
   {
-    number: '05',
-    name: 'Review Request Sent',
+    number: '04',
+    name: 'Reviews Grown',
     description:
-      'After the job is done, an automated message asks the customer to leave a Google review. More reviews means higher Google rankings and more inbound leads.',
+      "After the job, we automatically text the customer asking for a 5-star Google review.",
     icon: Star,
   },
 ]
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 sm:py-32 relative overflow-hidden">
-      {/* Background mesh */}
-      <div className="absolute inset-0 bg-surface/50 -z-10"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[100px] -z-10"></div>
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+    <section id="how-it-works" className="py-24 bg-surface">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center mb-16">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             How It Works
           </h2>
-          <p className="mt-4 text-lg text-gray-400">
-            From first call to 5-star review — your entire customer journey, automated.
+          <p className="mt-4 text-lg text-slate-600">
+            A simple system that runs in the background while you work.
           </p>
         </div>
 
-        <div className="mx-auto mt-16 max-w-3xl space-y-4">
-          {steps.map((step, index) => (
-            <div
-              key={step.name}
-              className="group glass-card flex gap-5 p-6 rounded-2xl hover:border-primary/50 hover:shadow-glow transition-all duration-300"
-            >
-              {/* Step icon */}
-              <div className="relative flex-shrink-0 h-14 w-14 flex items-center justify-center rounded-2xl bg-surface border border-white/10 shadow-lg shadow-primary/10 group-hover:scale-110 group-hover:border-primary/50 transition-all duration-300 z-10">
-                <step.icon className="h-6 w-6 text-primary" />
-                <div className="absolute inset-0 rounded-2xl bg-primary/10 blur-md group-hover:opacity-100 opacity-0 transition-opacity"></div>
-              </div>
+        <div className="relative">
+          {/* Connector Line (Desktop) */}
+          <div className="hidden lg:block absolute top-12 left-0 right-0 h-0.5 bg-slate-200 -z-10 w-[80%] mx-auto"></div>
 
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-3 mb-1">
-                  <span className="text-xs font-bold text-primary/60 uppercase tracking-widest">
-                    Step {step.number}
-                  </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {steps.map((step, index) => (
+              <div key={step.name} className="relative flex flex-col items-center text-center">
+                <div className="w-24 h-24 rounded-full bg-white border-4 border-surface flex items-center justify-center shadow-sm mb-6 z-10">
+                  <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center text-primary">
+                    <step.icon className="h-8 w-8" />
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold text-white group-hover:text-primary transition-colors mb-2">
-                  {step.name}
-                </h3>
-                <p className="text-gray-400 leading-relaxed text-sm group-hover:text-gray-300">
-                  {step.description}
-                </p>
+                
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{step.name}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed max-w-xs">{step.description}</p>
               </div>
-
-              {/* Arrow connector between steps */}
-              {index < steps.length - 1 && (
-                <div className="hidden lg:flex absolute left-[2.75rem] mt-20 text-primary/20 text-xl pointer-events-none select-none">
-                  ↓
-                </div>
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

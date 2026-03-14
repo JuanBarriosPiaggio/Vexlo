@@ -4,69 +4,66 @@ const benefits = [
   {
     name: 'Never Miss Another Call',
     description:
-      'Your AI receptionist answers every call, day or night, even while your team is on the job. No more voicemails customers never leave.',
+      'Your AI receptionist answers every call, day or night. No more voicemails that customers never leave.',
     icon: PhoneCall,
     stat: '100%',
-    statLabel: 'call answer rate',
+    statLabel: 'Answer Rate',
   },
   {
     name: 'More Booked Jobs',
     description:
-      'Every enquiry is captured, followed up automatically, and guided towards booking — turning callers into confirmed customers.',
+      'Every enquiry is captured and guided towards booking. Turn casual callers into confirmed customers.',
     icon: TrendingUp,
     stat: '3×',
-    statLabel: 'more leads captured',
+    statLabel: 'More Leads',
   },
   {
     name: 'Higher Google Rankings',
     description:
-      'After every completed job, your system automatically requests a Google review. More 5-star reviews mean more local visibility.',
+      'Automatically request 5-star reviews after every job. Boost your local SEO without lifting a finger.',
     icon: Star,
     stat: '5×',
-    statLabel: 'more reviews generated',
+    statLabel: 'More Reviews',
   },
   {
     name: 'Less Time on the Phone',
     description:
-      'Stop answering repetitive calls about pricing and availability. Your AI handles FAQs and bookings so you can focus on the work.',
+      'Stop answering repetitive questions about pricing. Your AI handles FAQs so you can focus on the work.',
     icon: Clock,
     stat: '8hrs',
-    statLabel: 'saved per week on average',
+    statLabel: 'Saved / Week',
   },
 ]
 
 export default function Benefits() {
   return (
-    <section className="py-24 sm:py-32 relative">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px] -z-10"></div>
-
+    <section className="py-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            More Jobs. Fewer Missed Calls. Better Reviews.
+        <div className="mx-auto max-w-2xl text-center mb-16">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            More Jobs. Fewer Missed Calls.
           </h2>
-          <p className="mt-4 text-lg text-gray-400">
-            Vexlo is built for UK trades, clinics, and service businesses that live and die by the phone.
+          <p className="mt-4 text-lg text-slate-600">
+            Vexlo is built for UK trades and service businesses. We handle the admin so you can handle the work.
           </p>
         </div>
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
             <div
               key={benefit.name}
-              className="glass-card group flex flex-col items-center text-center p-8 rounded-2xl hover:border-primary/50 hover:shadow-glow transition-all duration-300 transform hover:-translate-y-2"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group p-8 rounded-2xl bg-white border border-slate-100 shadow-clean hover:shadow-clean-lg transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="rounded-xl bg-white/5 p-4 mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg border border-white/10 group-hover:border-primary/50 group-hover:bg-primary/20">
-                <benefit.icon className="h-8 w-8 text-primary group-hover:text-white transition-colors" />
+              <div className="mb-6 inline-flex p-3 rounded-xl bg-blue-50 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                <benefit.icon className="h-6 w-6" />
               </div>
-              <div className="mb-3">
-                <span className="text-3xl font-bold text-primary">{benefit.stat}</span>
-                <p className="text-xs text-gray-500 uppercase tracking-wide mt-1">{benefit.statLabel}</p>
+              <div className="mb-4">
+                <span className="text-3xl font-bold text-slate-900">{benefit.stat}</span>
+                <p className="text-xs text-slate-500 font-semibold uppercase tracking-wide">{benefit.statLabel}</p>
               </div>
-              <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-primary transition-colors">
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">
                 {benefit.name}
               </h3>
-              <p className="text-gray-400 leading-relaxed text-sm group-hover:text-gray-300">
+              <p className="text-slate-600 text-sm leading-relaxed">
                 {benefit.description}
               </p>
             </div>
