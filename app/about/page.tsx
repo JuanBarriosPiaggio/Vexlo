@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="bg-background min-h-screen text-white">
+    <div className="bg-white min-h-screen text-slate-900">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -64,23 +64,20 @@ export default function AboutPage() {
         <About />
 
         {/* CTA Section */}
-        <section className="py-24 sm:py-32 relative overflow-hidden">
-          <div className="absolute inset-0 bg-primary/10 backdrop-blur-3xl"></div>
-
+        <section className="py-24 sm:py-32 relative overflow-hidden bg-slate-50">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
                 Ready to Transform Your Business?
               </h2>
-              <p className="mt-4 text-lg text-gray-300">
+              <p className="mt-4 text-lg text-slate-600">
                 Let&apos;s discuss how my 16+ years of experience can help automate your operations and drive growth.
               </p>
               <div className="mt-10">
                 <Link
                   href="/enquiry"
-                  className="group relative rounded-xl bg-gradient-to-r from-secondary to-primary px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all transform hover:scale-105 hover:-translate-y-1 inline-flex items-center gap-2 overflow-hidden"
+                  className="group relative rounded-xl bg-primary px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-dark transition-all transform hover:scale-105 hover:-translate-y-1 inline-flex items-center gap-2 overflow-hidden"
                 >
-                  <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   <span className="relative">Get Started Today</span>
                   <ArrowRight size={20} className="relative group-hover:translate-x-1 transition-transform" />
                 </Link>

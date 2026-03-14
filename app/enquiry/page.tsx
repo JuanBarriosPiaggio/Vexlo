@@ -32,22 +32,18 @@ export const metadata: Metadata = {
 
 export default function EnquiryPage() {
   return (
-    <div className="bg-background min-h-screen text-white relative">
-      {/* Background glow */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px] pointer-events-none"></div>
-
+    <div className="bg-white min-h-screen text-slate-900 relative">
       <section className="py-24 sm:py-32 relative z-10">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl drop-shadow-lg">
+            <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
               Get Started
             </h1>
-            <p className="mt-4 text-lg text-gray-400">
+            <p className="mt-4 text-lg text-slate-600">
               Tell us about your business and automation needs. We&apos;ll get back to you within 24 hours with a tailored solution.
             </p>
           </div>
-          <div className="glass-card rounded-2xl p-8 shadow-2xl border border-white/10">
+          <div className="bg-white rounded-2xl p-8 shadow-clean-lg border border-slate-100">
             <EnquiryForm />
           </div>
         </div>

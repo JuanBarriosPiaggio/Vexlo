@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Phone, MessageSquare, Star, CheckCircle } from 'lucide-react'
-import HeroContactForm from '@/components/HeroContactForm'
 
 export default function Hero() {
   return (

@@ -45,14 +45,10 @@ export async function POST(request: NextRequest) {
     
     const enquiry = {
       fullName: data.fullName,
-      companyName: data.companyName,
       email: data.email,
-      phoneNumber: data.phoneNumber || null,
-      companySize: data.companySize,
-      currentTools: data.currentTools || null,
-      automationNeeds: data.automationNeeds,
-      monthlyRevenue: data.monthlyRevenue,
-      referralSource: data.referralSource,
+      industryType: data.industryType,
+      companyName: data.companyName || null,
+      message: data.message,
       submittedAt: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
