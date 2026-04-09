@@ -1,21 +1,53 @@
-# Vexlo - Business Automation for UK SMBs
+# Vexlo — AI Receptionist & Missed Call Automation for UK Trades & Clinics
 
 ## About
-Vexlo provides intelligent business automation solutions for UK small and medium businesses. We help automate workflows, reduce errors, and scale efficiently.
+Vexlo helps UK trade businesses and clinics stop losing jobs to missed calls. Our AI bot texts back every missed call within 4 seconds, books the appointment automatically, and chases Google reviews after every job — 24/7, no staff needed.
 
-## Services
-- Sales Automation
-- Operations Automation
-- Finance Automation
-- HR Automation
+First month is completely free. No contracts. No setup fees.
 
-## Contact
-Email: info@vexlo.co.uk
-Website: https://vexlo.co.uk
+## Core Services
+- Missed call text-back (AI responds within 4 seconds, 24/7)
+- Automated appointment booking (self-booking link via SMS)
+- Google review request automation (sent after every completed job)
+- Real-time lead notifications
+- Custom AI messaging (written to match your business tone)
+- Full GHL dashboard with lead and revenue tracking
+
+## Who We Serve
+Vexlo is built for UK service businesses that rely on inbound calls:
+- Roofers
+- Plumbers
+- Electricians
+- Kitchen fitters
+- Dental practices
+- Salons and barbers
+- Estate agents
+- Physiotherapy and wellness clinics
+- Cleaning companies
+- Property maintenance businesses
+- Any trade or service business that misses calls while working
 
 ## Key Pages
 - Home: https://vexlo.co.uk
 - Services: https://vexlo.co.uk/services
-- Get Started: https://vexlo.co.uk/enquiry
+- About: https://vexlo.co.uk/about
+- Book a Demo: https://vexlo.co.uk/#book
+- Enquiry Form: https://vexlo.co.uk/enquiry
 - Privacy Policy: https://vexlo.co.uk/privacy
 
+## Niche Landing Pages
+- AI Receptionist for Roofers: https://vexlo.co.uk/ai-receptionist-roofing-companies
+- AI Receptionist for Plumbers: https://vexlo.co.uk/ai-receptionist-plumbers
+- AI Receptionist for Electricians: https://vexlo.co.uk/ai-receptionist-electricians
+- AI Receptionist for Kitchen Fitters: https://vexlo.co.uk/ai-receptionist-kitchen-fitters
+- AI Receptionist for Dentists: https://vexlo.co.uk/ai-receptionist-dentists
+- AI Receptionist for Salons & Barbers: https://vexlo.co.uk/ai-receptionist-salons-barbers
+- AI Receptionist for Estate Agents: https://vexlo.co.uk/ai-receptionist-estate-agents
+- AI Receptionist for Physio & Wellness: https://vexlo.co.uk/ai-receptionist-physio-wellness
+- AI Receptionist for Cleaning Companies: https://vexlo.co.uk/ai-receptionist-cleaning-companies
+- AI Receptionist for Property Maintenance: https://vexlo.co.uk/ai-receptionist-property-maintenance
+
+## Contact
+Email: hello@mail.vexlo.co.uk
+Website: https://vexlo.co.uk
+Book a demo: https://calendly.com/j-b-piaggio/demo-call
