@@ -51,7 +51,7 @@ export default function About() {
             alt="Juan Barrios — Founder of Vexlo"
             width={500}
             height={600}
-            className="rounded-2xl w-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+            className="rounded-2xl w-full object-cover transition-all duration-500"
             style={{ maxHeight: '500px' }}
           />
         </div>
