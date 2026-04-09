@@ -9,45 +9,37 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#FFFFFF', // Clean White
-        surface: '#F3F4F6', // Light Gray-50/100
+        background: '#0a0a0a',
+        surface: '#111111',
+        'surface-2': '#1a1a1a',
+        'surface-3': '#242424',
+        'border-dark': '#2a2a2a',
         primary: {
-          DEFAULT: '#2563EB', // Royal Blue
-          light: '#60A5FA',
-          dark: '#1E40AF',
+          DEFAULT: '#d97706',
+          light: '#f59e0b',
+          dark: '#b45309',
         },
-        secondary: {
-          DEFAULT: '#0F172A', // Slate 900
-          light: '#334155',
-          dark: '#020617',
-        },
-        accent: {
-          DEFAULT: '#F97316', // Orange 500
-          light: '#FB923C',
-          dark: '#EA580C',
-        },
-        // Keeping gray scale for text
+        'text-base': '#e8e8e8',
+        'text-muted': '#888888',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-      },
-      boxShadow: {
-        'clean': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
-        'clean-lg': '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025)',
+        sans: ['DM Sans', 'system-ui', 'sans-serif'],
+        display: ['Bebas Neue', 'sans-serif'],
+        serif: ['Instrument Serif', 'serif'],
       },
       animation: {
-        'fade-in': 'fadeIn 0.5s ease-in',
+        'float': 'floatBadge 4s ease-in-out infinite',
+        'float-delayed': 'floatBadge 4s 1s ease-in-out infinite',
+        'hero-glow': 'heroGlowPulse 6s ease-in-out infinite',
       },
       keyframes: {
-        fadeIn: {
-          '0%': {
-            opacity: '0',
-            transform: 'translateY(10px)',
-          },
-          '100%': {
-            opacity: '1',
-            transform: 'translateY(0)',
-          },
+        floatBadge: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-8px)' },
+        },
+        heroGlowPulse: {
+          '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+          '50%': { transform: 'scale(1.1)', opacity: '0.7' },
         },
       },
     },

@@ -1,91 +1,71 @@
 import type { Metadata } from 'next'
 import About from '@/components/About'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 
 export const metadata: Metadata = {
-  title: 'About Vexlo - Meet Your Automation Expert',
-  description: 'Learn about Juan, Engineering Manager with 16+ years of experience in business automation. Trusted by UK SMBs to deliver intelligent automation solutions.',
-  openGraph: {
-    title: 'About Vexlo - Meet Your Automation Expert',
-    description: '16+ years of experience transforming businesses through intelligent automation. Trusted by UK SMBs.',
-    url: `${siteUrl}/about`,
-    images: [
-      {
-        url: `${siteUrl}/Vexlo_logo.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Vexlo - About',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'About Vexlo - Meet Your Automation Expert',
-    description: '16+ years of experience transforming businesses through intelligent automation.',
-    images: [`${siteUrl}/Vexlo_logo.png`],
-  },
-  alternates: {
-    canonical: `${siteUrl}/about`,
-  },
+  title: 'About — Vexlo AI Automation for UK Trades & Clinics',
+  description: 'Meet the team behind Vexlo. We build AI automation for UK trades and clinics — missed call text-back, automated booking, and Google review generation.',
+  keywords: ['about Vexlo', 'AI automation company UK', 'Juan Barrios Vexlo', 'UK trade automation'],
 }
 
 export default function AboutPage() {
   return (
-    <div className="bg-white min-h-screen text-slate-900">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'AboutPage',
-            name: 'About Vexlo',
-            description: 'Learn about Juan, Engineering Manager with 16+ years of experience in business automation.',
-            url: `${siteUrl}/about`,
-            mainEntity: {
-              '@type': 'Person',
-              name: 'Juan',
-              jobTitle: 'Engineering Manager & Automation Expert',
-              description: 'Methodical, innovative, and vision-driven Engineering Manager with 16+ years of experience transforming businesses through intelligent automation.',
-              knowsAbout: [
-                'Business Automation',
-                'Workflow Automation',
-                'AI and LLM Integration',
-                'System Integration',
-                'Process Optimization',
-              ],
-            },
-          }),
-        }}
-      />
-      <div className="pt-20">
-        <About />
+    <div style={{ background: '#0a0a0a', minHeight: '100vh' }}>
+      <section
+        className="pt-36 pb-16 px-6 md:px-10 text-center relative overflow-hidden"
+        style={{ background: '#0a0a0a' }}
+      >
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{ background: 'radial-gradient(ellipse at center top, rgba(217,119,6,0.06) 0%, transparent 60%)' }}
+        />
+        <div className="max-w-2xl mx-auto relative z-10">
+          <div className="section-tag" style={{ textAlign: 'center' }}>Our Story</div>
+          <h1
+            className="font-display text-white mt-2"
+            style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', lineHeight: 1, letterSpacing: '0.02em' }}
+          >
+            We built the bot we{' '}
+            <span className="font-serif" style={{ color: '#d97706', fontStyle: 'italic' }}>
+              wished existed.
+            </span>
+          </h1>
+        </div>
+      </section>
 
-        {/* CTA Section */}
-        <section className="py-24 sm:py-32 relative overflow-hidden bg-slate-50">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                Ready to Transform Your Business?
-              </h2>
-              <p className="mt-4 text-lg text-slate-600">
-                Let&apos;s discuss how my 16+ years of experience can help automate your operations and drive growth.
-              </p>
-              <div className="mt-10">
-                <Link
-                  href="/enquiry"
-                  className="group relative rounded-xl bg-primary px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-dark transition-all transform hover:scale-105 hover:-translate-y-1 inline-flex items-center gap-2 overflow-hidden"
-                >
-                  <span className="relative">Get Started Today</span>
-                  <ArrowRight size={20} className="relative group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+      <section style={{ padding: '40px 40px 100px' }}>
+        <div className="max-w-6xl mx-auto">
+          <About />
+        </div>
+      </section>
+
+      <section
+        className="px-6 md:px-10 py-24 text-center relative overflow-hidden"
+        style={{ background: '#111111' }}
+      >
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{ background: 'radial-gradient(ellipse at center, rgba(217,119,6,0.07) 0%, transparent 70%)' }}
+        />
+        <div className="max-w-2xl mx-auto relative z-10">
+          <h2
+            className="font-display text-white mb-4"
+            style={{ fontSize: 'clamp(2.5rem, 4vw, 4rem)', lineHeight: 1, letterSpacing: '0.02em' }}
+          >
+            Let&apos;s talk about your business.
+          </h2>
+          <p className="mb-10 text-base" style={{ color: '#888' }}>
+            Book a free 15-minute demo. No pressure, no pitch — just a live look at how Vexlo works.
+          </p>
+          <Link
+            href="/#book"
+            className="inline-flex items-center px-8 py-4 rounded text-sm font-bold tracking-wide text-white transition-all duration-200 hover:brightness-110"
+            style={{ background: '#d97706' }}
+          >
+            Book Your Free Demo →
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

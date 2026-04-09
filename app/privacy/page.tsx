@@ -3,122 +3,101 @@ import type { Metadata } from 'next'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Vexlo Business Automation',
-  description: 'Privacy policy for Vexlo business automation services. Learn how we collect, use, and protect your information. GDPR compliant data handling for UK businesses.',
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
-    title: 'Privacy Policy | Vexlo Business Automation',
-    description: 'Privacy policy for Vexlo business automation services. GDPR compliant data handling for UK businesses.',
-    url: `${siteUrl}/privacy`,
-    images: [
-      {
-        url: `${siteUrl}/Vexlo_logo.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Vexlo Privacy Policy',
-      },
-    ],
-  },
-  alternates: {
-    canonical: `${siteUrl}/privacy`,
-  },
+  title: 'Privacy Policy | Vexlo AI Automation',
+  description: 'Privacy policy for Vexlo AI automation services. GDPR compliant data handling for UK businesses.',
+  robots: { index: true, follow: true },
+  alternates: { canonical: `${siteUrl}/privacy` },
 }
 
 export default function PrivacyPage() {
   return (
-    <div className="bg-white">
-      <section className="py-16 sm:py-24">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 mb-8">
+    <div style={{ background: '#0a0a0a', minHeight: '100vh' }}>
+      <section className="pt-36 pb-24 px-6 md:px-10">
+        <div className="max-w-3xl mx-auto">
+          <div className="section-tag">Legal</div>
+          <h1
+            className="font-display text-white mt-2 mb-4"
+            style={{ fontSize: 'clamp(2.5rem, 4vw, 4rem)', lineHeight: 1, letterSpacing: '0.02em' }}
+          >
             Privacy Policy
           </h1>
-          <div className="prose prose-lg max-w-none">
-            <p className="text-gray-600 mb-4">
-              <strong>Last updated:</strong> {new Date().toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </p>
+          <p className="text-xs mb-12" style={{ color: '#888' }}>
+            Last updated:{' '}
+            {new Date().toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </p>
 
-            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
-              Introduction
-            </h2>
-            <p className="text-gray-600 mb-4">
-              Vexlo (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
-            </p>
-
-            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
-              Information We Collect
-            </h2>
-            <p className="text-gray-600 mb-4">
-              We collect information that you provide directly to us, including:
-            </p>
-            <ul className="list-disc pl-6 text-gray-600 mb-4">
-              <li>Name and contact information (email, phone number)</li>
-              <li>Company name and details</li>
-              <li>Business information (company size, revenue, current tools)</li>
-              <li>Automation needs and requirements</li>
-            </ul>
-
-            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
-              How We Use Your Information
-            </h2>
-            <p className="text-gray-600 mb-4">
-              We use the information we collect to:
-            </p>
-            <ul className="list-disc pl-6 text-gray-600 mb-4">
-              <li>Respond to your enquiries and provide our services</li>
-              <li>Improve our website and services</li>
-              <li>Send you updates and marketing communications (with your consent)</li>
-              <li>Comply with legal obligations</li>
-            </ul>
-
-            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
-              Data Storage and Security
-            </h2>
-            <p className="text-gray-600 mb-4">
-              We store your data securely using industry-standard security measures. Your data is stored in a PostgreSQL database hosted on Railway, and we take appropriate technical and organisational measures to protect your personal information.
-            </p>
-
-            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
-              Your Rights
-            </h2>
-            <p className="text-gray-600 mb-4">
-              Under UK GDPR, you have the right to:
-            </p>
-            <ul className="list-disc pl-6 text-gray-600 mb-4">
-              <li>Access your personal data</li>
-              <li>Rectify inaccurate data</li>
-              <li>Request erasure of your data</li>
-              <li>Object to processing of your data</li>
-              <li>Data portability</li>
-            </ul>
-            <p className="text-gray-600 mb-4">
-              To exercise these rights, please contact us at info@vexlo.co.uk
-            </p>
-
-            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
-              Cookies
-            </h2>
-            <p className="text-gray-600 mb-4">
-              We use cookies to improve your experience on our website. You can control cookie preferences through your browser settings.
-            </p>
-
-            <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
-              Contact Us
-            </h2>
-            <p className="text-gray-600 mb-4">
-              If you have any questions about this Privacy Policy, please contact us at:
-            </p>
-            <p className="text-gray-600 mb-4">
-              Email: info@vexlo.co.uk<br />
-              Website: https://vexlo.co.uk
-            </p>
+          <div className="space-y-10">
+            {[
+              {
+                title: 'Introduction',
+                content: 'Vexlo ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.',
+              },
+              {
+                title: 'Information We Collect',
+                content: 'We collect information that you provide directly to us, including:',
+                list: [
+                  'Name and contact information (email, phone number)',
+                  'Company name and details',
+                  'Business information (company size, revenue)',
+                  'Automation needs and requirements',
+                ],
+              },
+              {
+                title: 'How We Use Your Information',
+                content: 'We use the information we collect to:',
+                list: [
+                  'Respond to your enquiries and provide our services',
+                  'Improve our website and services',
+                  'Send you updates and marketing communications (with your consent)',
+                  'Comply with legal obligations',
+                ],
+              },
+              {
+                title: 'Data Storage and Security',
+                content: 'We store your data securely using industry-standard security measures. We take appropriate technical and organisational measures to protect your personal information.',
+              },
+              {
+                title: 'Your Rights (UK GDPR)',
+                content: 'Under UK GDPR, you have the right to:',
+                list: [
+                  'Access your personal data',
+                  'Rectify inaccurate data',
+                  'Request erasure of your data',
+                  'Object to processing of your data',
+                  'Data portability',
+                ],
+              },
+              {
+                title: 'Cookies',
+                content: 'We use cookies to improve your experience on our website. You can control cookie preferences through the banner at the bottom of the page.',
+              },
+              {
+                title: 'Contact Us',
+                content: 'If you have any questions about this Privacy Policy, please contact us at hello@mail.vexlo.co.uk',
+              },
+            ].map((section, i) => (
+              <div key={i}>
+                <h2 className="font-bold text-base mb-3" style={{ color: '#fff' }}>
+                  {section.title}
+                </h2>
+                <p className="text-sm leading-relaxed mb-3" style={{ color: '#888' }}>
+                  {section.content}
+                </p>
+                {section.list && (
+                  <ul className="flex flex-col gap-2">
+                    {section.list.map((item, j) => (
+                      <li key={j} className="flex items-start gap-2 text-sm" style={{ color: '#888' }}>
+                        <span style={{ color: '#d97706', marginTop: '2px' }}>›</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
     </div>
   )
 }
-
-

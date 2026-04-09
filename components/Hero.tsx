@@ -1,95 +1,107 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import { ArrowRight, Phone, MessageSquare, Star, CheckCircle } from 'lucide-react'
+import PhoneMockup from './PhoneMockup'
 
 export default function Hero() {
   return (
-    <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Text */}
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-primary text-sm font-medium mb-6">
-              <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
-              24/7 AI Receptionist & Automation
-            </div>
-            
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6 leading-tight">
-              Turn Missed Calls Into <span className="text-primary">Booked Jobs</span> Automatically
-            </h1>
-            
-            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              Stop losing customers to voicemail. Vexlo answers every call, texts back instantly, and books appointments 24/7 — so you can focus on the work that pays.
-            </p>
+    <section
+      className="hero-grid relative min-h-screen flex items-center px-6 md:px-10 pt-28 pb-20 overflow-hidden"
+      style={{ background: '#0a0a0a' }}
+    >
+      {/* Orange glow blob */}
+      <div
+        className="pointer-events-none absolute"
+        style={{
+          width: '600px',
+          height: '600px',
+          background: 'radial-gradient(circle, rgba(217,119,6,0.1) 0%, transparent 70%)',
+          top: '-100px',
+          right: '-100px',
+          animation: 'heroGlowPulse 6s ease-in-out infinite',
+        }}
+      />
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <Link
-                href="/enquiry"
-                className="inline-flex items-center justify-center px-6 py-3.5 text-base font-semibold text-white bg-primary rounded-xl hover:bg-primary-dark transition-all shadow-lg shadow-blue-500/20 hover:shadow-xl hover:-translate-y-0.5"
-              >
-                Book a Free Demo
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link
-                href="#how-it-works"
-                className="inline-flex items-center justify-center px-6 py-3.5 text-base font-semibold text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 transition-all hover:border-slate-300"
-              >
-                See How It Works
-              </Link>
-            </div>
-
-            <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-500 font-medium">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                <span>Answers 24/7</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                <span>Instant Text-Back</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                <span>Google Reviews</span>
-              </div>
-            </div>
+      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 items-center relative z-10">
+        {/* LEFT: Text */}
+        <div>
+          <div
+            className="anim-1 inline-flex items-center gap-2 mb-6 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase"
+            style={{
+              background: 'rgba(217,119,6,0.12)',
+              border: '1px solid rgba(217,119,6,0.3)',
+              color: '#d97706',
+            }}
+          >
+            <span style={{ fontSize: '0.5rem', animation: 'blinkDot 1.5s infinite' }}>●</span>
+            First Month Free — No Contracts
           </div>
 
-          {/* Right Column: Image */}
-          <div className="relative lg:h-[600px] w-full flex items-center justify-center lg:justify-end">
-            <div className="relative w-full max-w-[500px] aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl shadow-slate-200 border border-slate-100">
-              <Image 
-                src="/images/hero.jpg"
-                alt="Professional receptionist on phone"
-                fill
-                className="object-cover"
-                priority
-              />
-              {/* Floating Badge */}
-              <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-slate-100">
-                <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center">
-                    <Phone className="h-5 w-5 text-green-600" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-slate-900">New Lead Captured</p>
-                    <p className="text-xs text-slate-500">Just now • from Missed Call</p>
-                  </div>
+          <h1
+            className="anim-2 font-display text-white mb-2 leading-none tracking-wide"
+            style={{ fontSize: 'clamp(3.5rem, 6vw, 5.5rem)', letterSpacing: '0.02em' }}
+          >
+            Stop losing<br />jobs to<br />
+            <span
+              className="font-serif"
+              style={{ color: '#d97706', fontStyle: 'italic', fontSize: '1.1em' }}
+            >
+              voicemail.
+            </span>
+          </h1>
+
+          <p className="anim-3 text-base leading-relaxed mt-5 mb-9 max-w-md" style={{ color: '#888' }}>
+            Our AI bot texts back every missed call within seconds, books the appointment automatically, and chases Google reviews after every job. Runs 24/7 — no staff, no effort.
+          </p>
+
+          <div className="anim-4 flex flex-wrap gap-3">
+            <Link
+              href="/#book"
+              className="inline-flex items-center px-7 py-3.5 rounded text-sm font-bold tracking-wide transition-all duration-200 hover:brightness-110 hover:-translate-y-px"
+              style={{ background: '#d97706', color: '#fff' }}
+            >
+              Book a 15-Min Demo →
+            </Link>
+            <Link
+              href="/#how"
+              className="inline-flex items-center px-7 py-3.5 rounded text-sm font-semibold transition-all duration-200 hover:text-white"
+              style={{
+                background: 'transparent',
+                border: '1px solid #2a2a2a',
+                color: '#e8e8e8',
+              }}
+            >
+              See How It Works
+            </Link>
+          </div>
+
+          <div className="anim-5 flex items-center gap-3 mt-7">
+            <div className="flex">
+              {[
+                { bg: '#d97706', letter: 'R' },
+                { bg: '#16a34a', letter: 'K' },
+                { bg: '#2563eb', letter: 'D' },
+              ].map((a, i) => (
+                <div
+                  key={i}
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white"
+                  style={{
+                    background: a.bg,
+                    border: '2px solid #0a0a0a',
+                    marginLeft: i === 0 ? 0 : '-8px',
+                  }}
+                >
+                  {a.letter}
                 </div>
-              </div>
+              ))}
             </div>
-            
-            {/* Form Overlay (Mobile only or specific layout? Let's hide form here and put it below or use modal) 
-                Actually, putting the form IN the hero is good for conversion. 
-                Let's replace the image with the Form on desktop? Or put form below?
-                The design requested "Aesthetically appealing". 
-                Side-by-side Text + Image is very standard and appealing. 
-                Let's keep the image and make the CTA open the form or scroll to it.
-                Wait, the previous design had the form IN the hero.
-                Let's put the form below the hero text on mobile, or replace the image with the form on the right side?
-                Let's replace the image with the form for maximum conversion? No, image builds trust.
-                Let's stick to Text + Image for aesthetics, and have the CTA go to /enquiry page.
-            */}
+            <p className="text-xs" style={{ color: '#888' }}>
+              Trusted by <strong style={{ color: '#e8e8e8' }}>roofers, kitchen fitters & dentists</strong> across the UK
+            </p>
           </div>
+        </div>
+
+        {/* RIGHT: Phone */}
+        <div className="anim-6 flex justify-center md:justify-end">
+          <PhoneMockup />
         </div>
       </div>
     </section>

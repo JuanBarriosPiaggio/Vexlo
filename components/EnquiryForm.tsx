@@ -1,97 +1,72 @@
 'use client'
 
 import { useState } from 'react'
-import { Loader2, CheckCircle2 } from 'lucide-react'
-import type { EnquiryFormData } from '@/lib/validations'
 
-interface FormErrors {
-  [key: string]: string
+interface FormData {
+  fullName: string
+  email: string
+  companyName: string
+  companySize: string
+  monthlyRevenue: string
+  automationNeeds: string
+  referralSource: string
+}
+
+const initialData: FormData = {
+  fullName: '',
+  email: '',
+  companyName: '',
+  companySize: '',
+  monthlyRevenue: '',
+  automationNeeds: '',
+  referralSource: '',
+}
+
+const inputStyle = {
+  width: '100%',
+  background: '#1a1a1a',
+  border: '1px solid #2a2a2a',
+  borderRadius: '6px',
+  padding: '12px 14px',
+  color: '#e8e8e8',
+  fontSize: '0.9rem',
+  outline: 'none',
+}
+
+const labelStyle = {
+  display: 'block',
+  fontSize: '0.8rem',
+  fontWeight: 600,
+  color: '#888',
+  marginBottom: '6px',
+  letterSpacing: '0.02em',
 }
 
 export default function EnquiryForm() {
-  const [formData, setFormData] = useState<Partial<EnquiryFormData>>({
-    fullName: '',
-    email: '',
-    industryType: '',
-    companyName: '',
-    message: '',
-  })
-  const [errors, setErrors] = useState<FormErrors>({})
+  const [formData, setFormData] = useState<FormData>(initialData)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }))
-    }
-  }
-
-  const validate = (): boolean => {
-    const newErrors: FormErrors = {}
-
-    if (!formData.fullName || formData.fullName.length < 2) {
-      newErrors.fullName = 'Full name must be at least 2 characters'
-    }
-
-    if (!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address'
-    }
-
-    if (!formData.industryType || formData.industryType.length < 2) {
-      newErrors.industryType = 'Industry type is required'
-    }
-
-    if (!formData.message || formData.message.length < 10) {
-      newErrors.message =
-        'Please provide at least 10 characters describing your enquiry'
-    }
-
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-
-    if (!validate()) {
-      return
-    }
-
     setIsSubmitting(true)
-    setErrors({})
-
     try {
       const response = await fetch('/api/enquiry', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
-
       const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Something went wrong')
-      }
-
+      if (!response.ok) throw new Error(data.error || 'Failed to submit')
       setIsSuccess(true)
-      setFormData({
-        fullName: '',
-        email: '',
-        industryType: '',
-        companyName: '',
-        message: '',
-      })
     } catch (error) {
-      setErrors({
-        submit: error instanceof Error ? error.message : 'Failed to submit enquiry. Please try again.',
-      })
+      alert(error instanceof Error ? error.message : 'Something went wrong. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -99,153 +74,89 @@ export default function EnquiryForm() {
 
   if (isSuccess) {
     return (
-      <div className="rounded-xl bg-green-50 border border-green-200 p-8 text-center shadow-sm">
-        <CheckCircle2 className="mx-auto h-12 w-12 text-green-600 mb-4" />
-        <h3 className="text-xl font-semibold text-slate-900 mb-2">
-          Thank You!
+      <div
+        className="text-center p-12 rounded-2xl"
+        style={{ background: '#111111', border: '1px solid #2a2a2a' }}
+      >
+        <div className="text-5xl mb-4">✅</div>
+        <h3 className="font-display text-white mb-3" style={{ fontSize: '2rem' }}>
+          Enquiry Received!
         </h3>
-        <p className="text-slate-600">
-          We&apos;ve received your enquiry and will get back to you within 24 hours.
+        <p className="text-sm" style={{ color: '#888' }}>
+          We&apos;ll be in touch within 24 hours.
         </p>
       </div>
     )
   }
 
-  const inputClasses = `w-full rounded-lg border bg-white px-4 py-3 text-slate-900 placeholder-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/20 border-slate-200 focus:border-primary hover:border-slate-300`
-
-  const errorInputClasses = `border-red-500 focus:border-red-500 focus:ring-red-500/20`
-
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+    <form
+      onSubmit={handleSubmit}
+      className="p-8 rounded-2xl"
+      style={{ background: '#111111', border: '1px solid #2a2a2a' }}
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
         <div>
-          <label
-            htmlFor="fullName"
-            className="block text-sm font-medium text-slate-700 mb-2"
-          >
-            Full Name <span className="text-primary">*</span>
-          </label>
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            className={`${inputClasses} ${errors.fullName ? errorInputClasses : ''}`}
-            required
-            placeholder="John Doe"
-          />
-          {errors.fullName && (
-            <p className="mt-1 text-sm text-red-500">{errors.fullName}</p>
-          )}
+          <label style={labelStyle}>Full Name *</label>
+          <input name="fullName" type="text" required placeholder="John Smith" value={formData.fullName} onChange={handleChange} style={inputStyle} />
         </div>
-
         <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-slate-700 mb-2"
-          >
-            Email <span className="text-primary">*</span>
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className={`${inputClasses} ${errors.email ? errorInputClasses : ''}`}
-            required
-            placeholder="john@example.com"
-          />
-          {errors.email && (
-            <p className="mt-1 text-sm text-red-500">{errors.email}</p>
-          )}
+          <label style={labelStyle}>Email Address *</label>
+          <input name="email" type="email" required placeholder="john@example.com" value={formData.email} onChange={handleChange} style={inputStyle} />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
         <div>
-          <label
-            htmlFor="industryType"
-            className="block text-sm font-medium text-slate-700 mb-2"
-          >
-            Industry Type <span className="text-primary">*</span>
-          </label>
-          <input
-            type="text"
-            id="industryType"
-            name="industryType"
-            value={formData.industryType}
-            onChange={handleChange}
-            className={`${inputClasses} ${errors.industryType ? errorInputClasses : ''}`}
-            required
-            placeholder="e.g. Plumbing, Dental, Real Estate"
-          />
-          {errors.industryType && (
-            <p className="mt-1 text-sm text-red-500">{errors.industryType}</p>
-          )}
+          <label style={labelStyle}>Company Name *</label>
+          <input name="companyName" type="text" required placeholder="Smith Roofing Ltd" value={formData.companyName} onChange={handleChange} style={inputStyle} />
         </div>
-
         <div>
-          <label
-            htmlFor="companyName"
-            className="block text-sm font-medium text-slate-700 mb-2"
-          >
-            Company Name <span className="text-slate-400 font-normal">(Optional)</span>
-          </label>
-          <input
-            type="text"
-            id="companyName"
-            name="companyName"
-            value={formData.companyName}
-            onChange={handleChange}
-            className={inputClasses}
-            placeholder="Your Business Ltd"
-          />
+          <label style={labelStyle}>Company Size *</label>
+          <select name="companySize" required value={formData.companySize} onChange={handleChange} style={inputStyle}>
+            <option value="">Select...</option>
+            <option value="1-10">1–10 employees</option>
+            <option value="11-50">11–50 employees</option>
+            <option value="51-200">51–200 employees</option>
+            <option value="200+">200+ employees</option>
+          </select>
         </div>
       </div>
 
-      <div>
-        <label
-          htmlFor="message"
-          className="block text-sm font-medium text-slate-700 mb-2"
-        >
-          How can we help? <span className="text-primary">*</span>
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          rows={4}
-          className={`${inputClasses} ${errors.message ? errorInputClasses : ''}`}
-          placeholder="Tell us about your business and what you're looking to automate..."
-          required
-        />
-        {errors.message && (
-          <p className="mt-1 text-sm text-red-500">{errors.message}</p>
-        )}
+      <div className="mb-5">
+        <label style={labelStyle}>Monthly Revenue *</label>
+        <select name="monthlyRevenue" required value={formData.monthlyRevenue} onChange={handleChange} style={inputStyle}>
+          <option value="">Select...</option>
+          <option value="<£50k">&lt;£50k/month</option>
+          <option value="£50k-£200k">£50k–£200k/month</option>
+          <option value="£200k-£500k">£200k–£500k/month</option>
+          <option value="£500k+">£500k+/month</option>
+        </select>
       </div>
 
-      {errors.submit && (
-        <div className="rounded-lg bg-red-50 border border-red-200 p-4">
-          <p className="text-sm text-red-600">{errors.submit}</p>
-        </div>
-      )}
+      <div className="mb-5">
+        <label style={labelStyle}>What would you like to automate? *</label>
+        <textarea name="automationNeeds" required rows={4} placeholder="Tell us about your biggest pain points — missed calls, booking, reviews..." value={formData.automationNeeds} onChange={handleChange} style={{ ...inputStyle, resize: 'vertical' }} />
+      </div>
+
+      <div className="mb-8">
+        <label style={labelStyle}>How did you hear about us?</label>
+        <select name="referralSource" value={formData.referralSource} onChange={handleChange} style={inputStyle}>
+          <option value="">Select...</option>
+          <option value="Google Search">Google Search</option>
+          <option value="Social Media">Social Media</option>
+          <option value="Referral">Referral</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full rounded-xl bg-primary px-6 py-4 text-base font-bold text-white shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:bg-primary-dark hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        className="w-full py-4 rounded text-sm font-bold tracking-wide text-white transition-all duration-200 disabled:opacity-60 hover:brightness-110"
+        style={{ background: '#d97706' }}
       >
-        {isSubmitting ? (
-          <>
-            <Loader2 className="h-5 w-5 animate-spin" />
-            Sending...
-          </>
-        ) : (
-          'Send Enquiry'
-        )}
+        {isSubmitting ? 'Sending...' : 'Send Enquiry →'}
       </button>
     </form>
   )
