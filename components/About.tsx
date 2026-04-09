@@ -47,7 +47,7 @@ export default function About() {
 
         <div className="relative">
           <Image
-            src="/juan-profile.jpg"
+            src="/me.jpeg"
             alt="Juan Barrios — Founder of Vexlo"
             width={500}
             height={600}
