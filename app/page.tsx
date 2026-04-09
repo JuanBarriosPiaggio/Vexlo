@@ -87,6 +87,54 @@ const niches = [
     statStyle: { background: 'rgba(96,165,250,0.1)', color: '#60a5fa' },
     bg: 'linear-gradient(135deg, #060d1f, #0d1a3a)',
   },
+  {
+    emoji: '🔧',
+    title: 'Plumbers',
+    text: "You can't stop mid-job to answer calls. Emergency plumbing enquiries won't wait — the bot replies instantly, qualifies the lead, and books them in before they call your competitor.",
+    stat: 'Avg job value: £150–£2,000',
+    statStyle: { background: 'rgba(217,119,6,0.15)', color: '#d97706' },
+    bg: 'linear-gradient(135deg, #1c1008, #2d1900)',
+  },
+  {
+    emoji: '✂️',
+    title: 'Salons & Barbers',
+    text: "You're with a client — you can't pick up the phone. The bot handles new booking requests automatically and sends review requests after every appointment.",
+    stat: 'Avg monthly revenue: £5k–£30k',
+    statStyle: { background: 'rgba(244,114,182,0.12)', color: '#f472b6' },
+    bg: 'linear-gradient(135deg, #1a0614, #2e0d22)',
+  },
+  {
+    emoji: '⚡',
+    title: 'Electricians',
+    text: "On site, hands full, can't answer. Every missed call is a potential job lost to someone else. The bot texts back, books the survey, and follows up for a review once the work is done.",
+    stat: 'Avg job value: £200–£5,000',
+    statStyle: { background: 'rgba(250,204,21,0.12)', color: '#facc15' },
+    bg: 'linear-gradient(135deg, #1a1400, #2e2300)',
+  },
+  {
+    emoji: '🏡',
+    title: 'Estate Agents',
+    text: "Viewing enquiries go cold fast. The bot responds to every missed call instantly, books the viewing, and keeps your pipeline moving — even outside office hours.",
+    stat: 'Avg deal value: £3,000–£15,000',
+    statStyle: { background: 'rgba(74,222,128,0.1)', color: '#4ade80' },
+    bg: 'linear-gradient(135deg, #071a0e, #0d2e18)',
+  },
+  {
+    emoji: '💆',
+    title: 'Physio & Wellness',
+    text: "You're in session — unavailable. New patient calls slip through. The bot captures every enquiry, books the consultation, and requests a review after each appointment.",
+    stat: 'Avg patient value: £400–£2,000',
+    statStyle: { background: 'rgba(96,165,250,0.1)', color: '#60a5fa' },
+    bg: 'linear-gradient(135deg, #060d1f, #0d1a3a)',
+  },
+  {
+    emoji: '🌟',
+    title: 'Any Service Business',
+    text: "If your phone rings while you're busy serving customers, this is for you. Any business that relies on inbound calls and appointments can be live in under 24 hours.",
+    stat: 'Works for any trade or service',
+    statStyle: { background: 'rgba(217,119,6,0.15)', color: '#d97706' },
+    bg: 'linear-gradient(135deg, #0f0f0f, #1a1a1a)',
+  },
 ]
 
 const pricingFeatures = [
@@ -139,11 +187,17 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="section-tag">Who It&apos;s For</div>
           <h2
-            className="font-display text-white mb-16"
+            className="font-display text-white mb-4"
             style={{ fontSize: 'clamp(2.5rem, 4vw, 3.8rem)', lineHeight: 1, letterSpacing: '0.02em' }}
           >
-            Built for trades &amp; clinics.
+            Built for any business that{' '}
+            <span className="font-serif" style={{ color: '#d97706', fontStyle: 'italic' }}>
+              takes calls.
+            </span>
           </h2>
+          <p className="mb-16 max-w-lg" style={{ color: '#888', fontSize: '1rem', lineHeight: 1.65 }}>
+            If you miss calls while you&apos;re working, Vexlo is for you. Here are just some of the businesses already using it.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {niches.map((n, i) => (
               <div
