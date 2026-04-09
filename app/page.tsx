@@ -12,14 +12,22 @@ export const metadata: Metadata = {
   description: 'Vexlo AI texts back every missed call in 4 seconds, books the appointment, and gets your Google reviews — 24/7. Built for roofers, kitchen fitters, and dental practices across the UK.',
   keywords: [
     'missed call text back UK',
-    'AI voice assistant for trades',
-    'automated appointment booking UK',
-    'Google review automation',
-    'AI phone bot UK',
-    'workflow automation trades',
-    'roofer AI automation',
-    'dental AI booking',
-    'kitchen fitter lead capture',
+    'AI receptionist for tradespeople',
+    'AI phone agent UK',
+    'automated appointment booking trades',
+    'Google review automation UK',
+    'AI for roofers',
+    'AI for plumbers',
+    'AI for electricians',
+    'AI for kitchen fitters',
+    'AI for dentists',
+    'AI for salons barbers',
+    'AI for physio clinics',
+    'AI for estate agents',
+    'AI for cleaning companies',
+    'lead capture automation UK trades',
+    'missed call automation UK',
+    'first month free AI bot UK',
   ],
   alternates: { canonical: siteUrl },
   openGraph: {
@@ -304,6 +312,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WebPage + Service schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -311,32 +320,73 @@ export default function Home() {
             '@context': 'https://schema.org',
             '@type': 'WebPage',
             url: siteUrl,
-            name: 'Vexlo — AI Voice Assistants & Workflow Automation for UK Trades',
-            description: 'AI bot texts back every missed call in 4 seconds, books the job, chases reviews. 24/7.',
+            name: 'Vexlo — AI Receptionist & Missed Call Automation for UK Trades',
+            description: 'AI bot texts back every missed call in 4 seconds, books the appointment, chases Google reviews. 24/7. First month free.',
             mainEntity: {
               '@type': 'Service',
               name: 'AI Missed Call Automation',
               provider: { '@type': 'Organization', name: 'Vexlo', url: siteUrl },
               areaServed: { '@type': 'Country', name: 'United Kingdom' },
+              audience: {
+                '@type': 'Audience',
+                audienceType: 'Tradespeople and service businesses in the United Kingdom',
+              },
               hasOfferCatalog: {
                 '@type': 'OfferCatalog',
-                name: 'Automation Services',
+                name: 'AI Automation Services',
                 itemListElement: [
-                  {
-                    '@type': 'Offer',
-                    itemOffered: { '@type': 'Service', name: 'Missed Call Text-Back', description: 'AI texts back every missed call within 4 seconds, 24/7.' },
-                  },
-                  {
-                    '@type': 'Offer',
-                    itemOffered: { '@type': 'Service', name: 'Automated Appointment Booking', description: 'Self-booking link in SMS, no human effort required.' },
-                  },
-                  {
-                    '@type': 'Offer',
-                    itemOffered: { '@type': 'Service', name: 'Google Review Automation', description: 'Auto-sends review requests after every completed job.' },
-                  },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Missed Call Text-Back', description: 'AI texts back every missed call within 4 seconds, 24/7.' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Automated Appointment Booking', description: 'Self-booking link sent by SMS — no human effort required.' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Google Review Automation', description: 'Automatic review requests sent after every completed job.' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Receptionist for Roofers', description: 'Missed call handling and lead capture for roofing companies.' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Receptionist for Plumbers', description: 'Missed call handling and emergency lead capture for plumbers.' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Receptionist for Electricians', description: 'Missed call handling and job booking for electricians.' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Receptionist for Kitchen Fitters', description: 'Missed call handling and consultation booking for kitchen fitters.' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Receptionist for Dental Practices', description: 'After-hours patient booking and review automation for dentists.' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Receptionist for Salons and Barbers', description: 'Appointment booking and review automation for hair salons and barbers.' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Receptionist for Estate Agents', description: 'Viewing enquiry handling and booking automation for estate agents.' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Receptionist for Physio Clinics', description: 'New patient booking and review automation for physiotherapy and wellness clinics.' } },
                 ],
               },
             },
+          }),
+        }}
+      />
+
+      {/* FAQ schema for rich results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'How quickly does the AI text back a missed call?',
+                acceptedAnswer: { '@type': 'Answer', text: 'Vexlo texts back every missed call within 4 seconds — 24/7, including evenings and weekends.' },
+              },
+              {
+                '@type': 'Question',
+                name: 'Which trades and businesses can use Vexlo?',
+                acceptedAnswer: { '@type': 'Answer', text: 'Vexlo works for any service business that relies on inbound calls: roofers, plumbers, electricians, kitchen fitters, dentists, salons, barbers, estate agents, physio clinics, cleaning companies, and more.' },
+              },
+              {
+                '@type': 'Question',
+                name: 'How much does Vexlo cost?',
+                acceptedAnswer: { '@type': 'Answer', text: 'Your first month is completely free. No setup fees, no contracts. After month 1, a simple monthly subscription — discussed on your free demo call.' },
+              },
+              {
+                '@type': 'Question',
+                name: 'How long does it take to go live?',
+                acceptedAnswer: { '@type': 'Answer', text: 'Most businesses are live within 24 hours. We handle the full setup and write your messages — you just start receiving booked appointments.' },
+              },
+              {
+                '@type': 'Question',
+                name: 'Does Vexlo work for small businesses with one or two employees?',
+                acceptedAnswer: { '@type': 'Answer', text: "Yes — Vexlo is purpose-built for small and medium UK businesses. Whether you're a sole trader or run a team of 20, the system adapts to your size." },
+              },
+            ],
           }),
         }}
       />

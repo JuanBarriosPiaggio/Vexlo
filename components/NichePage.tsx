@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, CheckCircle, Star, Phone, Calendar, MessageSquare } from 'lucide-react'
 
 interface NichePageProps {
   headline: string
@@ -15,37 +14,15 @@ interface NichePageProps {
   faq: { question: string; answer: string }[]
 }
 
-const nicheImages: Record<string, string> = {
-  // Cleaning: Man cleaning floor
-  'Cleaning': 'https://images.unsplash.com/photo-1581578731117-104f2a412727?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', // Replace with working ID below if this was the broken one
-  
-  // Actually replacing all with confirmed IDs:
-  'Cleaning_Confirmed': 'https://images.unsplash.com/photo-1527515673510-813f318321b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', // Cleaning tools
-  
-  'Plumbers': 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', // Plumber fixing sink
-  
-  'Dental': 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', // Dentist
-  
-  'Estate': 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', // Keys
-  
-  'Roofing': 'https://images.unsplash.com/photo-1632759145351-1d592919f522?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', // Roofer (if broken, fallback to construction)
-  
-  'Beauty': 'https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', // Salon
-  
-  'Property': 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', // Handyman
-  
-  'Default': 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
-}
-
-// Map using confirmed working IDs from search
-const confirmedImages: Record<string, string> = {
-  'Cleaning': 'https://images.unsplash.com/photo-1581578731117-104f2a412727', // Retrying the ID from first search result `MwW-zrkYSIU` is better?
-  // Let's use the IDs I found in the search explicitly
-  
-  // Cleaning: MwW-zrkYSIU
-  'Cleaning_Real': 'https://images.unsplash.com/photo-1581578731117-104f2a412727', // This was the one that broke?
-  // Let's use the ID: MwW-zrkYSIU
-  'Cleaning_New': 'https://images.unsplash.com/photo-1527515673510-813f318321b0'
+const getImage = (badge: string) => {
+  if (badge.includes('Cleaning')) return '/images/cleaning.jpg'
+  if (badge.includes('Plumber')) return '/images/plumber.jpg'
+  if (badge.includes('Dental')) return '/images/dentist.jpg'
+  if (badge.includes('Estate')) return '/images/estate.jpg'
+  if (badge.includes('Roofing')) return '/images/roofer.jpg'
+  if (badge.includes('Salon') || badge.includes('Barber') || badge.includes('Beauty')) return '/images/salon.jpg'
+  if (badge.includes('Property') || badge.includes('Maintenance')) return '/images/property.jpg'
+  return '/images/hero.jpg'
 }
 
 export default function NichePage({
@@ -60,189 +37,216 @@ export default function NichePage({
   testimonial,
   faq,
 }: NichePageProps) {
-  
-  const getImage = (badgeText: string) => {
-    if (badgeText.includes('Cleaning')) return '/images/cleaning.jpg' // Professional cleaner
-    if (badgeText.includes('Plumbers')) return '/images/plumber.jpg' // Plumber
-    if (badgeText.includes('Dental')) return '/images/dentist.jpg' // Dentist
-    if (badgeText.includes('Estate')) return '/images/estate.jpg' // Keys
-    if (badgeText.includes('Roofing')) return '/images/roofer.jpg' // Roofer
-    if (badgeText.includes('Beauty')) return '/images/salon.jpg' // Salon
-    if (badgeText.includes('Property')) return '/images/property.jpg' // Maintenance
-    
-    return '/images/hero.jpg' // Default office
-  }
-
   const heroImage = getImage(badge)
 
   return (
-    <div className="bg-white">
-      {/* Hero */}
-      <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-            <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-sm mb-6">
-                <span className="text-lg">{emoji}</span>
-                <span className="text-sm font-semibold text-slate-700">{badge}</span>
-              </div>
+    <div style={{ background: '#0a0a0a' }}>
 
-              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 mb-6 leading-tight">
-                {headline}
-              </h1>
-
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                {subheadline}
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/enquiry"
-                  className="inline-flex items-center justify-center px-6 py-3.5 text-base font-semibold text-white bg-primary rounded-xl hover:bg-primary-dark transition-all shadow-lg shadow-blue-500/20"
-                >
-                  Book a Free Demo
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-                <Link
-                  href="#how-it-works"
-                  className="inline-flex items-center justify-center px-6 py-3.5 text-base font-semibold text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 transition-all"
-                >
-                  See How It Works
-                </Link>
-              </div>
+      {/* HERO */}
+      <section
+        className="hero-grid relative pt-36 pb-20 px-6 md:px-10 overflow-hidden"
+        style={{ background: '#0a0a0a' }}
+      >
+        <div
+          className="pointer-events-none absolute"
+          style={{
+            width: '500px', height: '500px',
+            background: 'radial-gradient(circle, rgba(217,119,6,0.08) 0%, transparent 70%)',
+            top: '-80px', right: '-80px',
+          }}
+        />
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+          <div>
+            <div
+              className="inline-flex items-center gap-2 mb-6 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase"
+              style={{ background: 'rgba(217,119,6,0.12)', border: '1px solid rgba(217,119,6,0.3)', color: '#d97706' }}
+            >
+              <span>{emoji}</span>
+              {badge}
             </div>
-            
-            <div className="relative lg:h-[500px] w-full hidden lg:block">
-               <div className="absolute inset-0 bg-blue-600/5 rounded-3xl transform rotate-3"></div>
-               <div className="relative h-full w-full rounded-2xl overflow-hidden shadow-2xl shadow-slate-200 border border-slate-100">
-                 <Image 
-                   src={heroImage}
-                   alt={`${badge} hero image`}
-                   fill
-                   className="object-cover"
-                   priority
-                 />
-               </div>
+
+            <h1
+              className="font-display text-white mb-6 leading-none"
+              style={{ fontSize: 'clamp(2.8rem, 5vw, 4.5rem)', letterSpacing: '0.02em' }}
+            >
+              {headline}
+            </h1>
+
+            <p className="text-base leading-relaxed mb-10" style={{ color: '#888', maxWidth: '500px' }}>
+              {subheadline}
+            </p>
+
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/#book"
+                className="inline-flex items-center px-7 py-3.5 rounded text-sm font-bold tracking-wide text-white transition-all duration-200 hover:brightness-110 hover:-translate-y-px"
+                style={{ background: '#d97706' }}
+              >
+                Book a Free Demo →
+              </Link>
+              <Link
+                href="#how-it-works"
+                className="inline-flex items-center px-7 py-3.5 rounded text-sm font-semibold transition-all duration-200 hover:text-white"
+                style={{ border: '1px solid #2a2a2a', color: '#e8e8e8' }}
+              >
+                See How It Works
+              </Link>
             </div>
+          </div>
+
+          <div className="hidden lg:block relative h-[480px] rounded-2xl overflow-hidden" style={{ border: '1px solid #2a2a2a' }}>
+            <Image src={heroImage} alt={badge} fill className="object-cover" priority />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(10,10,10,0.4) 0%, transparent 60%)' }} />
           </div>
         </div>
       </section>
 
-      {/* Pain Points */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900">
-              Sound Familiar?
-            </h2>
-            <p className="mt-4 text-slate-600">
+      {/* PAIN POINTS */}
+      <section style={{ background: '#111111', padding: '80px 40px' }}>
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="section-tag" style={{ textAlign: 'center' }}>Sound Familiar?</div>
+            <h2
+              className="font-display text-white mt-2"
+              style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', lineHeight: 1, letterSpacing: '0.02em' }}
+            >
               The problems costing you thousands in lost revenue.
-            </p>
+            </h2>
           </div>
-          <div className="mx-auto max-w-3xl space-y-4">
-            {painPoints.map((pain) => (
-              <div key={pain} className="flex items-start gap-4 p-5 rounded-xl bg-red-50/50 border border-red-100">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold text-xs mt-0.5">✕</div>
-                <p className="text-slate-700 font-medium">{pain}</p>
+          <div className="flex flex-col gap-3">
+            {painPoints.map((pain, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-4 p-5 rounded-xl"
+                style={{ background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.15)' }}
+              >
+                <div
+                  className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-0.5"
+                  style={{ background: 'rgba(239,68,68,0.15)', color: '#ef4444' }}
+                >
+                  ✕
+                </div>
+                <p className="text-sm leading-relaxed" style={{ color: '#e8e8e8' }}>{pain}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Lead Value Stats */}
-      <section className="py-16 bg-primary text-white">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-block p-3 rounded-full bg-white/10 mb-4 backdrop-blur-sm">
-            <Star className="h-6 w-6 text-yellow-300 fill-yellow-300" />
-          </div>
-          <h3 className="text-2xl sm:text-3xl font-bold leading-relaxed">
+      {/* LEAD VALUE */}
+      <section style={{ background: '#d97706', padding: '60px 40px' }}>
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="text-3xl mb-4">💰</div>
+          <p className="text-base leading-relaxed font-medium" style={{ color: 'rgba(255,255,255,0.9)' }}>
             &ldquo;{leadValue}&rdquo;
-          </h3>
+          </p>
         </div>
       </section>
 
-      {/* Customer Journey */}
-      <section id="how-it-works" className="py-24 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900">
-              The Perfect Customer Journey
+      {/* HOW IT WORKS */}
+      <section id="how-it-works" style={{ background: '#0a0a0a', padding: '80px 40px' }}>
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="section-tag" style={{ textAlign: 'center' }}>How It Works</div>
+            <h2
+              className="font-display text-white mt-2"
+              style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', lineHeight: 1, letterSpacing: '0.02em' }}
+            >
+              The perfect customer journey.
             </h2>
-            <p className="mt-4 text-slate-600">
-              Automated from the first ring to the 5-star review.
-            </p>
+            <p className="mt-3 text-sm" style={{ color: '#888' }}>Automated from the first ring to the 5-star review.</p>
           </div>
-          <div className="mx-auto max-w-4xl">
-            <div className="relative">
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-200 hidden md:block"></div>
-              <div className="space-y-12">
-                {customerJourney.map((item, index) => (
-                  <div key={item.step} className="relative flex flex-col md:flex-row gap-8 md:items-start">
-                    <div className="flex-shrink-0 h-16 w-16 rounded-full bg-white border-4 border-slate-50 shadow-sm flex items-center justify-center z-10 mx-auto md:mx-0">
-                      <span className="text-xl font-bold text-primary">{index + 1}</span>
-                    </div>
-                    <div className="flex-1 bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                      <h3 className="text-lg font-bold text-slate-900 mb-2">{item.step}</h3>
-                      <p className="text-slate-600">{item.detail}</p>
-                    </div>
+
+          <div className="relative">
+            <div
+              className="absolute left-8 top-0 bottom-0 w-px hidden md:block"
+              style={{ background: '#2a2a2a' }}
+            />
+            <div className="flex flex-col gap-10">
+              {customerJourney.map((item, i) => (
+                <div key={i} className="relative flex flex-col md:flex-row gap-6 md:items-start">
+                  <div
+                    className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center font-display text-xl z-10 mx-auto md:mx-0"
+                    style={{ background: '#111111', border: '2px solid #2a2a2a', color: '#d97706' }}
+                  >
+                    {i + 1}
                   </div>
-                ))}
-              </div>
+                  <div
+                    className="flex-1 p-6 rounded-xl"
+                    style={{ background: '#111111', border: '1px solid #2a2a2a' }}
+                  >
+                    <h3 className="font-bold text-sm mb-2" style={{ color: '#fff' }}>{item.step}</h3>
+                    <p className="text-sm leading-relaxed" style={{ color: '#888' }}>{item.detail}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Outcomes Grid */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900">
-              What You Can Expect
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {outcomes.map((outcome) => (
-              <div key={outcome} className="flex items-start gap-3 p-6 rounded-xl bg-slate-50 border border-slate-100">
-                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                <p className="text-slate-700 font-medium">{outcome}</p>
+      {/* OUTCOMES */}
+      <section style={{ background: '#111111', padding: '80px 40px' }}>
+        <div className="max-w-5xl mx-auto">
+          <h2
+            className="font-display text-white text-center mb-12"
+            style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', lineHeight: 1, letterSpacing: '0.02em' }}
+          >
+            What you can expect.
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {outcomes.map((outcome, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-3 p-5 rounded-xl"
+                style={{ background: '#1a1a1a', border: '1px solid #2a2a2a' }}
+              >
+                <span style={{ color: '#d97706', fontWeight: 700, flexShrink: 0, marginTop: '1px' }}>✓</span>
+                <p className="text-sm" style={{ color: '#e8e8e8' }}>{outcome}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonial */}
-      <section className="py-24 bg-slate-900 text-white">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+      {/* TESTIMONIAL */}
+      <section style={{ background: '#0a0a0a', padding: '80px 40px' }}>
+        <div className="max-w-3xl mx-auto text-center">
           <div className="flex justify-center gap-1 mb-8">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="h-6 w-6 text-yellow-400 fill-yellow-400" />
+              <span key={i} style={{ color: '#f59e0b', fontSize: '1.2rem' }}>★</span>
             ))}
           </div>
-          <blockquote className="text-2xl font-medium leading-relaxed mb-8">
+          <blockquote
+            className="text-xl leading-relaxed mb-8 font-medium"
+            style={{ color: '#e8e8e8' }}
+          >
             &ldquo;{testimonial.quote}&rdquo;
           </blockquote>
-          <div>
-            <div className="font-bold text-lg">{testimonial.name}</div>
-            <div className="text-slate-400">{testimonial.role}</div>
-            <div className="text-primary-light text-sm mt-1">{testimonial.location}</div>
-          </div>
+          <div className="font-bold text-base" style={{ color: '#fff' }}>{testimonial.name}</div>
+          <div className="text-sm mt-1" style={{ color: '#888' }}>{testimonial.role}</div>
+          <div className="text-xs mt-1" style={{ color: '#d97706' }}>{testimonial.location}</div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 text-center mb-12">
-            Common Questions
+      <section style={{ background: '#111111', padding: '80px 40px' }}>
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="font-display text-white text-center mb-12"
+            style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', lineHeight: 1, letterSpacing: '0.02em' }}
+          >
+            Common questions.
           </h2>
-          <div className="space-y-6">
-            {faq.map((item) => (
-              <div key={item.question} className="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-slate-200 transition-colors">
-                <h3 className="font-bold text-slate-900 mb-2">{item.question}</h3>
-                <p className="text-slate-600">{item.answer}</p>
+          <div className="flex flex-col gap-4">
+            {faq.map((item, i) => (
+              <div
+                key={i}
+                className="p-6 rounded-xl transition-colors duration-200"
+                style={{ background: '#1a1a1a', border: '1px solid #2a2a2a' }}
+              >
+                <h3 className="font-bold text-sm mb-2" style={{ color: '#fff' }}>{item.question}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#888' }}>{item.answer}</p>
               </div>
             ))}
           </div>
@@ -250,25 +254,33 @@ export default function NichePage({
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            Ready to Stop Missing Calls?
+      <section
+        className="relative overflow-hidden text-center"
+        style={{ background: '#111111', padding: '80px 40px' }}
+      >
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{ background: 'radial-gradient(ellipse at center, rgba(217,119,6,0.07) 0%, transparent 70%)' }}
+        />
+        <div className="max-w-2xl mx-auto relative z-10">
+          <h2
+            className="font-display text-white mb-4"
+            style={{ fontSize: 'clamp(2.5rem, 4vw, 4rem)', lineHeight: 1, letterSpacing: '0.02em' }}
+          >
+            Ready to stop missing{' '}
+            <span className="font-serif" style={{ color: '#d97706', fontStyle: 'italic' }}>calls?</span>
           </h2>
-          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
-            Book a free 15-minute demo. We&apos;ll show you exactly how Vexlo can work for your business.
+          <p className="mb-10 text-sm" style={{ color: '#888' }}>
+            Book a free 15-minute demo. We&apos;ll show you exactly how Vexlo works for your business.
           </p>
           <Link
-            href="/enquiry"
-            className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-primary bg-white rounded-xl hover:bg-blue-50 transition-all shadow-xl hover:-translate-y-1"
+            href="/#book"
+            className="inline-flex items-center px-8 py-4 rounded text-sm font-bold tracking-wide text-white transition-all duration-200 hover:brightness-110"
+            style={{ background: '#d97706' }}
           >
-            Book a Free 15-Minute Demo
-            <ArrowRight className="ml-2 h-5 w-5" />
+            Book Your Free Demo →
           </Link>
-          <p className="mt-6 text-sm text-blue-200 opacity-80">
-            No commitment. No technical setup required.
-          </p>
+          <p className="mt-4 text-xs" style={{ color: '#888' }}>No commitment. No technical setup required.</p>
         </div>
       </section>
     </div>
