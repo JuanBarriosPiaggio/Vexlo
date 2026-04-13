@@ -4,20 +4,20 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Pricing',
   description:
-    'Transparent pricing for Vexlo AI automation — Starter, Growth, and Pro packages for UK compliance contractors. No contracts, cancel anytime.',
+    'Transparent pricing for Vexlo AI automation — Starter, Growth, and Pro packages for UK trades, clinics and service businesses. No contracts, cancel anytime.',
   keywords: [
     'Vexlo pricing',
     'AI automation pricing UK',
-    'fire safety automation cost',
-    'EICR automation pricing',
-    'gas safety AI price',
-    'compliance contractor software pricing',
+    'AI receptionist cost UK',
+    'workflow automation pricing',
+    'missed call text back price',
+    'small business automation UK',
   ],
   alternates: { canonical: '/pricing' },
   openGraph: {
     title: 'Pricing | Vexlo',
     description:
-      'Simple, transparent pricing for UK compliance contractors. AI automation from £197/month — no contracts, first month free.',
+      'Simple, transparent pricing for UK trades, clinics and service businesses. AI automation from £197/month — no contracts, first month free.',
     url: '/pricing',
     type: 'website',
   },
@@ -54,7 +54,7 @@ export default function PricingPage() {
             SIMPLE. TRANSPARENT.
           </h1>
           <p className="text-sm" style={{ color: '#888' }}>
-            AI automation for UK compliance contractors — fire safety, EICR, gas safety &amp; more
+            AI automation for UK trades, clinics &amp; service businesses
           </p>
         </div>
 
