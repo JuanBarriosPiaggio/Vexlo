@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   publisher: 'Vexlo',
   formatDetection: { email: false, address: false, telephone: false },
   icons: {
-    icon: [{ url: '/Vexlo_logo.png', sizes: 'any' }],
-    shortcut: '/Vexlo_logo.png',
-    apple: '/Vexlo_logo.png',
+    icon: [{ url: '/vexlo_logo.png', sizes: 'any' }],
+    shortcut: '/vexlo_logo.png',
+    apple: '/vexlo_logo.png',
   },
   manifest: '/manifest.json',
   openGraph: {
@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     siteName: 'Vexlo',
     title: 'Vexlo — AI Voice Assistants & Workflow Automation for UK Trades & Clinics',
     description: 'Stop losing jobs to voicemail. AI bot texts back missed calls in 4 seconds, books the job, and chases Google reviews — 24/7.',
-    images: [{ url: `${siteUrl}/Vexlo_logo.png`, width: 1200, height: 630, alt: 'Vexlo AI Automation' }],
+    images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'Vexlo AI Automation' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Vexlo — AI Voice Assistants & Workflow Automation',
     description: 'Stop losing jobs to voicemail. AI bot texts back every missed call in 4 seconds.',
-    images: [`${siteUrl}/Vexlo_logo.png`],
+    images: [`${siteUrl}/vexlo_logo.png`],
     creator: '@juan_barrios_p',
   },
   robots: {
@@ -89,7 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               name: 'Vexlo',
               alternateName: 'Vexlo AI Automation',
               url: siteUrl,
-              logo: `${siteUrl}/Vexlo_logo.png`,
+              logo: `${siteUrl}/vexlo_logo.png`,
               description: 'AI voice assistants and workflow automation for UK trades and clinics.',
               address: { '@type': 'PostalAddress', addressCountry: 'GB' },
               areaServed: { '@type': 'Country', name: 'United Kingdom' },

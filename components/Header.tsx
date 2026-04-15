@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Header() {
   return (
@@ -8,9 +9,17 @@ export default function Header() {
     >
       <Link
         href="/"
-        className="font-display text-2xl tracking-widest text-white transition-opacity hover:opacity-70"
+        className="transition-opacity hover:opacity-70"
+        aria-label="Vexlo home"
       >
-        VEXLO<span style={{ color: '#d97706' }}>.</span>
+        <Image
+          src="/vexlo_logo.png"
+          alt="Vexlo"
+          width={40}
+          height={40}
+          priority
+          className="h-10 w-auto"
+        />
       </Link>
 
       <div className="hidden md:flex items-center gap-8 text-sm font-medium" style={{ color: '#888' }}>

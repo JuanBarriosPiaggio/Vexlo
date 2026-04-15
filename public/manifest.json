@@ -8,7 +8,7 @@
   "theme_color": "#1e40af",
   "icons": [
     {
-      "src": "/Vexlo_logo.png",
+      "src": "/vexlo_logo.png",
       "sizes": "any",
       "type": "image/png",
       "purpose": "any maskable"
