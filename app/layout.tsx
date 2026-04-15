@@ -75,6 +75,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-GB">
       <head>
         <link rel="canonical" href={siteUrl} />
+        <link rel="icon" href="/vexlo_logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/vexlo_logo.png" />
         <link
           href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"

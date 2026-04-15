@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Header() {
   return (
@@ -12,12 +11,10 @@ export default function Header() {
         className="transition-opacity hover:opacity-70"
         aria-label="Vexlo home"
       >
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src="/vexlo_logo.png"
           alt="Vexlo"
-          width={40}
-          height={40}
-          priority
           className="h-10 w-auto"
         />
       </Link>
