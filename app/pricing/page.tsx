@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import PricingCalculator from '@/components/PricingCalculator'
 
 export const metadata: Metadata = {
   title: 'Pricing',
   description:
-    'Transparent pricing for Vexlo AI automation — Starter, Growth, and Pro packages for UK trades, clinics and service businesses. No contracts, cancel anytime.',
+    'Simple, transparent pricing for Vexlo AI automation — Starter and Pro packages for UK trades, clinics and service businesses. No contracts, first month free.',
   keywords: [
     'Vexlo pricing',
     'AI automation pricing UK',
@@ -17,363 +18,402 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Pricing | Vexlo',
     description:
-      'Simple, transparent pricing for UK trades, clinics and service businesses. AI automation from £197/month — no contracts, first month free.',
+      'Simple, transparent pricing for UK trades, clinics and service businesses. AI automation from £297/month — no contracts, first month free.',
     url: '/pricing',
     type: 'website',
   },
 }
 
-const CheckYes = () => (
-  <svg className="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <circle cx="7" cy="7" r="6" fill="#d97706" fillOpacity="0.15" />
-    <path d="M4.5 7l2 2 3-3" stroke="#d97706" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-)
+const starterFeatures: { text: string; note?: string }[] = [
+  {
+    text: 'AI chat widget on your website — answers FAQs and books appointments around the clock, even while you\'re on a job',
+    note: 'Powered by GHL Conversation AI',
+  },
+  {
+    text: 'Missed call SMS text-back — fires a personalised message with a booking link within seconds of a missed call',
+    note: 'Requires a GHL UK phone number — ~£2/mo billed as usage',
+  },
+  {
+    text: 'Voice AI receptionist — answers inbound calls, qualifies the lead, and books the appointment automatically, 24/7',
+    note: 'Billed per minute as usage — typically £15–£40/mo for most trades',
+  },
+  { text: 'Lead auto-captured to CRM — every chat or call becomes a contact you can track and follow up' },
+  { text: 'Automated Google review requests — SMS sent to the customer after a job is marked complete, with a direct Google review link' },
+  { text: 'Automated SMS follow-up sequences — follows up with new enquiries at 24hrs, 3 days, and 7 days automatically if no reply' },
+  { text: 'Appointment reminders — automated SMS the day before and morning of to cut no-shows' },
+  { text: '8-stage CRM pipeline — tracks every lead from first contact through to job won, automatically' },
+  { text: 'Google Business Profile management — update your listing, schedule posts, and monitor reviews all inside GHL' },
+  { text: 'Reporting dashboard — leads, bookings, and reviews in one place. Built into GHL, configured for you' },
+]
 
-const CheckNo = () => (
-  <svg className="flex-shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 14 14" fill="none">
-    <circle cx="7" cy="7" r="6" stroke="#3a3a3a" />
-    <path d="M5 9l4-4M9 9L5 5" stroke="#555" strokeWidth="1.2" strokeLinecap="round" />
-  </svg>
-)
+const proFeatures: { text: string; note?: string; inherited?: boolean }[] = [
+  { text: 'Everything in Starter', inherited: true },
+  { text: 'Branded AI receptionist — custom name and persona that matches your business (e.g. "Sarah from ABC Roofing")' },
+  { text: 'Call transcripts & AI summaries — every call logged, transcribed, and summarised so nothing gets missed' },
+  { text: 'Smart escalation to human — complex or sensitive queries automatically flagged and handed off to you' },
+  {
+    text: 'WhatsApp automation — follow-up sequences and review requests delivered over WhatsApp as well as SMS',
+    note: 'WhatsApp costs £10/mo per location (billed as usage) + per-message rate',
+  },
+  { text: 'Quarterly workflow review call — we audit your automations every 3 months and optimise based on real data' },
+]
+
+const usageRates = [
+  { label: 'Voice AI — inbound calls', desc: 'AI answers calls on your behalf', val: '~£0.01', unit: 'per minute' },
+  { label: 'Voice AI — outbound calls', desc: 'AI dials out for follow-ups', val: '~£0.012', unit: 'per minute' },
+  { label: 'SMS messages', desc: 'Text-backs, follow-ups, reminders', val: '~£0.04–0.05', unit: 'per message (UK)' },
+  { label: 'Dedicated phone number', desc: 'Your GHL UK number', val: '~£2', unit: 'per month' },
+  { label: 'WhatsApp (Pro only)', desc: 'Platform fee per location', val: '£10', unit: 'per month + per msg' },
+  { label: 'Typical total usage bill', desc: 'Average UK trades customer', val: '£20–£60', unit: 'per month extra', highlight: true },
+]
+
+const compareRows = [
+  { feature: 'Monthly price', vexlo: '£297–£497', vexloGood: true, podium: '£200–£515', podiumGood: false, arrow: 'From £99', arrowGood: false },
+  { feature: 'Annual contract', vexlo: 'None', vexloGood: true, podium: 'Required', podiumGood: false, arrow: 'Required', arrowGood: false },
+  { feature: 'Voice AI receptionist', vexlo: '✓ Both tiers', vexloGood: true, podium: '✕ No', podiumGood: false, arrow: '✓ Yes', arrowGood: true },
+  { feature: 'AI chat widget', vexlo: '✓ Both tiers', vexloGood: true, podium: '✕ No', podiumGood: false, arrow: '✕ No', arrowGood: false },
+  { feature: 'Google review automation', vexlo: '✓ Both tiers', vexloGood: true, podium: '✓ Yes', podiumGood: true, arrow: '✕ No', arrowGood: false },
+  { feature: 'SMS follow-up sequences', vexlo: '✓ Both tiers', vexloGood: true, podium: '✕ No', podiumGood: false, arrow: '✕ No', arrowGood: false },
+  { feature: 'Transparent usage pricing', vexlo: '✓ Yes', vexloGood: true, podium: 'Quote only', podiumGood: false, arrow: '✕ No', arrowGood: false },
+  { feature: 'No contract / cancel anytime', vexlo: '✓ Yes', vexloGood: true, podium: '✕ No', podiumGood: false, arrow: '✕ No', arrowGood: false },
+]
 
 export default function PricingPage() {
   return (
     <div style={{ background: '#0a0a0a', minHeight: '100vh' }}>
-      <div className="max-w-4xl mx-auto px-4 py-16 md:py-24">
 
-        {/* Header */}
-        <div className="mb-10">
-          <div
-            className="inline-block text-xs font-medium tracking-widest uppercase mb-3"
-            style={{ color: '#d97706' }}
-          >
-            Pricing
-          </div>
-          <h1 className="font-display text-5xl md:text-6xl tracking-widest text-white mb-3">
-            SIMPLE. TRANSPARENT.
-          </h1>
-          <p className="text-sm" style={{ color: '#888' }}>
-            AI automation for UK trades, clinics &amp; service businesses
-          </p>
-        </div>
-
-        {/* Packages label */}
+      {/* ── HERO ── */}
+      <section className="pt-40 pb-16 px-6 md:px-10 text-center relative overflow-hidden">
+        {/* Radial glow */}
         <div
-          className="text-xs font-medium tracking-widest uppercase mb-4"
-          style={{ color: '#555' }}
+          className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
+          style={{
+            top: '60px',
+            width: '700px',
+            height: '300px',
+            background: 'radial-gradient(ellipse, rgba(217,119,6,0.1) 0%, transparent 68%)',
+          }}
+        />
+        <div className="section-tag anim-1">Pricing</div>
+        <h1 className="font-display text-6xl md:text-8xl lg:text-9xl tracking-widest text-white mb-4 anim-2">
+          SIMPLE.<br />
+          <span style={{ color: '#d97706' }}>TRANSPARENT.</span>
+        </h1>
+        <p className="text-sm md:text-base mb-8 max-w-md mx-auto anim-3" style={{ color: '#888' }}>
+          AI automation for UK trades, clinics &amp; service businesses. No contracts. No nasty surprises.
+        </p>
+        <div
+          className="inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-medium anim-4"
+          style={{
+            background: 'rgba(217,119,6,0.1)',
+            border: '1px solid #d97706',
+            color: '#d97706',
+          }}
         >
-          Packages
+          <span
+            className="w-2 h-2 rounded-full flex-shrink-0"
+            style={{ background: '#d97706', animation: 'blinkDot 2s ease-in-out infinite' }}
+          />
+          <span><strong>First month free</strong> — you only pay for what you use</span>
         </div>
+      </section>
 
-        {/* Tier grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8">
-
-          {/* Starter */}
+      {/* ── TIERS ── */}
+      <div className="max-w-5xl mx-auto px-6 md:px-10 pb-20">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2"
+          style={{ gap: '1px', background: '#2a2a2a', border: '1px solid #2a2a2a', borderRadius: '8px', overflow: 'hidden' }}
+        >
+          {/* STARTER */}
           <div
-            className="rounded-xl p-5 relative"
-            style={{ background: '#0a0a0a', border: '0.5px solid #2a2a2a' }}
+            className="flex flex-col p-10"
+            style={{ background: '#111' }}
           >
-            <div className="text-xs font-medium mb-2" style={{ color: '#888' }}>Starter</div>
-            <div className="flex items-baseline gap-1 leading-none mb-1">
-              <span className="text-3xl font-medium text-white">£197</span>
-              <span className="text-xs" style={{ color: '#888' }}>/month</span>
+            <div className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: '#888' }}>Starter</div>
+            <div className="flex items-baseline gap-1 mb-1">
+              <span className="font-display text-6xl tracking-widest text-white">£297</span>
+              <span className="text-base" style={{ color: '#888' }}>/mo</span>
             </div>
-            <div className="text-xs mb-3" style={{ color: '#555' }}>+ £497 setup</div>
-            <div
-              className="text-xs leading-relaxed mb-4 pb-4"
-              style={{ color: '#888', borderBottom: '0.5px solid #2a2a2a' }}
+            <div className="text-xs mb-5" style={{ color: '#d97706' }}>↳ First month free</div>
+            <p
+              className="text-sm leading-relaxed mb-6 pb-6"
+              style={{ color: '#888', borderBottom: '1px solid #2a2a2a' }}
             >
-              Capture website leads and never miss a call — AI chat widget and instant text-back running 24/7.
-            </div>
-            <div className="space-y-2">
-              {[
-                'AI chat widget on your website',
-                'Answers FAQs and books appointments 24/7',
-                'Missed call text-back within seconds',
-                'Lead captured to CRM automatically',
-                'Google review request after every job',
-              ].map(f => (
-                <div key={f} className="flex items-start gap-2">
-                  <CheckYes />
-                  <span className="text-xs leading-snug" style={{ color: '#888' }}>{f}</span>
-                </div>
+              Everything you need to capture every lead, never miss a call, and win more jobs — running 24/7 without lifting a finger.
+            </p>
+            <ul className="flex-1 mb-8" style={{ listStyle: 'none', padding: 0 }}>
+              {starterFeatures.map((f, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-3 py-2.5 text-sm"
+                  style={{ borderBottom: i < starterFeatures.length - 1 ? '1px solid #2a2a2a' : 'none' }}
+                >
+                  <span className="flex-shrink-0 mt-0.5 font-medium" style={{ color: '#d97706' }}>→</span>
+                  <span style={{ color: '#888' }}>
+                    {f.text.includes('—') ? (
+                      <>
+                        <strong className="font-medium" style={{ color: '#e8e8e8' }}>
+                          {f.text.split('—')[0].replace(/ $/, '')}
+                        </strong>
+                        {' —'}{f.text.split('—').slice(1).join('—')}
+                      </>
+                    ) : (
+                      <strong className="font-medium" style={{ color: '#e8e8e8' }}>{f.text}</strong>
+                    )}
+                    {f.note && (
+                      <span className="block text-xs mt-1" style={{ color: '#555' }}>{f.note}</span>
+                    )}
+                  </span>
+                </li>
               ))}
-              {[
-                'Quote follow-up sequences',
-                'Renewal reminders',
-                'Voice AI receptionist',
-              ].map(f => (
-                <div key={f} className="flex items-start gap-2">
-                  <CheckNo />
-                  <span className="text-xs leading-snug" style={{ color: '#555' }}>{f}</span>
-                </div>
-              ))}
-            </div>
+            </ul>
             <Link
               href="/enquiry"
-              className="block w-full mt-4 py-2.5 rounded-lg text-xs font-medium text-center transition-colors"
-              style={{ border: '0.5px solid #2a2a2a', color: '#e8e8e8', background: 'transparent' }}
-              onMouseEnter={undefined}
+              className="block text-center py-3.5 rounded text-sm font-semibold tracking-wide transition-all duration-200 hover:opacity-80"
+              style={{ border: '1px solid #3a3a3a', color: '#e8e8e8', background: 'transparent' }}
             >
-              Learn more ↗
+              Get started →
             </Link>
           </div>
 
-          {/* Growth (featured) */}
+          {/* PRO */}
           <div
-            className="rounded-xl p-5 relative"
-            style={{ background: '#0a0a0a', border: '2px solid #d97706' }}
+            className="flex flex-col p-10 relative"
+            style={{ background: '#141414' }}
           >
+            {/* Orange top bar */}
+            <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: '#d97706' }} />
             <div
-              className="absolute -top-3 left-1/2 -translate-x-1/2 text-white text-xs font-medium px-3 py-0.5 rounded-full whitespace-nowrap"
+              className="self-start text-white text-xs font-bold tracking-widest uppercase px-3 py-1 rounded mb-4"
               style={{ background: '#d97706' }}
             >
               Most popular
             </div>
-            <div className="text-xs font-medium mb-2" style={{ color: '#888' }}>Growth</div>
-            <div className="flex items-baseline gap-1 leading-none mb-1">
-              <span className="text-3xl font-medium text-white">£347</span>
-              <span className="text-xs" style={{ color: '#888' }}>/month</span>
+            <div className="text-xs font-bold tracking-widest uppercase mb-3" style={{ color: '#888' }}>Pro</div>
+            <div className="flex items-baseline gap-1 mb-1">
+              <span className="font-display text-6xl tracking-widest text-white">£497</span>
+              <span className="text-base" style={{ color: '#888' }}>/mo</span>
             </div>
-            <div className="text-xs mb-3" style={{ color: '#555' }}>+ £897 setup</div>
-            <div
-              className="text-xs leading-relaxed mb-4 pb-4"
-              style={{ color: '#888', borderBottom: '0.5px solid #2a2a2a' }}
+            <div className="text-xs mb-5" style={{ color: '#d97706' }}>↳ First month free</div>
+            <p
+              className="text-sm leading-relaxed mb-6 pb-6"
+              style={{ color: '#888', borderBottom: '1px solid #2a2a2a' }}
             >
-              Full sales cycle automation — from quote to renewal, running without you lifting a finger.
-            </div>
-            <div className="space-y-2">
-              {[
-                'Everything in Starter',
-                'Full 8-stage CRM pipeline',
-                'Quote follow-up (SMS + email, 48hr / 5 day / 9 day)',
-                'Certificate renewal reminders (60 / 30 / 7 days)',
-                'Job confirmation + reminder SMS',
-                'Re-engage cold leads at 90 days',
-              ].map(f => (
-                <div key={f} className="flex items-start gap-2">
-                  <CheckYes />
-                  <span className="text-xs leading-snug" style={{ color: '#888' }}>{f}</span>
-                </div>
+              Everything in Starter, plus a fully branded AI agent, call transcripts, WhatsApp automation, and a quarterly review call. A complete front office with zero staff.
+            </p>
+            <ul className="flex-1 mb-8" style={{ listStyle: 'none', padding: 0 }}>
+              {proFeatures.map((f, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-3 py-2.5 text-sm"
+                  style={{ borderBottom: i < proFeatures.length - 1 ? '1px solid #2a2a2a' : 'none' }}
+                >
+                  <span
+                    className="flex-shrink-0 mt-0.5 font-medium"
+                    style={{ color: f.inherited ? '#3a3a3a' : '#d97706' }}
+                  >
+                    {f.inherited ? '↳' : '→'}
+                  </span>
+                  <span style={{ color: f.inherited ? '#555' : '#888' }}>
+                    {f.inherited ? (
+                      f.text
+                    ) : f.text.includes('—') ? (
+                      <>
+                        <strong className="font-medium" style={{ color: '#e8e8e8' }}>
+                          {f.text.split('—')[0].replace(/ $/, '')}
+                        </strong>
+                        {' —'}{f.text.split('—').slice(1).join('—')}
+                      </>
+                    ) : (
+                      <strong className="font-medium" style={{ color: '#e8e8e8' }}>{f.text}</strong>
+                    )}
+                    {f.note && (
+                      <span className="block text-xs mt-1" style={{ color: '#555' }}>{f.note}</span>
+                    )}
+                  </span>
+                </li>
               ))}
-              {['Voice AI receptionist'].map(f => (
-                <div key={f} className="flex items-start gap-2">
-                  <CheckNo />
-                  <span className="text-xs leading-snug" style={{ color: '#555' }}>{f}</span>
-                </div>
-              ))}
-            </div>
+            </ul>
             <Link
               href="/enquiry"
-              className="block w-full mt-4 py-2.5 rounded-lg text-xs font-medium text-center text-white transition-opacity hover:opacity-90"
-              style={{ background: '#d97706', border: '1px solid #d97706' }}
-            >
-              Get started ↗
-            </Link>
-          </div>
-
-          {/* Pro */}
-          <div
-            className="rounded-xl p-5 relative"
-            style={{ background: '#0a0a0a', border: '0.5px solid #2a2a2a' }}
-          >
-            <div className="text-xs font-medium mb-2" style={{ color: '#888' }}>Pro</div>
-            <div className="flex items-baseline gap-1 leading-none mb-1">
-              <span className="text-3xl font-medium text-white">£547</span>
-              <span className="text-xs" style={{ color: '#888' }}>/month</span>
-            </div>
-            <div className="text-xs mb-3" style={{ color: '#555' }}>+ £1,497 setup</div>
-            <div
-              className="text-xs leading-relaxed mb-4 pb-4"
-              style={{ color: '#888', borderBottom: '0.5px solid #2a2a2a' }}
-            >
-              A fully automated front office — phone, chat, follow-up and renewals running 24/7 without staff.
-            </div>
-            <div className="space-y-2">
-              {[
-                'Everything in Growth',
-                'AI Voice Receptionist answers calls 24/7',
-                'Qualifies callers, books appointments, handles FAQs',
-                'Call transcripts + summaries after every call',
-                'Branded AI agent name and persona',
-                'Escalation to human for complex queries',
-              ].map(f => (
-                <div key={f} className="flex items-start gap-2">
-                  <CheckYes />
-                  <span className="text-xs leading-snug" style={{ color: '#888' }}>{f}</span>
-                </div>
-              ))}
-            </div>
-            <Link
-              href="/enquiry"
-              className="block w-full mt-4 py-2.5 rounded-lg text-xs font-medium text-center transition-colors"
-              style={{ border: '0.5px solid #2a2a2a', color: '#e8e8e8', background: 'transparent' }}
-            >
-              Learn more ↗
-            </Link>
-          </div>
-        </div>
-
-        {/* Simpro Integration */}
-        <div
-          className="rounded-xl p-5 mb-8"
-          style={{ background: '#111', border: '0.5px solid #2a2a2a' }}
-        >
-          <div className="flex items-center gap-3 mb-3">
-            <div
-              className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+              className="block text-center py-3.5 rounded text-sm font-semibold tracking-wide text-white transition-all duration-200 hover:brightness-110 hover:-translate-y-px"
               style={{ background: '#d97706' }}
             >
-              <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
-                <path d="M3 9l4 4 8-8" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-            <div>
-              <div className="text-sm font-medium text-white">Simpro Integration</div>
-              <div className="text-xs" style={{ color: '#888' }}>
-                Connect your Simpro quotes directly to GHL — fully automated, zero manual input
-              </div>
-            </div>
-          </div>
-          <p className="text-xs leading-relaxed mb-4" style={{ color: '#888' }}>
-            When you raise a quote in Simpro, the follow-up sequence fires in GHL automatically. Contact created or
-            updated, custom fields populated, SMS and email sequence starts — all without you touching anything. When
-            the quote is accepted in Simpro, the sequence stops and the pipeline moves to Booked.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {[
-              { name: 'Growth + Simpro', monthly: '£397', setup: '+ £1,297 setup', save: 'Save £400 vs adding separately' },
-              { name: 'Pro + Simpro', monthly: '£597', setup: '+ £1,897 setup', save: 'Save £400 vs adding separately' },
-            ].map(b => (
-              <div
-                key={b.name}
-                className="rounded-lg p-4"
-                style={{ background: '#0a0a0a', border: '0.5px solid #2a2a2a' }}
-              >
-                <div className="text-xs font-medium text-white mb-1">{b.name}</div>
-                <div className="flex items-baseline gap-1 leading-none">
-                  <span className="text-xl font-medium text-white">{b.monthly}</span>
-                  <span className="text-xs" style={{ color: '#888' }}>/month</span>
-                </div>
-                <div className="text-xs mt-0.5" style={{ color: '#555' }}>{b.setup}</div>
-                <div className="text-xs mt-1" style={{ color: '#d97706' }}>{b.save}</div>
-              </div>
-            ))}
+              Get started →
+            </Link>
           </div>
         </div>
-
-        {/* Add-ons */}
-        <div className="mb-8">
-          <div
-            className="text-xs font-medium tracking-widest uppercase mb-4"
-            style={{ color: '#555' }}
-          >
-            Add-ons
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {[
-              { name: 'Simpro integration', desc: 'Auto-trigger follow-up from Simpro quotes', price: '£400 one-off' },
-              { name: 'Additional location', desc: 'Each extra site under same account', price: '£97/month' },
-              { name: 'WhatsApp automation', desc: 'Follow-up sequences via WhatsApp', price: '£97/month' },
-              { name: 'Monthly reporting dashboard', desc: 'Leads, bookings, reviews at a glance', price: '£49/month' },
-              { name: 'Quarterly workflow review', desc: 'Optimise sequences every 3 months', price: '£150/quarter' },
-              { name: 'Google Business Profile setup', desc: 'Create or optimise your GBP listing', price: '£197 one-off' },
-            ].map(a => (
-              <div
-                key={a.name}
-                className="rounded-lg px-4 py-3 flex justify-between items-center"
-                style={{ background: '#0a0a0a', border: '0.5px solid #2a2a2a' }}
-              >
-                <div>
-                  <div className="text-xs font-medium text-white">{a.name}</div>
-                  <div className="text-xs mt-0.5" style={{ color: '#888' }}>{a.desc}</div>
-                </div>
-                <div className="text-xs font-medium text-white ml-4 whitespace-nowrap flex-shrink-0">{a.price}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Guarantee */}
-        <div
-          className="rounded-xl p-5 mb-8 flex items-start gap-4"
-          style={{ background: '#0a0a0a', border: '0.5px solid #2a2a2a' }}
-        >
-          <div
-            className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-            style={{ background: '#111' }}
-          >
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path
-                d="M9 2l1.5 4.5H15l-3.75 2.75 1.5 4.5L9 11l-3.75 2.75 1.5-4.5L3 6.5h4.5L9 2z"
-                stroke="#d97706"
-                strokeWidth="1.25"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-          <div>
-            <div className="text-sm font-medium text-white mb-1">First month free — no card required</div>
-            <div className="text-xs leading-relaxed" style={{ color: '#888' }}>
-              All packages include a free first month. If you don&apos;t see results in 30 days, walk away — no
-              charge, no questions asked. After month 1 it&apos;s rolling monthly. Cancel anytime.
-            </div>
-          </div>
-        </div>
-
-        {/* VS Podium comparison */}
-        <div
-          className="rounded-xl p-5 mb-10"
-          style={{ background: '#111', border: '0.5px solid #2a2a2a' }}
-        >
-          <div className="text-sm font-medium text-white mb-4">How we compare to Podium</div>
-          <div>
-            {/* Header row */}
-            <div className="grid grid-cols-3">
-              <div className="text-xs font-medium pb-2" style={{ color: '#555' }}></div>
-              <div className="text-xs font-medium pb-2 text-center" style={{ color: '#555' }}>Vexlo</div>
-              <div className="text-xs font-medium pb-2 text-center" style={{ color: '#555' }}>Podium</div>
-            </div>
-            {[
-              { feature: 'Monthly price', vexlo: '£197–£547', vexloGood: true, podium: '£200–£515', podiumGood: false },
-              { feature: 'Annual contract', vexlo: 'None', vexloGood: true, podium: 'Required', podiumGood: false },
-              { feature: 'Renewal reminders', vexlo: 'Yes', vexloGood: true, podium: 'No', podiumGood: false },
-              { feature: 'Quote follow-up', vexlo: 'Yes', vexloGood: true, podium: 'No', podiumGood: false },
-              { feature: 'Simpro integration', vexlo: 'Yes', vexloGood: true, podium: 'Limited', podiumGood: false },
-              { feature: 'UK compliance focus', vexlo: 'Yes', vexloGood: true, podium: 'No', podiumGood: false },
-              { feature: 'Transparent pricing', vexlo: 'Yes', vexloGood: true, podium: 'Quote only', podiumGood: false },
-            ].map((row) => (
-              <div
-                key={row.feature}
-                className="grid grid-cols-3"
-                style={{ borderTop: '0.5px solid #2a2a2a' }}
-              >
-                <div className="text-xs py-2.5 pr-2" style={{ color: '#e8e8e8' }}>{row.feature}</div>
-                <div
-                  className="text-xs py-2.5 text-center font-medium"
-                  style={{ color: row.vexloGood ? '#d97706' : '#888' }}
-                >
-                  {row.vexlo}
-                </div>
-                <div
-                  className="text-xs py-2.5 text-center"
-                  style={{ color: row.podiumGood ? '#d97706' : '#555' }}
-                >
-                  {row.podium}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Footer note */}
-        <div className="text-xs text-center leading-relaxed" style={{ color: '#555' }}>
-          vexlo.co.uk &nbsp;·&nbsp; hello@mail.vexlo.co.uk &nbsp;·&nbsp; All prices exclude VAT &nbsp;·&nbsp; No
-          contracts &nbsp;·&nbsp; Cancel anytime
-        </div>
-
       </div>
+
+      {/* ── WEBSITE ADD-ON ── */}
+      <div className="max-w-5xl mx-auto px-6 md:px-10 pb-20">
+        <div
+          className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-8 md:p-10 rounded-lg relative overflow-hidden"
+          style={{ background: '#111', border: '1px solid #2a2a2a' }}
+        >
+          {/* Glow */}
+          <div
+            className="absolute right-0 top-0 pointer-events-none"
+            style={{
+              width: '240px',
+              height: '240px',
+              background: 'radial-gradient(circle, rgba(217,119,6,0.15) 0%, transparent 70%)',
+              transform: 'translate(30%, -30%)',
+            }}
+          />
+          <div className="flex-1">
+            <div className="text-base font-semibold text-white mb-2">No website — or is yours overdue a refresh?</div>
+            <p className="text-sm leading-relaxed" style={{ color: '#888' }}>
+              We can build you a clean, fast, conversion-focused site designed to work hand-in-glove with your Vexlo
+              automation — chat widget, booking flow, and all. Get in touch and we&apos;ll quote based on what you need.
+            </p>
+          </div>
+          <div className="flex-shrink-0 text-left md:text-center">
+            <div className="font-display text-4xl tracking-widest text-white">Custom</div>
+            <div className="text-xs mb-4" style={{ color: '#888' }}>one-off project fee</div>
+            <Link
+              href="/enquiry"
+              className="inline-block px-6 py-3 rounded text-sm font-semibold text-white transition-all duration-200 hover:brightness-110 hover:-translate-y-px"
+              style={{ background: '#d97706' }}
+            >
+              Talk to us →
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* ── USAGE COSTS ── */}
+      <div className="max-w-5xl mx-auto px-6 md:px-10 pb-20">
+        <div className="mb-10">
+          <div className="section-tag">Usage Costs</div>
+          <h2 className="font-display text-4xl md:text-5xl tracking-widest text-white mb-3">
+            TRANSPARENT <span style={{ color: '#d97706' }}>USAGE BILLING</span>
+          </h2>
+          <p className="text-sm max-w-xl" style={{ color: '#888' }}>
+            Your monthly tier covers the platform, setup, and all automations. On top you pay only for actual usage —
+            at cost, no mark-up. Most trades businesses spend £20–£60 extra per month.
+          </p>
+        </div>
+
+        {/* Rates grid */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 mb-10"
+          style={{ gap: '1px', background: '#2a2a2a', border: '1px solid #2a2a2a', borderRadius: '8px', overflow: 'hidden' }}
+        >
+          {usageRates.map((r) => (
+            <div
+              key={r.label}
+              className="flex justify-between items-center px-7 py-6 transition-colors duration-150"
+              style={{ background: r.highlight ? '#1a1a1a' : '#111' }}
+            >
+              <div>
+                <strong className="block text-sm font-medium text-white mb-0.5">{r.label}</strong>
+                <span className="text-xs" style={{ color: '#888' }}>{r.desc}</span>
+              </div>
+              <div className="text-right flex-shrink-0 ml-4">
+                <div className="font-display text-xl tracking-widest" style={{ color: r.highlight ? '#e8e8e8' : '#d97706' }}>
+                  {r.val}
+                </div>
+                <div className="text-xs" style={{ color: '#555' }}>{r.unit}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Calculator */}
+        <PricingCalculator />
+      </div>
+
+      {/* ── COMPARISON ── */}
+      <div className="max-w-5xl mx-auto px-6 md:px-10 pb-20">
+        <div className="mb-8">
+          <div className="section-tag">Comparison</div>
+          <h2 className="font-display text-4xl md:text-5xl tracking-widest text-white">
+            HOW WE <span style={{ color: '#d97706' }}>COMPARE</span>
+          </h2>
+        </div>
+
+        <div style={{ border: '1px solid #2a2a2a', borderRadius: '8px', overflow: 'hidden' }}>
+          <table className="w-full border-collapse">
+            <thead>
+              <tr style={{ background: '#1a1a1a', borderBottom: '1px solid #2a2a2a' }}>
+                <th className="text-left px-6 py-4 text-xs font-bold tracking-widest uppercase text-white">Feature</th>
+                <th className="px-6 py-4 text-xs font-bold tracking-widest uppercase text-center" style={{ color: '#d97706' }}>Vexlo</th>
+                <th className="px-6 py-4 text-xs font-bold tracking-widest uppercase text-center" style={{ color: '#888' }}>Podium</th>
+                <th className="px-6 py-4 text-xs font-bold tracking-widest uppercase text-center" style={{ color: '#888' }}>ARROW</th>
+              </tr>
+            </thead>
+            <tbody>
+              {compareRows.map((row, i) => (
+                <tr
+                  key={row.feature}
+                  style={{ borderTop: i === 0 ? 'none' : '1px solid #2a2a2a', background: '#111' }}
+                >
+                  <td className="px-6 py-3.5 text-sm font-medium text-white">{row.feature}</td>
+                  <td
+                    className="px-6 py-3.5 text-sm text-center font-medium"
+                    style={{ color: row.vexloGood ? '#d97706' : '#888' }}
+                  >
+                    {row.vexlo}
+                  </td>
+                  <td
+                    className="px-6 py-3.5 text-sm text-center"
+                    style={{ color: row.podiumGood ? '#d97706' : '#555' }}
+                  >
+                    {row.podium}
+                  </td>
+                  <td
+                    className="px-6 py-3.5 text-sm text-center"
+                    style={{ color: row.arrowGood ? '#d97706' : '#555' }}
+                  >
+                    {row.arrow}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* ── GUARANTEE ── */}
+      <div className="max-w-5xl mx-auto px-6 md:px-10 pb-24">
+        <div
+          className="text-center px-8 py-14 rounded-lg relative overflow-hidden"
+          style={{ background: '#111', border: '1px solid #2a2a2a' }}
+        >
+          {/* Glow */}
+          <div
+            className="absolute left-1/2 top-0 -translate-x-1/2 pointer-events-none"
+            style={{
+              width: '400px',
+              height: '200px',
+              background: 'radial-gradient(ellipse, rgba(217,119,6,0.15) 0%, transparent 70%)',
+            }}
+          />
+          <h3 className="font-display text-4xl md:text-5xl tracking-widest text-white mb-4">
+            FIRST MONTH FREE.<br />ZERO RISK.
+          </h3>
+          <p className="text-sm leading-relaxed max-w-xl mx-auto mb-8" style={{ color: '#888' }}>
+            Try the full automation stack for 30 days. Your only cost in month one is the actual calls and texts you
+            use. If you don&apos;t see results, walk away — no platform charge, no questions asked. After month one
+            it&apos;s rolling monthly, cancel anytime.
+          </p>
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
+            {[
+              'No setup fee while we\'re growing',
+              'Cancel anytime after month 1',
+              'No contract, ever',
+              'Pay only usage in month 1',
+            ].map(point => (
+              <div key={point} className="flex items-center gap-2 text-sm" style={{ color: '#888' }}>
+                <span style={{ color: '#d97706', fontWeight: 700 }}>→</span>
+                {point}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
     </div>
   )
 }

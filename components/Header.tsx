@@ -24,6 +24,7 @@ export default function Header() {
         <Link href="/#features" className="transition-colors hover:text-white">Features</Link>
         <Link href="/services" className="transition-colors hover:text-white">Services</Link>
         <Link href="/about" className="transition-colors hover:text-white">About</Link>
+        <Link href="/pricing" className="transition-colors hover:text-white">Pricing</Link>
       </div>
 
       <Link
