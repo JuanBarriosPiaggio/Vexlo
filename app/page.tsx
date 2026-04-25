@@ -138,7 +138,7 @@ const niches = [
   {
     emoji: '🌟',
     title: 'Any Service Business',
-    text: "If your phone rings while you're busy serving customers, this is for you. Any business that relies on inbound calls and appointments can be live in under 24 hours.",
+    text: "If your phone rings while you're busy serving customers, this is for you. Any business that relies on inbound calls and appointments can be live in under 48 hours.",
     stat: 'Works for any trade or service',
     statStyle: { background: 'rgba(217,119,6,0.15)', color: '#d97706' },
     bg: 'linear-gradient(135deg, #0f0f0f, #1a1a1a)',
@@ -153,7 +153,7 @@ const pricingFeatures = [
   'Full GHL dashboard access',
   'Real-time lead notifications',
   'Onboarding call included',
-  'Live in under 24 hours',
+  'Live in under 48 hours',
 ]
 
 export default function Home() {
@@ -379,7 +379,7 @@ export default function Home() {
               {
                 '@type': 'Question',
                 name: 'How long does it take to go live?',
-                acceptedAnswer: { '@type': 'Answer', text: 'Most businesses are live within 24 hours. We handle the full setup and write your messages — you just start receiving booked appointments.' },
+                acceptedAnswer: { '@type': 'Answer', text: 'Most businesses are live within 48 hours. We handle the full setup and write your messages — you just start receiving booked appointments.' },
               },
               {
                 '@type': 'Question',

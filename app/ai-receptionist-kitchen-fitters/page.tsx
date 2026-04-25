@@ -92,7 +92,7 @@ export default function KitchenFittersPage() {
         },
         {
           question: 'How quickly can I get set up?',
-          answer: 'Most kitchen fitters are live within 24 hours. We handle the setup, write your messages, and connect everything — you just start receiving booked consultations.',
+          answer: 'Most kitchen fitters are live within 48 hours. We handle the setup, write your messages, and connect everything — you just start receiving booked consultations.',
         },
       ]}
     />
