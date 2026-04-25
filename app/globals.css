@@ -171,9 +171,12 @@
 }
 .float-badge strong { color: var(--orange); }
 
+/* Sits mid-left of the mockup so it doesn’t cover the review card at the bottom */
 .float-badge-2 {
   position: absolute;
-  bottom: 60px; left: -40px;
+  top: 130px;
+  bottom: auto;
+  left: -40px;
   background: var(--dark-3);
   border: 1px solid var(--border);
   border-radius: 12px;
