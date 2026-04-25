@@ -136,6 +136,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CookieConsent />
         <Analytics />
         <Script
+          id="leadconnector-form-embed"
+          src="https://link.msgsndr.com/js/form_embed.js"
+          strategy="afterInteractive"
+        />
+        <Script
           id="leadconnector-loader"
           src="https://widgets.leadconnectorhq.com/loader.js"
           strategy="afterInteractive"

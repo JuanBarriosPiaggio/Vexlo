@@ -74,7 +74,7 @@ export default function Header() {
           </button>
 
           <Link
-            href="/#book"
+            href="/enquiry"
             className="text-xs font-bold tracking-widest uppercase px-4 md:px-5 py-2.5 rounded text-white transition-all duration-200 hover:brightness-110 hover:-translate-y-px whitespace-nowrap"
             style={{ background: '#d97706' }}
           >

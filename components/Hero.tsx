@@ -54,7 +54,7 @@ export default function Hero() {
 
           <div className="anim-4 flex flex-wrap gap-3">
             <Link
-              href="/#book"
+              href="/enquiry"
               className="inline-flex items-center px-7 py-3.5 rounded text-sm font-bold tracking-wide transition-all duration-200 hover:brightness-110 hover:-translate-y-px"
               style={{ background: '#d97706', color: '#fff' }}
             >

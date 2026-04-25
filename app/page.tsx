@@ -3,7 +3,7 @@ import Hero from '@/components/Hero'
 import Benefits from '@/components/Benefits'
 import HowItWorks from '@/components/HowItWorks'
 import ScrollReveal from '@/components/ScrollReveal'
-import CalendlyWidget from '@/components/CalendlyWidget'
+import LeadConnectorForm from '@/components/LeadConnectorForm'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 
@@ -273,31 +273,31 @@ export default function Home() {
                 ))}
               </ul>
               <a
-                href="#book"
+                href="/enquiry"
                 className="block w-full text-center py-4 rounded text-sm font-bold tracking-wide transition-all duration-200 text-white hover:brightness-110"
                 style={{ background: '#d97706' }}
               >
                 CLAIM YOUR FREE MONTH →
               </a>
               <p className="mt-4 text-xs text-center" style={{ color: '#888' }}>
-                After month 1 — simple monthly subscription. Discussed on your demo call.
+                After month 1 — simple monthly subscription. We&apos;ll confirm details when we speak.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* BOOK / CALENDLY */}
+      {/* CONTACT — Lead Connector form */}
       <section
         id="book"
-        className="relative overflow-hidden text-center"
+        className="relative overflow-hidden"
         style={{ background: '#111111', padding: '100px 40px' }}
       >
         <div
           className="pointer-events-none absolute inset-0"
           style={{ background: 'radial-gradient(ellipse at center, rgba(217,119,6,0.07) 0%, transparent 70%)' }}
         />
-        <div className="max-w-4xl mx-auto relative z-10">
+        <div className="max-w-xl mx-auto relative z-10 text-center">
           <h2
             className="font-display text-white mb-4"
             style={{ fontSize: 'clamp(3rem, 5vw, 5rem)', lineHeight: 1, letterSpacing: '0.02em' }}
@@ -305,10 +305,10 @@ export default function Home() {
             Ready to stop missing<br />
             <span style={{ color: '#d97706' }}>leads?</span>
           </h2>
-          <p className="mb-12 text-base" style={{ color: '#888' }}>
-            Book a free 15-minute demo. We&apos;ll show you exactly how it works — live.
+          <p className="mb-10 text-base" style={{ color: '#888' }}>
+            Tell us about your business — we&apos;ll get back to you shortly.
           </p>
-          <CalendlyWidget />
+          <LeadConnectorForm instanceId="home-book" className="text-left" />
         </div>
       </section>
 

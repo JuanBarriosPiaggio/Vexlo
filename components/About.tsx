@@ -36,7 +36,7 @@ export default function About() {
           </div>
           <div className="mt-8">
             <Link
-              href="/#book"
+              href="/enquiry"
               className="inline-flex items-center px-7 py-3.5 rounded text-sm font-bold tracking-wide text-white transition-all duration-200 hover:brightness-110"
               style={{ background: '#d97706' }}
             >

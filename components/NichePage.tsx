@@ -78,7 +78,7 @@ export default function NichePage({
 
             <div className="flex flex-wrap gap-3">
               <Link
-                href="/#book"
+                href="/enquiry"
                 className="inline-flex items-center px-7 py-3.5 rounded text-sm font-bold tracking-wide text-white transition-all duration-200 hover:brightness-110 hover:-translate-y-px"
                 style={{ background: '#d97706' }}
               >
@@ -271,14 +271,14 @@ export default function NichePage({
             <span className="font-serif" style={{ color: '#d97706', fontStyle: 'italic' }}>calls?</span>
           </h2>
           <p className="mb-10 text-sm" style={{ color: '#888' }}>
-            Book a free 15-minute demo. We&apos;ll show you exactly how Vexlo works for your business.
+            Get in touch — we&apos;ll show you exactly how Vexlo works for your business.
           </p>
           <Link
-            href="/#book"
+            href="/enquiry"
             className="inline-flex items-center px-8 py-4 rounded text-sm font-bold tracking-wide text-white transition-all duration-200 hover:brightness-110"
             style={{ background: '#d97706' }}
           >
-            Book Your Free Demo →
+            Get in touch →
           </Link>
           <p className="mt-4 text-xs" style={{ color: '#888' }}>No commitment. No technical setup required.</p>
         </div>
