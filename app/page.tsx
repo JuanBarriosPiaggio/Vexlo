@@ -3,7 +3,7 @@ import Hero from '@/components/Hero'
 import Benefits from '@/components/Benefits'
 import HowItWorks from '@/components/HowItWorks'
 import ScrollReveal from '@/components/ScrollReveal'
-import LeadConnectorForm from '@/components/LeadConnectorForm'
+import LeadConnectorBooking from '@/components/LeadConnectorBooking'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 
@@ -287,7 +287,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACT — Lead Connector form */}
+      {/* BOOK — Lead Connector calendar */}
       <section
         id="book"
         className="relative overflow-hidden"
@@ -297,7 +297,7 @@ export default function Home() {
           className="pointer-events-none absolute inset-0"
           style={{ background: 'radial-gradient(ellipse at center, rgba(217,119,6,0.07) 0%, transparent 70%)' }}
         />
-        <div className="max-w-xl mx-auto relative z-10 text-center">
+        <div className="max-w-2xl mx-auto relative z-10 text-center">
           <h2
             className="font-display text-white mb-4"
             style={{ fontSize: 'clamp(3rem, 5vw, 5rem)', lineHeight: 1, letterSpacing: '0.02em' }}
@@ -306,9 +306,9 @@ export default function Home() {
             <span style={{ color: '#d97706' }}>leads?</span>
           </h2>
           <p className="mb-10 text-base" style={{ color: '#888' }}>
-            Tell us about your business — we&apos;ll get back to you shortly.
+            Pick a time for your free demo — no obligation.
           </p>
-          <LeadConnectorForm instanceId="home-book" className="text-left" />
+          <LeadConnectorBooking instanceId="home-book" className="text-left" />
         </div>
       </section>
 

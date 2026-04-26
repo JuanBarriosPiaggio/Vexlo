@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import LeadConnectorForm from '@/components/LeadConnectorForm'
+import LeadConnectorBooking from '@/components/LeadConnectorBooking'
 
 export const metadata: Metadata = {
-  title: 'Get in Touch — Enquiry | Vexlo',
+  title: 'Book a Free Demo | Vexlo',
   description:
-    "Send an enquiry to Vexlo. Tell us about your business and we'll get back to you to discuss AI automation for your trades or clinic.",
-  keywords: ['Vexlo enquiry', 'contact Vexlo', 'AI automation enquiry UK'],
+    "Schedule a free demo with Vexlo. See how AI automation can capture every lead for your trades or clinic business.",
+  keywords: ['Vexlo demo', 'book Vexlo', 'AI automation demo UK', 'contact Vexlo'],
   robots: { index: false, follow: false },
 }
 
@@ -13,8 +13,8 @@ export default function EnquiryPage() {
   return (
     <div style={{ background: '#0a0a0a', minHeight: '100vh' }}>
       <section className="pt-36 pb-24 px-6 md:px-10">
-        <div className="max-w-2xl mx-auto">
-          <div className="section-tag">Contact Us</div>
+        <div className="max-w-3xl mx-auto">
+          <div className="section-tag">Book a demo</div>
           <h1
             className="font-display text-white mt-2 mb-4"
             style={{ fontSize: 'clamp(2.5rem, 4vw, 4rem)', lineHeight: 1, letterSpacing: '0.02em' }}
@@ -25,10 +25,10 @@ export default function EnquiryPage() {
             </span>
           </h1>
           <p className="text-sm leading-relaxed mb-10" style={{ color: '#888' }}>
-            Fill in the form below and we&apos;ll get back to you shortly.
+            Choose a slot below — we&apos;ll walk you through how Vexlo fits your business.
           </p>
 
-          <LeadConnectorForm instanceId="enquiry-page" />
+          <LeadConnectorBooking instanceId="enquiry-page" />
         </div>
       </section>
     </div>
