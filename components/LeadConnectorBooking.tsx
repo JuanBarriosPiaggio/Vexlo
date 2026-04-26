@@ -4,8 +4,9 @@ export const LEAD_CONNECTOR_BOOKING_ID = 'Kt06hCLO3cIoBPgXWnVD'
 /**
  * Mobile height must fit the full “enter details” step inside the iframe so we can use
  * scrolling="no" — avoids the nested iframe scrollbar; users scroll the page instead.
+ * (GHL layout varies slightly by viewport; keep a buffer.)
  */
-const IFRAME_H_MOBILE = 1680
+const IFRAME_H_MOBILE = 1980
 
 export default function LeadConnectorBooking({
   instanceId = 'default',
@@ -18,7 +19,7 @@ export default function LeadConnectorBooking({
 
   return (
     <div
-      className={`w-full min-h-[1680px] md:min-h-[800px] ${className}`.trim()}
+      className={`w-full min-h-[1980px] md:min-h-[800px] pb-28 md:pb-10 ${className}`.trim()}
     >
       <iframe
         src={`https://api.leadconnectorhq.com/widget/booking/${LEAD_CONNECTOR_BOOKING_ID}`}

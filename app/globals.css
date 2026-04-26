@@ -15,7 +15,11 @@
     --muted: #888;
   }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    /* Fixed cookie bar + mobile toolbars: keep scroll targets (e.g. booking submit) usable */
+    scroll-padding-bottom: max(6rem, env(safe-area-inset-bottom, 0px));
+  }
 
   body {
     background: var(--dark);

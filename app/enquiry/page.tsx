@@ -11,9 +11,13 @@ export const metadata: Metadata = {
 
 export default function EnquiryPage() {
   return (
-    <div style={{ background: '#0a0a0a', minHeight: '100vh' }}>
-      <section className="pt-36 pb-24 px-6 md:px-10">
-        <div className="max-w-3xl mx-auto">
+    <div style={{ background: '#0a0a0a' }}>
+      {/*
+        Match home #book rhythm (max width + generous bottom space) so the calendar isn’t
+        visually “tighter” than /#book, and users can scroll the submit above the fixed cookie bar.
+      */}
+      <section className="pt-32 pb-32 md:pt-36 md:pb-40 px-6 md:px-10">
+        <div className="max-w-2xl mx-auto">
           <div className="section-tag">Book a demo</div>
           <h1
             className="font-display text-white mt-2 mb-4"
@@ -24,11 +28,11 @@ export default function EnquiryPage() {
               automation.
             </span>
           </h1>
-          <p className="text-sm leading-relaxed mb-10" style={{ color: '#888' }}>
+          <p className="text-sm leading-relaxed mb-8 md:mb-10" style={{ color: '#888' }}>
             Choose a slot below — we&apos;ll walk you through how Vexlo fits your business.
           </p>
 
-          <LeadConnectorBooking instanceId="enquiry-page" />
+          <LeadConnectorBooking instanceId="enquiry-page" className="text-left" />
         </div>
       </section>
     </div>
