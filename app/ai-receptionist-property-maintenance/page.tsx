@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description:
       'Handle tenant repair requests, landlord enquiries, and job scheduling automatically. AI receptionist and CRM automation for UK property maintenance businesses.',
     url: `${siteUrl}/ai-receptionist-property-maintenance`,
-    images: [{ url: `${siteUrl}/Vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Property Maintenance' }],
+    images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Property Maintenance' }],
   },
   alternates: { canonical: `${siteUrl}/ai-receptionist-property-maintenance` },
 }

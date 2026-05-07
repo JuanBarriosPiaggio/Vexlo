@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description:
       "Stop missing appointment calls while you're with a client. AI receptionist, automated booking, and Google review automation for UK salons and barbers.",
     url: `${siteUrl}/ai-receptionist-salons-barbers`,
-    images: [{ url: `${siteUrl}/Vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Beauty Salons' }],
+    images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Beauty Salons' }],
   },
   alternates: { canonical: `${siteUrl}/ai-receptionist-salons-barbers` },
 }

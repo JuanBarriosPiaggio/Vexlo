@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description:
       "Your team is on roofs all day. Vexlo's AI captures every high-value enquiry so you never lose a £10,000 job to a missed call.",
     url: `${siteUrl}/ai-receptionist-roofing-companies`,
-    images: [{ url: `${siteUrl}/Vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Roofing Companies' }],
+    images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Roofing Companies' }],
   },
   alternates: { canonical: `${siteUrl}/ai-receptionist-roofing-companies` },
 }

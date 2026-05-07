@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: 'AI Receptionist for Physio & Wellness Clinics | Vexlo',
     description: "You're with a patient — the next one is calling. Vexlo texts back in 4 seconds and books them in automatically.",
     url: `${siteUrl}/ai-receptionist-physio-wellness`,
-    images: [{ url: `${siteUrl}/Vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Physio & Wellness Clinics' }],
+    images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Physio & Wellness Clinics' }],
   },
   alternates: { canonical: `${siteUrl}/ai-receptionist-physio-wellness` },
 }

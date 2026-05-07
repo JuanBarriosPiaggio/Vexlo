@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description:
       "Stop missing emergency plumbing calls while you're on the job. AI receptionist and missed-call text-back for UK plumbers and heating engineers.",
     url: `${siteUrl}/ai-receptionist-plumbers`,
-    images: [{ url: `${siteUrl}/Vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Plumbers' }],
+    images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Plumbers' }],
   },
   alternates: { canonical: `${siteUrl}/ai-receptionist-plumbers` },
 }

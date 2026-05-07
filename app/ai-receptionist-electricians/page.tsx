@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: 'AI Receptionist for Electricians | Vexlo',
     description: "Electrical emergencies don't wait. Vexlo texts back every missed call in 4 seconds — even when you're on the tools.",
     url: `${siteUrl}/ai-receptionist-electricians`,
-    images: [{ url: `${siteUrl}/Vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Electricians' }],
+    images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Electricians' }],
   },
   alternates: { canonical: `${siteUrl}/ai-receptionist-electricians` },
 }

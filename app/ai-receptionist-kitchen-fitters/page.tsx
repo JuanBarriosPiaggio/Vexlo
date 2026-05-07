@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: 'AI Receptionist for Kitchen Fitters | Vexlo',
     description: "Kitchen enquiries are high value — if you don't respond fast, they book someone else. Vexlo responds in 4 seconds.",
     url: `${siteUrl}/ai-receptionist-kitchen-fitters`,
-    images: [{ url: `${siteUrl}/Vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Kitchen Fitters' }],
+    images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Kitchen Fitters' }],
   },
   alternates: { canonical: `${siteUrl}/ai-receptionist-kitchen-fitters` },
 }

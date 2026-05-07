@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description:
       'Free your dental receptionist from repetitive calls. AI phone answering, appointment reminders, and Google review automation for UK dental practices.',
     url: `${siteUrl}/ai-receptionist-dentists`,
-    images: [{ url: `${siteUrl}/Vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Dental Clinics' }],
+    images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Dental Clinics' }],
   },
   alternates: { canonical: `${siteUrl}/ai-receptionist-dentists` },
 }

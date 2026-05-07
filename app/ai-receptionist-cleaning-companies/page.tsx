@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description:
       'Stop losing cleaning bookings to missed calls. AI receptionist, missed-call text-back, and Google review automation for UK cleaning businesses.',
     url: `${siteUrl}/ai-receptionist-cleaning-companies`,
-    images: [{ url: `${siteUrl}/Vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Cleaning Companies' }],
+    images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Cleaning Companies' }],
   },
   alternates: { canonical: `${siteUrl}/ai-receptionist-cleaning-companies` },
 }

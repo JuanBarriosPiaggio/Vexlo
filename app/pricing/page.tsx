@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import PricingCalculator from '@/components/PricingCalculator'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
+
 export const metadata: Metadata = {
   title: 'Pricing',
   description:
@@ -14,13 +16,14 @@ export const metadata: Metadata = {
     'missed call text back price',
     'small business automation UK',
   ],
-  alternates: { canonical: '/pricing' },
+  alternates: { canonical: `${siteUrl}/pricing` },
   openGraph: {
     title: 'Pricing | Vexlo',
     description:
       'Simple, transparent pricing for UK trades, clinics and service businesses. AI automation from £297/month — no contracts, first month free.',
-    url: '/pricing',
+    url: `${siteUrl}/pricing`,
     type: 'website',
+    images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'Vexlo Pricing' }],
   },
 }
 

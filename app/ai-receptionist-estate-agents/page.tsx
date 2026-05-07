@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description:
       'Every missed property enquiry is a transaction lost. AI receptionist, lead capture, and CRM automation for UK estate and letting agents.',
     url: `${siteUrl}/ai-receptionist-estate-agents`,
-    images: [{ url: `${siteUrl}/Vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Estate Agents' }],
+    images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'AI Receptionist for Estate Agents' }],
   },
   alternates: { canonical: `${siteUrl}/ai-receptionist-estate-agents` },
 }

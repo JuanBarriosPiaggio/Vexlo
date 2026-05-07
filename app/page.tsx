@@ -35,6 +35,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: 'Vexlo — Stop Losing Jobs to Voicemail',
     description: 'AI bot texts back every missed call in 4 seconds, books the job, chases reviews. 24/7.',
+    images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'Vexlo AI Receptionist' }],
   },
 }
 
