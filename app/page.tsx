@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import Hero from '@/components/Hero'
 import Benefits from '@/components/Benefits'
 import HowItWorks from '@/components/HowItWorks'
@@ -74,6 +75,7 @@ const niches = [
   {
     emoji: '🏠',
     title: 'Roofers',
+    href: '/ai-receptionist-roofing-companies',
     text: "You're on site all day. Calls come in while you're up a ladder. The bot captures every lead, books the survey, and gets you the review after completion.",
     stat: 'Avg job value: £2,000–£15,000',
     statStyle: { background: 'rgba(217,119,6,0.15)', color: '#d97706' },
@@ -82,6 +84,7 @@ const niches = [
   {
     emoji: '🍳',
     title: 'Kitchen Fitters',
+    href: '/ai-receptionist-kitchen-fitters',
     text: "Kitchen enquiries are high intent and high value. If you don't reply fast, they've already booked someone else. The bot responds before they've put the phone down.",
     stat: 'Avg job value: £5,000–£25,000',
     statStyle: { background: 'rgba(74,222,128,0.1)', color: '#4ade80' },
@@ -90,6 +93,7 @@ const niches = [
   {
     emoji: '🦷',
     title: 'Dental Practices',
+    href: '/ai-receptionist-dentists',
     text: 'After-hours calls, missed calls between appointments. The bot books patients 24/7 and builds your Google reviews — without extra receptionist time.',
     stat: 'Avg patient value: £500–£3,000',
     statStyle: { background: 'rgba(96,165,250,0.1)', color: '#60a5fa' },
@@ -98,6 +102,7 @@ const niches = [
   {
     emoji: '🔧',
     title: 'Plumbers',
+    href: '/ai-receptionist-plumbers',
     text: "You can't stop mid-job to answer calls. Emergency plumbing enquiries won't wait — the bot replies instantly, qualifies the lead, and books them in before they call your competitor.",
     stat: 'Avg job value: £150–£2,000',
     statStyle: { background: 'rgba(217,119,6,0.15)', color: '#d97706' },
@@ -106,6 +111,7 @@ const niches = [
   {
     emoji: '✂️',
     title: 'Salons & Barbers',
+    href: '/ai-receptionist-salons-barbers',
     text: "You're with a client — you can't pick up the phone. The bot handles new booking requests automatically and sends review requests after every appointment.",
     stat: 'Avg monthly revenue: £5k–£30k',
     statStyle: { background: 'rgba(244,114,182,0.12)', color: '#f472b6' },
@@ -114,6 +120,7 @@ const niches = [
   {
     emoji: '⚡',
     title: 'Electricians',
+    href: '/ai-receptionist-electricians',
     text: "On site, hands full, can't answer. Every missed call is a potential job lost to someone else. The bot texts back, books the survey, and follows up for a review once the work is done.",
     stat: 'Avg job value: £200–£5,000',
     statStyle: { background: 'rgba(250,204,21,0.12)', color: '#facc15' },
@@ -122,6 +129,7 @@ const niches = [
   {
     emoji: '🏡',
     title: 'Estate Agents',
+    href: '/ai-receptionist-estate-agents',
     text: "Viewing enquiries go cold fast. The bot responds to every missed call instantly, books the viewing, and keeps your pipeline moving — even outside office hours.",
     stat: 'Avg deal value: £3,000–£15,000',
     statStyle: { background: 'rgba(74,222,128,0.1)', color: '#4ade80' },
@@ -130,16 +138,18 @@ const niches = [
   {
     emoji: '💆',
     title: 'Physio & Wellness',
+    href: '/ai-receptionist-physio-wellness',
     text: "You're in session — unavailable. New patient calls slip through. The bot captures every enquiry, books the consultation, and requests a review after each appointment.",
     stat: 'Avg patient value: £400–£2,000',
     statStyle: { background: 'rgba(96,165,250,0.1)', color: '#60a5fa' },
     bg: 'linear-gradient(135deg, #060d1f, #0d1a3a)',
   },
   {
-    emoji: '🌟',
-    title: 'Any Service Business',
-    text: "If your phone rings while you're busy serving customers, this is for you. Any business that relies on inbound calls and appointments can be live in under 48 hours.",
-    stat: 'Works for any trade or service',
+    emoji: '🏘️',
+    title: 'Property Maintenance',
+    href: '/ai-receptionist-property-maintenance',
+    text: "Maintenance calls come at all hours. The bot replies instantly to every missed call, books the site visit, and chases a review once the job is signed off.",
+    stat: 'Avg job value: £200–£5,000',
     statStyle: { background: 'rgba(217,119,6,0.15)', color: '#d97706' },
     bg: 'linear-gradient(135deg, #0f0f0f, #1a1a1a)',
   },
@@ -208,10 +218,11 @@ export default function Home() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {niches.map((n, i) => (
-              <div
+              <Link
                 key={i}
-                className="reveal rounded-xl p-8 transition-transform duration-200 hover:-translate-y-1"
-                style={{ background: n.bg, border: '1px solid #2a2a2a' }}
+                href={n.href}
+                className="reveal rounded-xl p-8 transition-transform duration-200 hover:-translate-y-1 block"
+                style={{ background: n.bg, border: '1px solid #2a2a2a', textDecoration: 'none' }}
               >
                 <div className="text-5xl mb-4">{n.emoji}</div>
                 <div
@@ -221,13 +232,16 @@ export default function Home() {
                   {n.title}
                 </div>
                 <p className="text-sm leading-relaxed mb-5" style={{ color: '#888' }}>{n.text}</p>
-                <span
-                  className="text-xs font-bold px-3 py-1.5 rounded-full inline-block"
-                  style={n.statStyle}
-                >
-                  {n.stat}
-                </span>
-              </div>
+                <div className="flex items-center justify-between flex-wrap gap-3">
+                  <span
+                    className="text-xs font-bold px-3 py-1.5 rounded-full inline-block"
+                    style={n.statStyle}
+                  >
+                    {n.stat}
+                  </span>
+                  <span className="text-xs" style={{ color: '#d97706' }}>Learn more →</span>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

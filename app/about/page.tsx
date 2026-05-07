@@ -2,10 +2,13 @@ import type { Metadata } from 'next'
 import About from '@/components/About'
 import Link from 'next/link'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
+
 export const metadata: Metadata = {
   title: 'About — Vexlo AI Automation for UK Trades & Clinics',
   description: 'Meet the team behind Vexlo. We build AI automation for UK trades and clinics — missed call text-back, automated booking, and Google review generation.',
   keywords: ['about Vexlo', 'AI automation company UK', 'Juan Barrios Vexlo', 'UK trade automation'],
+  alternates: { canonical: `${siteUrl}/about` },
 }
 
 export default function AboutPage() {

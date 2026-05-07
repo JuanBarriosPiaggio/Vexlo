@@ -68,14 +68,12 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, 'max-video-preview': -1, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
-  alternates: { canonical: siteUrl },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-GB">
       <head>
-        <link rel="canonical" href={siteUrl} />
         <link rel="icon" href="/vexlo_logo.png" type="image/png" />
         <link rel="apple-touch-icon" href="/vexlo_logo.png" />
         <link

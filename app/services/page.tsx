@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
+
 export const metadata: Metadata = {
   title: 'Services — AI Voice Assistants & Workflow Automation | Vexlo',
   description: "Explore Vexlo's AI automation services: missed call text-back, automated booking, Google review automation, and custom workflow automation for UK trades and clinics.",
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
     'workflow automation UK',
     'AI phone bot service',
   ],
+  alternates: { canonical: `${siteUrl}/services` },
 }
 
 const services = [
@@ -104,6 +107,47 @@ export default function ServicesPage() {
               </ul>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Industries We Serve */}
+      <section style={{ padding: '0 40px 100px', background: '#0a0a0a' }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="section-tag">Industries</div>
+          <h2
+            className="font-display text-white mb-4"
+            style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', lineHeight: 1, letterSpacing: '0.02em' }}
+          >
+            Built for your industry
+          </h2>
+          <p className="mb-10" style={{ color: '#888', fontSize: '1rem', lineHeight: 1.65, maxWidth: '480px' }}>
+            Vexlo is configured specifically for each trade and service type. Select your industry to see how it works for you.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+            {[
+              { emoji: '🏠', label: 'Roofers', href: '/ai-receptionist-roofing-companies' },
+              { emoji: '🍳', label: 'Kitchen Fitters', href: '/ai-receptionist-kitchen-fitters' },
+              { emoji: '🦷', label: 'Dental Practices', href: '/ai-receptionist-dentists' },
+              { emoji: '🔧', label: 'Plumbers', href: '/ai-receptionist-plumbers' },
+              { emoji: '✂️', label: 'Salons & Barbers', href: '/ai-receptionist-salons-barbers' },
+              { emoji: '⚡', label: 'Electricians', href: '/ai-receptionist-electricians' },
+              { emoji: '🏡', label: 'Estate Agents', href: '/ai-receptionist-estate-agents' },
+              { emoji: '💆', label: 'Physio & Wellness', href: '/ai-receptionist-physio-wellness' },
+              { emoji: '🏘️', label: 'Property Maintenance', href: '/ai-receptionist-property-maintenance' },
+              { emoji: '🧹', label: 'Cleaning Companies', href: '/ai-receptionist-cleaning-companies' },
+            ].map((industry) => (
+              <Link
+                key={industry.href}
+                href={industry.href}
+                className="flex flex-col items-center gap-2 p-5 rounded-xl text-center transition-all duration-200 hover:-translate-y-0.5"
+                style={{ background: '#111111', border: '1px solid #2a2a2a', textDecoration: 'none' }}
+              >
+                <span className="text-3xl">{industry.emoji}</span>
+                <span className="text-xs font-bold" style={{ color: '#e8e8e8' }}>{industry.label}</span>
+                <span className="text-xs" style={{ color: '#d97706' }}>View →</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
