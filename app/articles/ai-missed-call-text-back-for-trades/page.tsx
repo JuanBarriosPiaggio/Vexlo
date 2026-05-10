@@ -87,7 +87,7 @@ export default function Article1() {
               AI missed call text-back is a system that automatically sends an SMS to anyone who calls your business number and doesn&apos;t get through — within seconds of the missed call.
             </p>
             <p>
-              The message is sent automatically, on your behalf, and is written to sound like it came from you. It acknowledges the missed call, reassures the customer, and gives them a way to keep the conversation going — usually a booking link, a reply prompt, or a simple "we&apos;ll call you back within the hour" message.
+              The message is sent automatically, on your behalf, and is written to sound like it came from you. It acknowledges the missed call, reassures the customer, and gives them a way to keep the conversation going — usually a booking link, a reply prompt, or a simple &ldquo;we&apos;ll call you back within the hour&rdquo; message.
             </p>
             <p>
               At Vexlo, our AI sends that text within <strong style={{ color: '#e8e8e8' }}>4 seconds of the missed call</strong>. At that point, the customer is still looking at their phone — and most of them reply.
@@ -116,7 +116,7 @@ export default function Article1() {
               className="my-6 p-5 rounded-lg text-sm leading-relaxed"
               style={{ background: '#1a1a1a', border: '1px solid #333', color: '#ccc', fontStyle: 'italic' }}
             >
-              "Hi, sorry we missed your call — we&apos;re out on site. We&apos;d love to help with your roofing enquiry. Click here to book a free survey or reply to this message and we&apos;ll call you back shortly."
+              &ldquo;Hi, sorry we missed your call — we&apos;re out on site. We&apos;d love to help with your roofing enquiry. Click here to book a free survey or reply to this message and we&apos;ll call you back shortly.&rdquo;
             </div>
             <p>
               The customer clicks the link, picks a slot in your calendar, and you get a notification. No back-and-forth. No phone tag. Just a booked job.

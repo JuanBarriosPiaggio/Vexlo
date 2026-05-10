@@ -107,7 +107,7 @@ export default function Article4() {
             </p>
             <ol>
               <li>A customer calls your number. You&apos;re on site and can&apos;t answer.</li>
-              <li>Within 4 seconds, they receive an automated SMS: <em style={{ color: '#ccc' }}>"Sorry we missed you — click here to book a free survey."</em></li>
+              <li>Within 4 seconds, they receive an automated SMS: <em style={{ color: '#ccc' }}>&ldquo;Sorry we missed you — click here to book a free survey.&rdquo;</em></li>
               <li>They click the link, see your available slots, and pick one.</li>
               <li>You get an instant notification: name, number, address, what they need, and when they&apos;ve booked.</li>
               <li>You show up, do the job, and the system follows up automatically for a Google review.</li>

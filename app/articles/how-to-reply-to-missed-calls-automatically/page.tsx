@@ -99,7 +99,7 @@ export default function Article3() {
 
             <h3>1. Acknowledge the missed call directly</h3>
             <p>
-              Start by referencing the fact that they called. A message that begins with "Hi, thanks for getting in touch" feels like marketing. A message that begins with "Hi, sorry we missed your call" feels like a person.
+              Start by referencing the fact that they called. A message that begins with &ldquo;Hi, thanks for getting in touch&rdquo; feels like marketing. A message that begins with &ldquo;Hi, sorry we missed your call&rdquo; feels like a person.
             </p>
 
             <h3>2. Be brief</h3>
@@ -127,7 +127,7 @@ export default function Article3() {
               >
                 <p className="text-xs font-bold mb-2" style={{ color: '#d97706' }}>For a plumber or roofer:</p>
                 <p style={{ color: '#ccc', fontStyle: 'italic' }}>
-                  "Hi, sorry we missed your call — we&apos;re out on site. We&apos;d love to help. Click here to book a free survey or call us back on this number when it&apos;s convenient."
+                  &ldquo;Hi, sorry we missed your call — we&apos;re out on site. We&apos;d love to help. Click here to book a free survey or call us back on this number when it&apos;s convenient.&rdquo;
                 </p>
               </div>
 
@@ -137,7 +137,7 @@ export default function Article3() {
               >
                 <p className="text-xs font-bold mb-2" style={{ color: '#d97706' }}>For a dental practice:</p>
                 <p style={{ color: '#ccc', fontStyle: 'italic' }}>
-                  "Hi, sorry we missed your call. We&apos;re currently with patients. Click here to book your appointment online — we have availability from [date]. We&apos;ll look forward to seeing you."
+                  &ldquo;Hi, sorry we missed your call. We&apos;re currently with patients. Click here to book your appointment online — we have availability from [date]. We&apos;ll look forward to seeing you.&rdquo;
                 </p>
               </div>
 
@@ -147,7 +147,7 @@ export default function Article3() {
               >
                 <p className="text-xs font-bold mb-2" style={{ color: '#d97706' }}>For an estate agent:</p>
                 <p style={{ color: '#ccc', fontStyle: 'italic' }}>
-                  "Hi, sorry we missed your call. Let us know if you&apos;d like to arrange a viewing or have a property question — click here to book a call back at a time that suits you."
+                  &ldquo;Hi, sorry we missed your call. Let us know if you&apos;d like to arrange a viewing or have a property question — click here to book a call back at a time that suits you.&rdquo;
                 </p>
               </div>
             </div>
