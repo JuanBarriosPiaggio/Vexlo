@@ -288,6 +288,43 @@
   z-index: 2;
 }
 
+/* ============ ARTICLE PROSE ============ */
+.prose-article {
+  color: #aaa;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.prose-article p {
+  margin-bottom: 1.25rem;
+}
+.prose-article h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: #fff;
+  letter-spacing: 0.04em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+.prose-article h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #e8e8e8;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+.prose-article ul,
+.prose-article ol {
+  padding-left: 1.25rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.prose-article ul li { list-style-type: disc; }
+.prose-article ol li { list-style-type: decimal; }
+.prose-article strong { color: #e8e8e8; }
+
 /* ============ SECTION TAG ============ */
 .section-tag {
   font-size: 0.7rem;

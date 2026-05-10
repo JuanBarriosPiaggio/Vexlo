@@ -10,6 +10,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/pricing`, priority: 0.9, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/about`, priority: 0.7, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/privacy`, priority: 0.3, changeFrequency: 'yearly' as const },
+    { url: `${baseUrl}/articles`, priority: 0.8, changeFrequency: 'weekly' as const },
+    { url: `${baseUrl}/articles/ai-missed-call-text-back-for-trades`, priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/articles/missed-call-automation-small-business-uk`, priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/articles/how-to-reply-to-missed-calls-automatically`, priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/articles/automated-appointment-booking-tradespeople`, priority: 0.8, changeFrequency: 'monthly' as const },
   ]
 
   // Niche landing pages — high SEO priority for trade/service-specific searches
