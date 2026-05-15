@@ -181,7 +181,7 @@ export default function ListingsPage() {
               {[
                 { value: '40+', label: 'directories managed' },
                 { value: '11%', label: 'of local rankings from citations' },
-                { value: '2–4 wks', label: 'to start seeing results' },
+                { value: '48 hrs', label: 'to go live' },
               ].map((s, i) => (
                 <div key={i}>
                   <div className="font-display text-2xl" style={{ color: '#d97706', letterSpacing: '0.05em' }}>{s.value}</div>
