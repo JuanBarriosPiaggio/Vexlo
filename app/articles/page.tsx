@@ -184,6 +184,13 @@ const articles = [
     excerpt: 'Set up automated Google review requests that fire after every completed job. Never forget to ask for a review again — and build your ranking on autopilot.',
     readTime: '6 min read',
   },
+  {
+    slug: 'why-consistent-business-listings-matter-uk',
+    tag: 'Local SEO',
+    title: 'Why Consistent Business Listings Matter for UK Local Search',
+    excerpt: 'Inconsistent NAP data across directories confuses Google and costs you rankings. Here is why consistent business listings are one of the highest-impact, lowest-effort SEO wins available.',
+    readTime: '8 min read',
+  },
 ]
 
 export default function ArticlesIndexPage() {
