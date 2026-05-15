@@ -54,7 +54,7 @@ const howItWorks = [
   {
     step: 'Full listings audit',
     detail:
-      'We search the web for every mention of your business — across directories, review sites, and data aggregators — and compile a full report of what is accurate, what is outdated, and what is missing.',
+      'We take your business details and check your presence across the high-authority directories that actually influence local search — compiling a clear report of what is accurate, what is missing, and what needs correcting.',
   },
   {
     step: 'Claim and verify ownership',

@@ -197,8 +197,8 @@ export default function BusinessListingsArticle() {
 
           <ol style={{ marginTop: '1rem', paddingLeft: '1.5rem' }} className="flex flex-col gap-3">
             {[
-              'Search Google for your business name and phone number. Note every directory listing that appears.',
-              'Search for your business name combined with your town or city. Look at every result on the first two pages.',
+              'Search for your business name and phone number in Google. Note every directory listing that appears.',
+              'Search for your business name combined with your town or city and check the first two pages of results.',
               'Visit each listing and check for accuracy: correct name, current address, current phone number, correct website URL.',
               'Note every discrepancy — even small ones like &ldquo;Ltd&rdquo; vs no &ldquo;Ltd&rdquo; count.',
               'Claim ownership of every listing you have not already claimed — most directories have a free claim process.',
