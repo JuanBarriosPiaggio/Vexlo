@@ -302,6 +302,92 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ARTICLES */}
+      <section style={{ background: '#0a0a0a', padding: '100px 40px' }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="section-tag">Resources</div>
+          <div className="flex items-end justify-between gap-6 mb-12 flex-wrap">
+            <h2
+              className="font-display text-white"
+              style={{ fontSize: 'clamp(2.5rem, 4vw, 3.8rem)', lineHeight: 1, letterSpacing: '0.02em' }}
+            >
+              Guides for businesses that{' '}
+              <span className="font-serif" style={{ color: '#d97706', fontStyle: 'italic' }}>
+                take calls.
+              </span>
+            </h2>
+            <Link
+              href="/articles"
+              className="text-sm font-bold whitespace-nowrap transition-colors hover:text-white"
+              style={{ color: '#d97706' }}
+            >
+              All articles →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              {
+                href: '/articles/how-much-are-missed-calls-costing-your-business',
+                tag: 'Small Business UK',
+                title: 'How Much Are Missed Calls Costing Your UK Business? (The Real Numbers)',
+                excerpt: 'Most businesses have no idea. Here\'s how to calculate your true missed call cost — with numbers specific to your trade.',
+              },
+              {
+                href: '/articles/google-reviews-recency-vs-quantity',
+                tag: 'Reputation Management',
+                title: 'Google Reviews: Why Recency Beats Quantity Every Time',
+                excerpt: 'A business with 20 recent reviews will outrank one with 200 old reviews. Here\'s the evidence — and what to do about it.',
+              },
+              {
+                href: '/articles/missed-call-text-back-vs-voicemail-which-wins',
+                tag: 'How-To Guide',
+                title: 'Missed Call Text Back vs Voicemail: Which Converts More Customers?',
+                excerpt: 'The data is clear: automated text back converts at 60–70%. Voicemail converts at under 20%. Here\'s why.',
+              },
+              {
+                href: '/articles/what-to-say-in-missed-call-text-back-sms',
+                tag: 'How-To Guide',
+                title: 'What to Say in a Missed Call Text Back: SMS Templates That Actually Work',
+                excerpt: 'The wrong message kills the lead. Get proven SMS templates for plumbers, roofers, electricians, cleaners, and more.',
+              },
+              {
+                href: '/articles/automated-google-review-requests-after-job',
+                tag: 'Reputation Management',
+                title: 'How to Automatically Request Google Reviews After Every Job',
+                excerpt: 'Never forget to ask for a review again. Here\'s how automated review requests build your ranking on autopilot.',
+              },
+              {
+                href: '/articles/ai-receptionist-vs-answering-service-uk',
+                tag: 'Small Business UK',
+                title: 'AI Receptionist vs Answering Service: Which Is Better for UK Trades?',
+                excerpt: 'A head-to-head on cost, speed, coverage, and ROI — so you can make the right call for your business.',
+              },
+            ].map((article) => (
+              <Link
+                key={article.href}
+                href={article.href}
+                className="feature-card reveal block p-7 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
+                style={{ background: '#111111', border: '1px solid #2a2a2a', textDecoration: 'none' }}
+              >
+                <span
+                  className="text-xs font-bold px-2.5 py-1 rounded-full inline-block mb-4"
+                  style={{ background: 'rgba(217,119,6,0.15)', color: '#d97706' }}
+                >
+                  {article.tag}
+                </span>
+                <h3 className="font-bold text-sm leading-snug mb-3" style={{ color: '#fff' }}>
+                  {article.title}
+                </h3>
+                <p className="text-xs leading-relaxed mb-4" style={{ color: '#888' }}>
+                  {article.excerpt}
+                </p>
+                <span className="text-xs font-bold" style={{ color: '#d97706' }}>Read article →</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* BOOK — Lead Connector calendar */}
       <section
         id="book"

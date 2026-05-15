@@ -207,9 +207,9 @@ export default function Article2() {
           <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: '#555' }}>Related Articles</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
-              { href: '/articles/ai-missed-call-text-back-for-trades', label: 'AI Missed Call Text-Back for Trades' },
-              { href: '/articles/how-to-reply-to-missed-calls-automatically', label: 'How to Reply to Missed Calls Automatically' },
-              { href: '/articles/automated-appointment-booking-tradespeople', label: 'Automated Appointment Booking for Tradespeople' },
+              { href: '/articles/best-missed-call-text-back-software-uk', label: 'Best Missed Call Text Back Software UK' },
+              { href: '/articles/missed-call-automation-cost-uk', label: 'What Does Missed Call Automation Cost?' },
+              { href: '/articles/ai-receptionist-vs-answering-service-uk', label: 'AI Receptionist vs Answering Service' },
             ].map((link) => (
               <Link
                 key={link.href}
