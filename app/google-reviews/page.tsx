@@ -386,23 +386,6 @@ export default function GoogleReviewsPage() {
         </div>
       </section>
 
-      {/* TESTIMONIAL */}
-      <section style={{ background: '#111111', padding: '80px 40px' }}>
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="flex justify-center gap-1 mb-8">
-            {[...Array(5)].map((_, i) => (
-              <span key={i} style={{ color: '#f59e0b', fontSize: '1.2rem' }}>★</span>
-            ))}
-          </div>
-          <blockquote className="text-xl leading-relaxed mb-8 font-medium" style={{ color: '#e8e8e8' }}>
-            &ldquo;We went from 14 reviews to over 90 in three months. We didn&apos;t change how we worked — Vexlo just handles the asking and replying automatically. Now we rank above companies that have been trading for 20 years in our area.&rdquo;
-          </blockquote>
-          <div className="font-bold text-base" style={{ color: '#fff' }}>James T.</div>
-          <div className="text-sm mt-1" style={{ color: '#888' }}>Owner, residential electrical contractor</div>
-          <div className="text-xs mt-1" style={{ color: '#d97706' }}>Bristol</div>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section style={{ background: '#0a0a0a', padding: '80px 40px' }}>
         <div className="max-w-3xl mx-auto">

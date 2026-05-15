@@ -400,23 +400,6 @@ export default function ListingsPage() {
         </div>
       </section>
 
-      {/* TESTIMONIAL */}
-      <section style={{ background: '#0a0a0a', padding: '80px 40px' }}>
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="flex justify-center gap-1 mb-8">
-            {[...Array(5)].map((_, i) => (
-              <span key={i} style={{ color: '#f59e0b', fontSize: '1.2rem' }}>★</span>
-            ))}
-          </div>
-          <blockquote className="text-xl leading-relaxed mb-8 font-medium" style={{ color: '#e8e8e8' }}>
-            &ldquo;I had no idea my old phone number was still on four different directories. Customers were calling a number that didn&apos;t exist. Since Vexlo sorted our listings and got our reviews moving, we rank third in the local 3-pack for our main service keyword. That one position change has been worth thousands a month.&rdquo;
-          </blockquote>
-          <div className="font-bold text-base" style={{ color: '#fff' }}>Sarah K.</div>
-          <div className="text-sm mt-1" style={{ color: '#888' }}>Owner, property maintenance company</div>
-          <div className="text-xs mt-1" style={{ color: '#d97706' }}>Manchester</div>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section style={{ background: '#111111', padding: '80px 40px' }}>
         <div className="max-w-3xl mx-auto">
