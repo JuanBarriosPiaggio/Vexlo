@@ -15,6 +15,7 @@ export default function Footer() {
         <Link href="/about" className="hover:text-white transition-colors">About</Link>
         <Link href="/enquiry" className="hover:text-white transition-colors">Enquiry</Link>
         <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+        <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
       </div>
 
       <div className="text-xs text-center md:text-right" style={{ color: '#888' }}>

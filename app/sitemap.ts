@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     { url: `${baseUrl}/about`, priority: 0.7, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/privacy`, priority: 0.3, changeFrequency: 'yearly' as const },
+    { url: `${baseUrl}/terms`, priority: 0.3, changeFrequency: 'yearly' as const },
     { url: `${baseUrl}/google-reviews`, priority: 0.95, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/listings`, priority: 0.95, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/articles`, priority: 0.8, changeFrequency: 'weekly' as const },
