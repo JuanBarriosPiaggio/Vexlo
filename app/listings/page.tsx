@@ -6,7 +6,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 export const metadata: Metadata = {
   title: 'Business Listings Management for UK Small Businesses | Vexlo',
   description:
-    'Vexlo audits and manages your business listings across 40+ high-authority UK directories — ensuring your name, address, and phone are consistent everywhere Google looks. More visibility. More calls.',
+    'Vexlo audits and manages your business listings across 55+ high-authority UK directories — ensuring your name, address, and phone are consistent everywhere Google looks. More visibility. More calls.',
   keywords: [
     'business listings management UK',
     'local citations UK small business',
@@ -24,6 +24,12 @@ export const metadata: Metadata = {
     description:
       'Your business listed accurately on every directory that matters. Consistent NAP data. Higher local search rankings. More calls.',
     images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'Vexlo Business Listings Management' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Business Listings Management — Vexlo',
+    description:
+      'Your business listed accurately on every directory that matters. Consistent NAP data. Higher local search rankings. More calls.',
   },
 }
 
@@ -79,7 +85,7 @@ const howItWorks = [
 ]
 
 const outcomes = [
-  'Consistent NAP data across 40+ directories',
+  'Consistent NAP data across 55+ directories',
   'Increased Google confidence in your business data',
   'Higher local 3-pack rankings for your service keywords',
   'More calls from customers who can actually reach you',
@@ -92,7 +98,7 @@ const outcomes = [
 const faqs = [
   {
     q: 'What directories does Vexlo manage?',
-    a: 'We focus on the directories that carry the most SEO and citation weight for UK businesses: Google Business Profile, Apple Maps, Bing Places, Facebook, Yell, Thomson Local, Yelp UK, Trustpilot, Checkatrade, TrustATrader, and more — up to 40+ sites depending on your trade and location.',
+    a: 'We focus on the directories that carry the most SEO and citation weight for UK businesses: Google Business Profile, Apple Maps, Bing Places, Facebook, Yell, Thomson Local, Yelp UK, Trustpilot, Checkatrade, TrustATrader, and more — 55+ sites in total, powered by Uberall.',
   },
   {
     q: 'Do I need to do anything for this to work?',
@@ -112,7 +118,7 @@ const faqs = [
   },
   {
     q: 'Is this included in my Vexlo subscription?',
-    a: 'Yes. Listings management is part of the Vexlo platform alongside missed call text-back, automated appointment booking, and Google review automation. It is all included in one monthly subscription.',
+    a: 'Listings management is £97/month per location. That covers your full audit, setup across 55+ directories, and ongoing monthly monitoring. Your first month is free. We ask for a 3-month minimum so you can see the full effect as Google re-crawls your directory data — after that it\'s monthly rolling with no lock-in.',
   },
 ]
 
@@ -157,16 +163,16 @@ export default function ListingsPage() {
               <span className="font-serif" style={{ color: '#d97706', fontStyle: 'italic' }}>your customers search.</span>
             </h1>
             <p className="text-lg leading-relaxed mb-10" style={{ color: '#888', maxWidth: '560px' }}>
-              Vexlo manages your business listings across 40+ high-authority UK directories — keeping your name, address, and phone number consistent everywhere Google looks, so you rank higher in local search and more customers can reach you.
+              Vexlo manages your business listings across 55+ high-authority UK directories — keeping your name, address, and phone number consistent everywhere Google looks, so you rank higher in local search and more customers can reach you.
             </p>
-            <div className="flex flex-wrap gap-3 mb-12">
-              <Link
-                href="/enquiry"
+              <div className="flex flex-wrap gap-3 mb-12">
+              <a
+                href="#audit-form"
                 className="inline-flex items-center px-8 py-4 rounded text-sm font-bold tracking-wide text-white transition-all duration-200 hover:brightness-110 hover:-translate-y-px"
                 style={{ background: '#d97706' }}
               >
-                Fix My Listings →
-              </Link>
+                Get My Free Listings Audit →
+              </a>
               <Link
                 href="#how-it-works"
                 className="inline-flex items-center px-8 py-4 rounded text-sm font-semibold transition-all duration-200 hover:text-white"
@@ -179,7 +185,7 @@ export default function ListingsPage() {
             {/* Mini stats */}
             <div className="flex flex-wrap gap-8">
               {[
-                { value: '40+', label: 'directories managed' },
+                { value: '55+', label: 'directories managed' },
                 { value: '11%', label: 'of local rankings from citations' },
                 { value: '48 hrs', label: 'to go live' },
               ].map((s, i) => (
@@ -275,7 +281,7 @@ export default function ListingsPage() {
               style={{ background: 'rgba(217,119,6,0.08)', border: '1px dashed rgba(217,119,6,0.3)' }}
             >
               <div className="text-center">
-                <div className="font-bold text-sm" style={{ color: '#d97706' }}>+28 more</div>
+                <div className="font-bold text-sm" style={{ color: '#d97706' }}>+43 more</div>
                 <div className="text-xs mt-1" style={{ color: '#888' }}>trade & local directories</div>
               </div>
             </div>
@@ -363,7 +369,7 @@ export default function ListingsPage() {
                 Your business information consistent and accurate across every directory that influences local search rankings. The foundation of local SEO.
               </p>
               <div className="flex flex-col gap-2">
-                {['40+ directories managed', 'NAP consistency enforced', 'Monthly monitoring', 'Full audit report'].map((f, i) => (
+                {['55+ directories managed', 'NAP consistency enforced', 'Monthly monitoring', 'Full audit report'].map((f, i) => (
                   <div key={i} className="flex items-center gap-2 text-sm" style={{ color: '#e8e8e8' }}>
                     <span style={{ color: '#d97706' }}>✓</span> {f}
                   </div>
@@ -470,9 +476,62 @@ export default function ListingsPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* PRICING */}
+      <section style={{ background: '#0a0a0a', padding: '100px 40px' }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="section-tag" style={{ textAlign: 'center' }}>Pricing</div>
+            <h2
+              className="font-display text-white mt-2"
+              style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', lineHeight: 1, letterSpacing: '0.02em' }}
+            >
+              Simple, transparent pricing.
+            </h2>
+          </div>
+          <div className="max-w-md mx-auto rounded-2xl overflow-hidden" style={{ border: '1px solid #2a2a2a', boxShadow: '0 40px 80px rgba(0,0,0,0.4)' }}>
+            <div className="px-10 py-8 text-center" style={{ background: '#d97706' }}>
+              <div className="font-display tracking-widest mb-1" style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.75)' }}>
+                LISTINGS MANAGEMENT
+              </div>
+              <div className="font-display text-white" style={{ fontSize: '3.5rem', lineHeight: 1 }}>
+                £97<span style={{ fontSize: '1.2rem', fontWeight: 400 }}> / month</span>
+              </div>
+              <div className="mt-2 text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>per location</div>
+            </div>
+            <div className="px-10 py-9" style={{ background: '#111111' }}>
+              <ul className="flex flex-col gap-3.5 mb-8">
+                {[
+                  'Full audit of your current listings',
+                  '55+ UK directories claimed & corrected',
+                  'NAP consistency enforced across all platforms',
+                  'Monthly monitoring — no listing drift',
+                  'Full report of every listing managed',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm text-left" style={{ color: '#e8e8e8' }}>
+                    <span style={{ color: '#d97706', fontWeight: 700, flexShrink: 0 }}>✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#audit-form"
+                className="block w-full text-center py-4 rounded text-sm font-bold tracking-wide transition-all duration-200 text-white hover:brightness-110"
+                style={{ background: '#d97706' }}
+              >
+                Get My Free Listings Audit →
+              </a>
+              <p className="mt-4 text-xs text-center" style={{ color: '#888' }}>
+                First month free. 3-month minimum. No setup fees.<br />Cancel anytime after that.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AUDIT FORM */}
       <section
-        className="relative overflow-hidden text-center"
+        id="audit-form"
+        className="relative overflow-hidden"
         style={{ background: '#111111', padding: '100px 40px' }}
       >
         <div
@@ -482,23 +541,25 @@ export default function ListingsPage() {
         <div className="max-w-2xl mx-auto relative z-10">
           <h2
             className="font-display text-white mb-4"
-            style={{ fontSize: 'clamp(2.5rem, 4vw, 4.5rem)', lineHeight: 1, letterSpacing: '0.02em' }}
+            style={{ fontSize: 'clamp(2.5rem, 4vw, 4rem)', lineHeight: 1, letterSpacing: '0.02em' }}
           >
-            Ready to rank higher<br />
-            <span className="font-serif" style={{ color: '#d97706', fontStyle: 'italic' }}>in local search?</span>
+            See exactly where your<br />
+            <span className="font-serif" style={{ color: '#d97706', fontStyle: 'italic' }}>listings stand.</span>
           </h2>
-          <p className="mb-10 text-base" style={{ color: '#888', maxWidth: '460px', margin: '0 auto 40px' }}>
-            Book a free demo and we will audit your current listings, show you exactly where the gaps are, and explain how Vexlo fixes them — alongside automated reviews and missed call capture.
+          <p className="mb-10 text-base" style={{ color: '#888', maxWidth: '500px' }}>
+            Enter your details below and we will run a free audit of your business listings — showing you every directory where your data is missing, wrong, or inconsistent. No call needed to get started.
           </p>
-          <Link
-            href="/enquiry"
-            className="inline-flex items-center px-9 py-4 rounded text-sm font-bold tracking-wide text-white transition-all duration-200 hover:brightness-110 hover:-translate-y-px"
-            style={{ background: '#d97706' }}
+
+          {/* TODO: Embed GHL form here */}
+          <div
+            className="w-full rounded-xl flex items-center justify-center"
+            style={{ background: '#1a1a1a', border: '1px dashed #2a2a2a', minHeight: '200px' }}
           >
-            Book Your Free Demo →
-          </Link>
-          <p className="mt-5 text-xs" style={{ color: '#888' }}>
-            First month free. No setup fees. We handle the full setup.
+            <p className="text-sm" style={{ color: '#555' }}>GHL form — coming soon</p>
+          </div>
+
+          <p className="mt-6 text-xs text-center" style={{ color: '#555' }}>
+            We will send your audit report within 1 business day. No sales pressure — just your data.
           </p>
         </div>
       </section>
@@ -513,7 +574,7 @@ export default function ListingsPage() {
             name: 'Business Listings Management',
             provider: { '@type': 'Organization', name: 'Vexlo', url: siteUrl },
             description:
-              'Vexlo manages and maintains consistent business listings across 40+ high-authority UK directories to improve local search rankings.',
+              'Vexlo manages and maintains consistent business listings across 55+ high-authority UK directories to improve local search rankings.',
             areaServed: { '@type': 'Country', name: 'United Kingdom' },
             url: `${siteUrl}/listings`,
           }),
