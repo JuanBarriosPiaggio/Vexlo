@@ -200,108 +200,6 @@ export default function ListingsPage() {
         </div>
       </section>
 
-      {/* PRICING */}
-      <section style={{ background: '#111111', padding: '80px 40px' }}>
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="section-tag" style={{ textAlign: 'center' }}>Pricing</div>
-            <h2
-              className="font-display text-white mt-2"
-              style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', lineHeight: 1, letterSpacing: '0.02em' }}
-            >
-              Simple, transparent pricing.
-            </h2>
-          </div>
-          <div className="max-w-md mx-auto rounded-2xl overflow-hidden" style={{ border: '1px solid #2a2a2a', boxShadow: '0 40px 80px rgba(0,0,0,0.4)' }}>
-            <div className="px-10 py-8 text-center" style={{ background: '#d97706' }}>
-              <div className="font-display tracking-widest mb-1" style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.75)' }}>
-                LISTINGS MANAGEMENT
-              </div>
-              <div className="font-display text-white" style={{ fontSize: '3.5rem', lineHeight: 1 }}>
-                £97<span style={{ fontSize: '1.2rem', fontWeight: 400 }}> / month</span>
-              </div>
-              <div className="mt-2 text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>per location</div>
-            </div>
-            <div className="px-10 py-9" style={{ background: '#1a1a1a' }}>
-              <ul className="flex flex-col gap-3.5 mb-8">
-                {[
-                  'Full audit of your current listings',
-                  '55+ UK directories claimed & corrected',
-                  'NAP consistency enforced across all platforms',
-                  'Monthly monitoring — no listing drift',
-                  'Full report of every listing managed',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm text-left" style={{ color: '#e8e8e8' }}>
-                    <span style={{ color: '#d97706', fontWeight: 700, flexShrink: 0 }}>✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="#audit-form"
-                className="block w-full text-center py-4 rounded text-sm font-bold tracking-wide transition-all duration-200 text-white hover:brightness-110"
-                style={{ background: '#d97706' }}
-              >
-                Get My Free Listings Audit →
-              </a>
-              <p className="mt-4 text-xs text-center" style={{ color: '#888' }}>
-                First month free. 3-month minimum. No setup fees.<br />Cancel anytime after that.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* AUDIT FORM */}
-      <section
-        id="audit-form"
-        className="relative overflow-hidden"
-        style={{ background: '#0a0a0a', padding: '80px 40px' }}
-      >
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(217,119,6,0.05) 0%, transparent 70%)' }}
-        />
-        <div className="max-w-2xl mx-auto relative z-10">
-          <h2
-            className="font-display text-white mb-4"
-            style={{ fontSize: 'clamp(2rem, 3.5vw, 3.5rem)', lineHeight: 1, letterSpacing: '0.02em' }}
-          >
-            See exactly where your<br />
-            <span className="font-serif" style={{ color: '#d97706', fontStyle: 'italic' }}>listings stand.</span>
-          </h2>
-          <p className="mb-10 text-base" style={{ color: '#888', maxWidth: '500px' }}>
-            Enter your details below and we will run a free audit of your business listings — showing you every directory where your data is missing, wrong, or inconsistent. No call needed to get started.
-          </p>
-
-          {/* GHL Listings Form */}
-          <div className="w-full rounded-xl overflow-hidden" style={{ minHeight: '1310px' }}>
-            <iframe
-              src="https://api.leadconnectorhq.com/widget/form/N5FJdnCqg5dzfkBJELsS"
-              style={{ width: '100%', height: '1310px', border: 'none', borderRadius: '8px' }}
-              id="inline-N5FJdnCqg5dzfkBJELsS"
-              data-layout="{'id':'INLINE'}"
-              data-trigger-type="alwaysShow"
-              data-trigger-value=""
-              data-activation-type="alwaysActivated"
-              data-activation-value=""
-              data-deactivation-type="neverDeactivate"
-              data-deactivation-value=""
-              data-form-name="Listings Form"
-              data-height="1310"
-              data-layout-iframe-id="inline-N5FJdnCqg5dzfkBJELsS"
-              data-form-id="N5FJdnCqg5dzfkBJELsS"
-              title="Listings Form"
-            />
-          </div>
-          <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
-
-          <p className="mt-6 text-xs text-center" style={{ color: '#555' }}>
-            We will send your audit report within 1 business day. No sales pressure — just your data.
-          </p>
-        </div>
-      </section>
-
       {/* PAIN POINTS */}
       <section style={{ background: '#111111', padding: '80px 40px' }}>
         <div className="max-w-4xl mx-auto">
@@ -426,6 +324,58 @@ export default function ListingsPage() {
         </div>
       </section>
 
+      {/* PRICING */}
+      <section style={{ background: '#0a0a0a', padding: '80px 40px' }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="section-tag" style={{ textAlign: 'center' }}>Pricing</div>
+            <h2
+              className="font-display text-white mt-2"
+              style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', lineHeight: 1, letterSpacing: '0.02em' }}
+            >
+              Simple, transparent pricing.
+            </h2>
+          </div>
+          <div className="max-w-md mx-auto rounded-2xl overflow-hidden" style={{ border: '1px solid #2a2a2a', boxShadow: '0 40px 80px rgba(0,0,0,0.4)' }}>
+            <div className="px-10 py-8 text-center" style={{ background: '#d97706' }}>
+              <div className="font-display tracking-widest mb-1" style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.75)' }}>
+                LISTINGS MANAGEMENT
+              </div>
+              <div className="font-display text-white" style={{ fontSize: '3.5rem', lineHeight: 1 }}>
+                £97<span style={{ fontSize: '1.2rem', fontWeight: 400 }}> / month</span>
+              </div>
+              <div className="mt-2 text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>per location</div>
+            </div>
+            <div className="px-10 py-9" style={{ background: '#1a1a1a' }}>
+              <ul className="flex flex-col gap-3.5 mb-8">
+                {[
+                  'Full audit of your current listings',
+                  '55+ UK directories claimed & corrected',
+                  'NAP consistency enforced across all platforms',
+                  'Monthly monitoring — no listing drift',
+                  'Full report of every listing managed',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm text-left" style={{ color: '#e8e8e8' }}>
+                    <span style={{ color: '#d97706', fontWeight: 700, flexShrink: 0 }}>✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#audit-form"
+                className="block w-full text-center py-4 rounded text-sm font-bold tracking-wide transition-all duration-200 text-white hover:brightness-110"
+                style={{ background: '#d97706' }}
+              >
+                Get My Free Listings Audit →
+              </a>
+              <p className="mt-4 text-xs text-center" style={{ color: '#888' }}>
+                First month free. 3-month minimum. No setup fees.<br />Cancel anytime after that.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* OUTCOMES */}
       <section style={{ background: '#0a0a0a', padding: '80px 40px' }}>
         <div className="max-w-5xl mx-auto">
@@ -526,6 +476,56 @@ export default function ListingsPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* AUDIT FORM */}
+      <section
+        id="audit-form"
+        className="relative overflow-hidden"
+        style={{ background: '#0a0a0a', padding: '80px 40px' }}
+      >
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{ background: 'radial-gradient(ellipse at center, rgba(217,119,6,0.05) 0%, transparent 70%)' }}
+        />
+        <div className="max-w-2xl mx-auto relative z-10">
+          <h2
+            className="font-display text-white mb-4"
+            style={{ fontSize: 'clamp(2rem, 3.5vw, 3.5rem)', lineHeight: 1, letterSpacing: '0.02em' }}
+          >
+            See exactly where your<br />
+            <span className="font-serif" style={{ color: '#d97706', fontStyle: 'italic' }}>listings stand.</span>
+          </h2>
+          <p className="mb-10 text-base" style={{ color: '#888', maxWidth: '500px' }}>
+            Enter your details below and we will run a free audit of your business listings — showing you every directory where your data is missing, wrong, or inconsistent. No call needed to get started.
+          </p>
+
+          {/* GHL Listings Form */}
+          <div className="w-full rounded-xl overflow-hidden" style={{ minHeight: '1310px' }}>
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/form/N5FJdnCqg5dzfkBJELsS"
+              style={{ width: '100%', height: '1310px', border: 'none', borderRadius: '8px' }}
+              id="inline-N5FJdnCqg5dzfkBJELsS"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Listings Form"
+              data-height="1310"
+              data-layout-iframe-id="inline-N5FJdnCqg5dzfkBJELsS"
+              data-form-id="N5FJdnCqg5dzfkBJELsS"
+              title="Listings Form"
+            />
+          </div>
+          <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
+
+          <p className="mt-6 text-xs text-center" style={{ color: '#555' }}>
+            We will send your audit report within 1 business day. No sales pressure — just your data.
+          </p>
         </div>
       </section>
 
