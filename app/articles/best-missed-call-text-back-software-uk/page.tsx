@@ -128,7 +128,7 @@ export default function BestSoftwareArticle() {
               When evaluating missed call text back software, these questions will help you separate the genuinely useful platforms from the ones that sound impressive but underdeliver:
             </p>
             <ul>
-              <li><strong style={{ color: '#e8e8e8' }}>Is there a free trial or first month free?</strong> Any platform confident in its results should offer this. You should see value within the first week.</li>
+              <li><strong style={{ color: '#e8e8e8' }}>Are there setup fees or long-term contracts?</strong> Any platform confident in its results should have no setup fees and no lock-in. You should see value within the first week.</li>
               <li><strong style={{ color: '#e8e8e8' }}>How long does setup take?</strong> A good platform should be live within 24–48 hours without requiring technical setup on your end.</li>
               <li><strong style={{ color: '#e8e8e8' }}>Do I need to change my phone number?</strong> No. The best platforms work with your existing number.</li>
               <li><strong style={{ color: '#e8e8e8' }}>Is pricing flat or per-message?</strong> Per-message pricing can become expensive for businesses with high call volumes. Flat monthly pricing is predictable and fairer for growing businesses.</li>

@@ -184,7 +184,7 @@ export default function Article4() {
               <li>Response speed matters competitively (kitchen fitters, roofers, estate agents)</li>
             </ul>
             <p>
-              If that sounds like you, setup takes less than 48 hours and your first month is free. There&apos;s no technical knowledge needed on your part.
+              If that sounds like you, setup takes less than 48 hours. There&apos;s no technical knowledge needed on your part.
             </p>
             <p>
               For advice on how to handle the missed calls that trigger the booking process,{' '}

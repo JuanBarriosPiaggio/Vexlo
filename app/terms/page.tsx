@@ -35,19 +35,19 @@ const sections = [
       'You must be at least 18 years old and operating a legitimate business in the United Kingdom to use our services. By using our services, you confirm that you meet these requirements. Vexlo services are intended for business use only and are not for personal, household, or consumer use.',
   },
   {
-    title: '4. Free Trial',
+    title: '4. Subscription Start',
     content:
-      'Where offered, Vexlo provides a free first month of service ("Free Trial"). The Free Trial begins on the date your account goes live and ends 30 days later. No payment is required during the Free Trial period. At the end of the Free Trial, your subscription automatically continues at the applicable monthly rate unless you cancel in writing before the Free Trial ends. We reserve the right to modify or cancel the Free Trial offer at any time for new sign-ups without affecting existing customers already in a Free Trial.',
+      'Your subscription begins on the date your account goes live. Billing starts from that date at the applicable monthly rate. No free trial period is offered. We reserve the right to update our pricing or terms at any time with reasonable notice, as set out in Section 18.',
   },
   {
     title: '5. Subscription, Billing & Payment',
-    content: 'After your Free Trial (if applicable), your subscription is billed monthly in advance. Key billing terms:',
+    content: 'Your subscription is billed monthly in advance from the date your account goes live. Key billing terms:',
     list: [
       'Fees are charged in British Pounds (GBP) and are subject to VAT where applicable.',
       'Payment is due on the same date each month as your subscription start date.',
       'We accept payment by card via our payment processor. You authorise us to charge your payment method on a recurring monthly basis.',
       'If a payment fails, we will notify you and attempt to collect payment again. Continued failure to pay may result in suspension or termination of your account.',
-      'Listings Management is billed at £97/month per business location and is subject to a 3-month minimum term. After the minimum term, it continues on a monthly rolling basis.',
+      'Listings Management is billed at £97/month per business location and is subject to a 3-month minimum term from the date of first billing. After the minimum term, it continues on a monthly rolling basis.',
       'Other subscription pricing will be confirmed in writing at the time of sign-up and may vary based on the services selected.',
       'All fees are non-refundable except where required by law or as otherwise stated in these Terms.',
     ],

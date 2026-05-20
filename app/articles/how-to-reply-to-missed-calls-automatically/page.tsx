@@ -218,7 +218,7 @@ export default function Article3() {
               The fastest way to get automatic missed call replies set up is to book a demo with Vexlo. We&apos;ll walk you through exactly how it works for your specific business type, write your messages with you, and have you live within 48 hours.
             </p>
             <p>
-              There&apos;s no technical setup on your side, no contracts to sign, and your first month is completely free.
+              There&apos;s no technical setup on your side and no contracts to sign.
             </p>
             <p>
               If you want to understand the broader picture of how this fits into a full missed call automation strategy,{' '}

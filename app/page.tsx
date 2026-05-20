@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     'AI for cleaning companies',
     'lead capture automation UK trades',
     'missed call automation UK',
-    'first month free AI bot UK',
+    'AI bot no setup fee UK',
   ],
   alternates: { canonical: siteUrl },
   openGraph: {
@@ -268,10 +268,10 @@ export default function Home() {
                 className="font-display tracking-widest mb-2"
                 style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)' }}
               >
-                YOUR FIRST MONTH
+                GET STARTED
               </div>
               <div className="font-display text-white" style={{ fontSize: '3.5rem', lineHeight: 1 }}>
-                FREE
+                TODAY
               </div>
               <div className="mt-1.5 text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>
                 No setup fees. No contracts. Cancel anytime.
@@ -292,10 +292,10 @@ export default function Home() {
                 className="block w-full text-center py-4 rounded text-sm font-bold tracking-wide transition-all duration-200 text-white hover:brightness-110"
                 style={{ background: '#d97706' }}
               >
-                CLAIM YOUR FREE MONTH →
+                BOOK YOUR FREE DEMO →
               </a>
               <p className="mt-4 text-xs text-center" style={{ color: '#888' }}>
-                After month 1 — simple monthly subscription. We&apos;ll confirm details when we speak.
+                Simple monthly subscription. We&apos;ll confirm all details on your demo call.
               </p>
             </div>
           </div>
@@ -422,7 +422,7 @@ export default function Home() {
             '@type': 'WebPage',
             url: siteUrl,
             name: 'Vexlo — AI Receptionist & Missed Call Automation for UK Trades',
-            description: 'AI bot texts back every missed call in 4 seconds, books the appointment, chases Google reviews. 24/7. First month free.',
+            description: 'AI bot texts back every missed call in 4 seconds, books the appointment, chases Google reviews. 24/7. No setup fees.',
             mainEntity: {
               '@type': 'Service',
               name: 'AI Missed Call Automation',
@@ -475,7 +475,7 @@ export default function Home() {
               {
                 '@type': 'Question',
                 name: 'How much does Vexlo cost?',
-                acceptedAnswer: { '@type': 'Answer', text: 'Your first month is completely free. No setup fees, no contracts. After month 1, a simple monthly subscription — discussed on your free demo call.' },
+                acceptedAnswer: { '@type': 'Answer', text: 'No setup fees, no contracts. A simple monthly subscription — all pricing details are discussed on your free demo call.' },
               },
               {
                 '@type': 'Question',

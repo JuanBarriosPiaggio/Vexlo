@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     'missed call automation for tradespeople',
     'lead capture automation UK',
     'AI missed call bot UK',
-    'first month free AI automation',
+    'no setup fee AI automation UK',
   ],
   authors: [{ name: 'Vexlo', url: siteUrl }],
   creator: 'Vexlo',

@@ -3,7 +3,7 @@
 ## About
 Vexlo helps UK trade businesses and clinics stop losing jobs to missed calls. Our AI bot texts back every missed call within 4 seconds, books the appointment automatically, and chases Google reviews after every job — 24/7, no staff needed.
 
-First month is completely free. No contracts. No setup fees.
+No contracts. No setup fees.
 
 ## Core Services
 - Missed call text-back (AI responds within 4 seconds, 24/7)

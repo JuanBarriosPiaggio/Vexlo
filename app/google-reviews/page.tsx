@@ -481,7 +481,7 @@ export default function GoogleReviewsPage() {
             Book Your Free Demo →
           </Link>
           <p className="mt-5 text-xs" style={{ color: '#888' }}>
-            First month free. No setup fees. Live in 48 hours.
+            No setup fees. No contracts. Live in 48 hours.
           </p>
         </div>
       </section>

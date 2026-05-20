@@ -119,7 +119,7 @@ const faqs = [
   },
   {
     q: 'Is this included in my Vexlo subscription?',
-    a: 'Listings management is £97/month per location. That covers your full audit, setup across 55+ directories, and ongoing monthly monitoring. Your first month is free. We ask for a 3-month minimum so you can see the full effect as Google re-crawls your directory data — after that it\'s monthly rolling with no lock-in.',
+    a: 'Listings management is £97/month per location. That covers your full audit, setup across 55+ directories, and ongoing monthly monitoring. We ask for a 3-month minimum so you can see the full effect as Google re-crawls your directory data — after that it\'s monthly rolling with no lock-in.',
   },
 ]
 
@@ -369,7 +369,7 @@ export default function ListingsPage() {
                 Get My Free Listings Audit →
               </a>
               <p className="mt-4 text-xs text-center" style={{ color: '#888' }}>
-                First month free. 3-month minimum. No setup fees.<br />Cancel anytime after that.
+                3-month minimum. No setup fees. Cancel anytime after that.
               </p>
             </div>
           </div>

@@ -81,7 +81,7 @@ export default function About() {
       >
         <h3 className="font-bold text-lg mb-3" style={{ color: '#fff' }}>Our commitment to you</h3>
         <p className="text-sm leading-relaxed" style={{ color: '#888' }}>
-          First month free. No contracts. No setup fees. We&apos;re so confident in the results that we let the system prove itself before you pay a penny. If you don&apos;t see value, cancel anytime.
+          No contracts. No setup fees. We&apos;re confident in the results — and if you don&apos;t see value, cancel anytime.
         </p>
       </div>
     </div>

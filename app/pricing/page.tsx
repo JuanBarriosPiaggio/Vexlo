@@ -7,7 +7,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 export const metadata: Metadata = {
   title: 'Pricing',
   description:
-    'Simple, transparent pricing for Vexlo AI automation — Starter and Pro packages for UK trades, clinics and service businesses. No contracts, first month free.',
+    'Simple, transparent pricing for Vexlo AI automation — Starter and Pro packages for UK trades, clinics and service businesses. No contracts. No setup fees.',
   keywords: [
     'Vexlo pricing',
     'AI automation pricing UK',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Pricing | Vexlo',
     description:
-      'Simple, transparent pricing for UK trades, clinics and service businesses. AI automation from £297/month — no contracts, first month free.',
+      'Simple, transparent pricing for UK trades, clinics and service businesses. AI automation from £297/month — No contracts. No setup fees.',
     url: `${siteUrl}/pricing`,
     type: 'website',
     images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'Vexlo Pricing' }],
@@ -117,7 +117,7 @@ export default function PricingPage() {
             className="w-2 h-2 rounded-full flex-shrink-0"
             style={{ background: '#d97706', animation: 'blinkDot 2s ease-in-out infinite' }}
           />
-          <span><strong>First month free</strong> — you only pay for what you use</span>
+          <span><strong>No setup fees</strong> — you only pay for what you use</span>
         </div>
       </section>
 
@@ -137,7 +137,7 @@ export default function PricingPage() {
               <span className="font-display text-6xl tracking-widest text-white">£297</span>
               <span className="text-base" style={{ color: '#888' }}>/mo</span>
             </div>
-            <div className="text-xs mb-5" style={{ color: '#d97706' }}>↳ First month free</div>
+            <div className="text-xs mb-5" style={{ color: '#d97706' }}>↳ No setup fees</div>
             <p
               className="text-sm leading-relaxed mb-6 pb-6"
               style={{ color: '#888', borderBottom: '1px solid #2a2a2a' }}
@@ -197,7 +197,7 @@ export default function PricingPage() {
               <span className="font-display text-6xl tracking-widest text-white">£497</span>
               <span className="text-base" style={{ color: '#888' }}>/mo</span>
             </div>
-            <div className="text-xs mb-5" style={{ color: '#d97706' }}>↳ First month free</div>
+            <div className="text-xs mb-5" style={{ color: '#d97706' }}>↳ No setup fees</div>
             <p
               className="text-sm leading-relaxed mb-6 pb-6"
               style={{ color: '#888', borderBottom: '1px solid #2a2a2a' }}
@@ -394,7 +394,7 @@ export default function PricingPage() {
             }}
           />
           <h3 className="font-display text-4xl md:text-5xl tracking-widest text-white mb-4">
-            FIRST MONTH FREE.<br />ZERO RISK.
+            No setup fees.<br />ZERO RISK.
           </h3>
           <p className="text-sm leading-relaxed max-w-xl mx-auto mb-8" style={{ color: '#888' }}>
             Try the full automation stack for 30 days. Your only cost in month one is the actual calls and texts you

@@ -162,7 +162,7 @@ export default function RoofersMissedCallArticle() {
               Vexlo sets everything up for your roofing business with zero technical knowledge required. We write your automated SMS, connect it to your existing number, and set up your booking calendar if you want one.
             </p>
             <p>
-              Your first month is free. No setup fees, no lock-in. If it doesn't work for your business, you pay nothing. But in our experience, the first week tells every roofer exactly what they need to know.
+              No setup fees, no lock-in. Cancel anytime if it doesn't work for your business. But in our experience, the first week tells every roofer exactly what they need to know.
             </p>
             <p>
               For the full picture on missed call automation,{' '}

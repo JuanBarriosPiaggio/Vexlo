@@ -32,7 +32,7 @@ export default function Hero() {
             }}
           >
             <span style={{ fontSize: '0.5rem', animation: 'blinkDot 1.5s infinite' }}>●</span>
-            First Month Free — No Contracts
+            No Setup Fees — No Contracts
           </div>
 
           <h1

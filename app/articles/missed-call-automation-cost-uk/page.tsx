@@ -133,7 +133,7 @@ export default function AutomationCostArticle() {
               Vexlo's pricing is built around the value it delivers for UK trades and service businesses. Unlike platforms that charge per message or add fees for features, Vexlo is a flat monthly subscription that includes everything: text back, booking, follow-up, reminders, and review automation.
             </p>
             <p>
-              There's no setup fee. Your first month is free. And the system is live within 48 hours of onboarding — so you're not paying for months before you see results.
+              There's no setup fee. The system is live within 48 hours of onboarding — so you see results fast.
             </p>
             <p>
               To see exactly what's included and get transparent pricing,{' '}

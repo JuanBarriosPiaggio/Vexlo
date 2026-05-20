@@ -147,7 +147,7 @@ export default function Article2() {
 
             <h2>What Does It Cost, and What&apos;s the ROI?</h2>
             <p>
-              Missed call automation through Vexlo runs as a simple monthly subscription — with your first month completely free. There are no setup fees, no long-term contracts, and no hardware to buy.
+              Missed call automation through Vexlo runs as a simple monthly subscription. There are no setup fees, no long-term contracts, and no hardware to buy.
             </p>
             <p>
               In terms of ROI, most clients see payback within the first week. If you recover just one lost job per month that you would otherwise have missed — a plumber recovering a boiler install worth £2,500, or a roofer picking up a repair worth £800 — the system has paid for itself many times over.

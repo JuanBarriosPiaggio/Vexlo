@@ -201,7 +201,7 @@ export default function Article1() {
               The good news: you don&apos;t need to be technical, you don&apos;t need to buy new hardware, and you don&apos;t need to change your existing phone number. Most Vexlo clients are fully live within 48 hours of signing up.
             </p>
             <p>
-              Your first month is free — no setup fees, no contracts. If it&apos;s not working for you, cancel anytime.
+              No setup fees, no contracts. If it&apos;s not working for you, cancel anytime.
             </p>
           </div>
         </div>

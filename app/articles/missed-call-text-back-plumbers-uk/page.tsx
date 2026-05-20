@@ -173,7 +173,7 @@ export default function PlumbersMissedCallArticle() {
               During onboarding, we write your automated SMS message with you, set up the booking link if you want one, and connect everything to your existing number. Most plumbing clients go live within 48 hours.
             </p>
             <p>
-              Your first month is free — no setup fees, no long contracts. If it's not working for you, cancel anytime. But in our experience, once a plumber sees how many calls they were missing and how many convert with a simple text back, they never look back.
+              No setup fees, no long contracts. If it's not working for you, cancel anytime. But in our experience, once a plumber sees how many calls they were missing and how many convert with a simple text back, they never look back.
             </p>
             <p>
               For a broader look at how missed call automation works across all UK small businesses,{' '}
