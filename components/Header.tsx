@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useId, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 
 const navLinks = [
@@ -17,6 +18,8 @@ const navLinks = [
 export default function Header() {
   const [open, setOpen] = useState(false)
   const menuId = useId()
+  const pathname = usePathname()
+  const isListings = pathname === '/listings'
 
   useEffect(() => {
     if (open) document.body.style.overflow = 'hidden'
@@ -75,13 +78,23 @@ export default function Header() {
             {open ? <X className="w-6 h-6" strokeWidth={2} /> : <Menu className="w-6 h-6" strokeWidth={2} />}
           </button>
 
-          <Link
-            href="/enquiry"
-            className="text-xs font-bold tracking-widest uppercase px-4 md:px-5 py-2.5 rounded text-white transition-all duration-200 hover:brightness-110 hover:-translate-y-px whitespace-nowrap"
-            style={{ background: '#d97706' }}
-          >
-            Book Free Demo
-          </Link>
+          {isListings ? (
+            <a
+              href="#audit-form"
+              className="text-xs font-bold tracking-widest uppercase px-4 md:px-5 py-2.5 rounded text-white transition-all duration-200 hover:brightness-110 hover:-translate-y-px whitespace-nowrap"
+              style={{ background: '#d97706' }}
+            >
+              Get Free Audit →
+            </a>
+          ) : (
+            <Link
+              href="/enquiry"
+              className="text-xs font-bold tracking-widest uppercase px-4 md:px-5 py-2.5 rounded text-white transition-all duration-200 hover:brightness-110 hover:-translate-y-px whitespace-nowrap"
+              style={{ background: '#d97706' }}
+            >
+              Book Free Demo
+            </Link>
+          )}
         </div>
       </nav>
 
@@ -120,6 +133,25 @@ export default function Header() {
               {label}
             </Link>
           ))}
+          {isListings ? (
+            <a
+              href="#audit-form"
+              className="mt-2 py-3 text-base font-bold transition-colors"
+              style={{ color: '#d97706' }}
+              onClick={() => setOpen(false)}
+            >
+              Get Free Audit →
+            </a>
+          ) : (
+            <Link
+              href="/enquiry"
+              className="mt-2 py-3 text-base font-bold transition-colors"
+              style={{ color: '#d97706' }}
+              onClick={() => setOpen(false)}
+            >
+              Book Free Demo →
+            </Link>
+          )}
         </div>
       </div>
     </>
