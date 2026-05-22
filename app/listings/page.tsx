@@ -203,8 +203,8 @@ export default function ListingsPage() {
       {/* AUDIT FORM */}
       <section
         id="audit-form"
-        className="relative overflow-hidden"
-        style={{ background: '#111111', padding: '80px 40px' }}
+        className="relative overflow-hidden px-4 md:px-10"
+        style={{ background: '#111111', paddingTop: '80px', paddingBottom: '80px' }}
       >
         <div
           className="pointer-events-none absolute inset-0"
@@ -223,7 +223,7 @@ export default function ListingsPage() {
           </p>
 
           {/* GHL Listings Form */}
-          <div className="w-full rounded-xl overflow-hidden">
+          <div className="w-full">
             <iframe
               src="https://api.leadconnectorhq.com/widget/form/N5FJdnCqg5dzfkBJELsS"
               style={{ width: '100%', height: '600px', border: 'none', borderRadius: '8px', display: 'block' }}
