@@ -223,10 +223,10 @@ export default function ListingsPage() {
           </p>
 
           {/* GHL Listings Form */}
-          <div className="w-full rounded-xl overflow-hidden" style={{ minHeight: '1310px' }}>
+          <div className="w-full rounded-xl overflow-hidden">
             <iframe
               src="https://api.leadconnectorhq.com/widget/form/N5FJdnCqg5dzfkBJELsS"
-              style={{ width: '100%', height: '1310px', border: 'none', borderRadius: '8px' }}
+              style={{ width: '100%', height: '600px', border: 'none', borderRadius: '8px', display: 'block' }}
               id="inline-N5FJdnCqg5dzfkBJELsS"
               data-layout="{'id':'INLINE'}"
               data-trigger-type="alwaysShow"
@@ -236,7 +236,7 @@ export default function ListingsPage() {
               data-deactivation-type="neverDeactivate"
               data-deactivation-value=""
               data-form-name="Listings Form"
-              data-height="1310"
+              data-height="600"
               data-layout-iframe-id="inline-N5FJdnCqg5dzfkBJELsS"
               data-form-id="N5FJdnCqg5dzfkBJELsS"
               title="Listings Form"
