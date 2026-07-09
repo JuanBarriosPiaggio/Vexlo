@@ -1,12 +1,14 @@
 import sharp from 'sharp'
 import { join, dirname } from 'path'
+import { unlink } from 'fs/promises'
 import { fileURLToPath } from 'url'
 
 const dir = join(dirname(fileURLToPath(import.meta.url)), '..', 'public', 'images')
 
 for (const name of ['portfolio-fyrup', 'portfolio-tenanclean']) {
-  const src = join(dir, `${name}.png`)
+  const src = join(dir, `${name}-src.png`)
   const out = join(dir, `${name}.webp`)
-  const info = await sharp(src).resize({ width: 800 }).webp({ quality: 80 }).toFile(out)
+  const info = await sharp(src).resize({ width: 1000, withoutEnlargement: true }).webp({ quality: 85 }).toFile(out)
+  await unlink(src)
   console.log(`${name}.webp: ${info.width}x${info.height}, ${Math.round(info.size / 1024)} KB`)
 }

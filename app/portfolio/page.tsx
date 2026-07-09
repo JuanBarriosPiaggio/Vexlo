@@ -38,7 +38,8 @@ const projects = [
     tag: 'Fire Protection — London',
     tagline: 'Passive fire protection & fire risk assessments',
     image: '/images/portfolio-fyrup.webp',
-    imageHeight: 6031,
+    imageWidth: 1000,
+    imageHeight: 604,
     description:
       'Fyrup is a London fire protection company offering fire risk assessments, fire stopping, fire doors, fire dampers and extinguisher servicing. We built their entire digital presence from the ground up — a fast, SEO-driven website that generates a steady flow of commercial enquiries.',
     gradient: 'linear-gradient(135deg, #1c0f08, #38180a)',
@@ -78,7 +79,8 @@ const projects = [
     tag: 'End of Tenancy Cleaning — London',
     tagline: 'Deposit-back cleaning with instant online booking',
     image: '/images/portfolio-tenanclean.webp',
-    imageHeight: 5431,
+    imageWidth: 1000,
+    imageHeight: 666,
     description:
       'Tenanclean is an end of tenancy cleaning company covering every London borough inside the M25. We designed and built their website around one goal: letting customers price and book a clean in under 60 seconds — no phone call required.',
     gradient: 'linear-gradient(135deg, #071a1c, #0a2e33)',
@@ -227,17 +229,18 @@ export default function PortfolioPage() {
                       {project.displayUrl}
                     </div>
                   </div>
-                  {/* Full-page site preview — scrolls through the site on hover */}
-                  <div className="portfolio-preview" style={{ background: project.gradient }}>
+                  {/* Site preview screenshot */}
+                  <div className="relative" style={{ background: project.gradient }}>
                     <Image
                       src={project.image}
                       alt={`${project.name} website — ${project.tagline}`}
-                      width={800}
+                      width={project.imageWidth}
                       height={project.imageHeight}
                       quality={90}
+                      className="w-full h-auto block"
                     />
                     <span
-                      className="absolute bottom-4 right-4 z-10 inline-flex items-center px-4 py-2 rounded text-xs font-bold tracking-wide"
+                      className="absolute bottom-4 right-4 inline-flex items-center px-4 py-2 rounded text-xs font-bold tracking-wide"
                       style={{ background: project.accent, color: '#0a0a0a' }}
                     >
                       Visit live site ↗
