@@ -35,6 +35,23 @@
   }
 }
 
+/* ============ PORTFOLIO PREVIEW ============ */
+.portfolio-preview {
+  height: 460px;
+  overflow: hidden;
+  position: relative;
+}
+.portfolio-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translateY(0);
+  transition: transform 10s ease-in-out;
+}
+.portfolio-preview:hover img {
+  transform: translateY(calc(-100% + 460px));
+}
+
 /* ============ CURSOR ============ */
 .cursor {
   width: 10px; height: 10px;
