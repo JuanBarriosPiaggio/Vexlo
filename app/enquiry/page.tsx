@@ -23,9 +23,9 @@ export default function EnquiryPage() {
             className="font-display text-white mt-2 mb-4"
             style={{ fontSize: 'clamp(2.5rem, 4vw, 4rem)', lineHeight: 1, letterSpacing: '0.02em' }}
           >
-            Let&apos;s talk{' '}
+            Let&apos;s{' '}
             <span className="font-serif" style={{ color: '#d97706', fontStyle: 'italic' }}>
-              automation.
+              talk.
             </span>
           </h1>
           <p className="text-sm leading-relaxed mb-8 md:mb-10" style={{ color: '#888' }}>
