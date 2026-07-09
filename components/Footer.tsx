@@ -12,6 +12,7 @@ export default function Footer() {
 
       <div className="flex flex-wrap items-center justify-center gap-6 text-xs" style={{ color: '#888' }}>
         <Link href="/services" className="hover:text-white transition-colors">Services</Link>
+        <Link href="/portfolio" className="hover:text-white transition-colors">Portfolio</Link>
         <Link href="/about" className="hover:text-white transition-colors">About</Link>
         <Link href="/enquiry" className="hover:text-white transition-colors">Enquiry</Link>
         <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>

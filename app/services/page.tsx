@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${siteUrl}/services` },
 }
 
-const services = [
+const services: { icon: string; title: string; description: string; features: string[]; href?: string }[] = [
   {
     icon: '⚡',
     title: 'Missed Call Text-Back',
@@ -53,6 +53,13 @@ const services = [
     title: 'Custom Workflow Automation',
     description: 'Beyond missed calls — we build bespoke automations to eliminate manual admin, follow up leads, and keep your pipeline moving.',
     features: ['CRM integrations', 'Invoice automation', 'Follow-up sequences', 'Custom triggers & actions'],
+  },
+  {
+    icon: '💼',
+    title: 'Web Design & Development',
+    description: 'Bespoke websites with booking systems, quote calculators, software integrations (like Simpro), and custom admin tools — built to rank and convert.',
+    features: ['Custom booking systems', 'Simpro & CRM integrations', 'Bespoke admin modules', 'SEO built in from day one'],
+    href: '/portfolio',
   },
 ]
 
@@ -105,6 +112,15 @@ export default function ServicesPage() {
                   </li>
                 ))}
               </ul>
+              {s.href && (
+                <Link
+                  href={s.href}
+                  className="inline-block mt-5 text-xs font-bold transition-colors hover:text-white"
+                  style={{ color: '#d97706' }}
+                >
+                  See our work →
+                </Link>
+              )}
             </div>
           ))}
         </div>
