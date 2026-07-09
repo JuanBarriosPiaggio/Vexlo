@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 
@@ -36,6 +37,7 @@ const projects = [
     displayUrl: 'fyrup.co.uk',
     tag: 'Fire Protection — London',
     tagline: 'Passive fire protection & fire risk assessments',
+    image: '/images/portfolio-fyrup.png',
     description:
       'Fyrup is a London fire protection company offering fire risk assessments, fire stopping, fire doors, fire dampers and extinguisher servicing. We built their entire digital presence from the ground up — a fast, SEO-driven website that generates a steady flow of commercial enquiries.',
     gradient: 'linear-gradient(135deg, #1c0f08, #38180a)',
@@ -74,6 +76,7 @@ const projects = [
     displayUrl: 'tenanclean.com',
     tag: 'End of Tenancy Cleaning — London',
     tagline: 'Deposit-back cleaning with instant online booking',
+    image: '/images/portfolio-tenanclean.png',
     description:
       'Tenanclean is an end of tenancy cleaning company covering every London borough inside the M25. We designed and built their website around one goal: letting customers price and book a clean in under 60 seconds — no phone call required.',
     gradient: 'linear-gradient(135deg, #071a1c, #0a2e33)',
@@ -222,22 +225,17 @@ export default function PortfolioPage() {
                       {project.displayUrl}
                     </div>
                   </div>
-                  {/* Site preview panel */}
-                  <div
-                    className="px-8 py-16 md:py-20 text-center"
-                    style={{ background: project.gradient }}
-                  >
-                    <div
-                      className="font-display tracking-widest mb-3"
-                      style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#fff', letterSpacing: '0.1em' }}
-                    >
-                      {project.name.toUpperCase()}
-                    </div>
-                    <p className="text-sm mb-8" style={{ color: 'rgba(255,255,255,0.65)' }}>
-                      {project.tagline}
-                    </p>
+                  {/* Site preview screenshot */}
+                  <div className="relative" style={{ background: project.gradient }}>
+                    <Image
+                      src={project.image}
+                      alt={`${project.name} website — ${project.tagline}`}
+                      width={1280}
+                      height={800}
+                      className="w-full h-auto block"
+                    />
                     <span
-                      className="inline-flex items-center px-5 py-2.5 rounded text-xs font-bold tracking-wide"
+                      className="absolute bottom-4 right-4 inline-flex items-center px-4 py-2 rounded text-xs font-bold tracking-wide"
                       style={{ background: project.accent, color: '#0a0a0a' }}
                     >
                       Visit live site ↗
