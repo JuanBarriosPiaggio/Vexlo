@@ -43,6 +43,13 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Ensure www resolves to apex so app-ads.txt / AdMob verification works
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.vexlo.co.uk' }],
+        destination: 'https://vexlo.co.uk/:path*',
+        permanent: true,
+      },
       {
         source: '/industries/cleaning-companies',
         destination: '/ai-receptionist-cleaning-companies',
