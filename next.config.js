@@ -31,6 +31,19 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: '/app-ads.txt',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/plain',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600',
+          },
+        ],
+      },
+      {
         source: '/:path*',
         headers: [
           {
@@ -40,6 +53,17 @@ const nextConfig = {
         ],
       },
     ]
+  },
+  async rewrites() {
+    return {
+      // Serve app-ads.txt via route handler (clean text/plain, no charset quirks)
+      beforeFiles: [
+        {
+          source: '/app-ads.txt',
+          destination: '/api/app-ads',
+        },
+      ],
+    }
   },
   async redirects() {
     return [

@@ -6,8 +6,16 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: '*',
+        userAgent: 'AdsBot-Google',
         allow: '/',
+      },
+      {
+        userAgent: 'Mediapartners-Google',
+        allow: '/',
+      },
+      {
+        userAgent: '*',
+        allow: ['/', '/app-ads.txt'],
         disallow: ['/api/'],
       },
     ],
