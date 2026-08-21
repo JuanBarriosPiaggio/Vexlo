@@ -4,18 +4,32 @@ import Link from 'next/link'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 
 export const metadata: Metadata = {
-  title: 'Articles — AI Automation Tips for UK Trades & Small Businesses | Vexlo',
-  description: 'Practical guides on AI missed call text-back, automated appointment booking, and missed call automation for UK tradespeople and small businesses.',
+  title: 'Articles — Websites, Lead Generation & Automation for UK Small Businesses | Vexlo',
+  description: 'Practical guides on lead-generating websites, local SEO, Google reviews, missed call automation, and appointment booking for UK small businesses and tradespeople.',
   alternates: { canonical: `${siteUrl}/articles` },
   openGraph: {
-    title: 'Articles — AI Automation Tips for UK Trades & Small Businesses | Vexlo',
-    description: 'Practical guides on AI missed call text-back, automated appointment booking, and missed call automation for UK tradespeople and small businesses.',
+    title: 'Articles — Websites, Lead Generation & Automation for UK Small Businesses | Vexlo',
+    description: 'Practical guides on lead-generating websites, local SEO, Google reviews, missed call automation, and appointment booking for UK small businesses and tradespeople.',
     url: `${siteUrl}/articles`,
     images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'Vexlo Articles' }],
   },
 }
 
 const articles = [
+  {
+    slug: 'why-your-website-isnt-getting-leads',
+    tag: 'Lead Generation',
+    title: 'Why Your Website Isn\u2019t Getting Leads (And How to Fix It)',
+    excerpt: 'You paid for a website and it has never made your phone ring. Here are the five real reasons most small business websites produce nothing — and what a lead-generating website does differently.',
+    readTime: '9 min read',
+  },
+  {
+    slug: 'does-my-small-business-need-a-website',
+    tag: 'Small Business UK',
+    title: 'Does My Small Business Need a Website? An Honest Answer',
+    excerpt: 'Word of mouth built your business — but even your referrals Google you before calling. What staying invisible online actually costs, with real client results and honest timelines.',
+    readTime: '8 min read',
+  },
   {
     slug: 'ai-missed-call-text-back-for-trades',
     tag: 'Missed Call Automation',

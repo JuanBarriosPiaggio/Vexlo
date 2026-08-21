@@ -1,19 +1,19 @@
 export default function Benefits() {
   const points = [
     {
-      icon: '📵',
-      title: "You're on the job, not on the phone",
-      text: "Roofers on site. Dentists with patients. Kitchen fitters mid-install. You can't always answer — but the lead won't wait.",
+      icon: '🔍',
+      title: 'They search before they call',
+      text: "Your next customer is on Google right now. If your website doesn't rank — or doesn't exist — you were never in the running. The job goes to whoever shows up.",
+    },
+    {
+      icon: '🕸️',
+      title: 'A website that just sits there',
+      text: "Most small business sites are digital brochures: no SEO, no quote calculator, no booking. Visitors look, leave, and call a competitor who makes it easier.",
     },
     {
       icon: '⏱️',
       title: 'Speed wins the job',
-      text: 'Studies show the first business to respond wins the job 78% of the time. After 5 minutes, conversion rate drops by 80%.',
-    },
-    {
-      icon: '⭐',
-      title: 'Reviews drive ranking, ranking drives calls',
-      text: 'The top 3 on Google Maps get 70% of clicks. More consistent reviews = higher ranking = more inbound. Most businesses never ask.',
+      text: 'Even when the lead comes in, the first business to respond usually wins it. Miss the call, reply tomorrow — and the customer has already booked someone else.',
     },
   ]
 
@@ -25,7 +25,7 @@ export default function Benefits() {
           className="font-display text-white mb-4"
           style={{ fontSize: 'clamp(2.5rem, 4vw, 3.8rem)', lineHeight: 1, letterSpacing: '0.02em' }}
         >
-          Every missed call is money walking out the door.
+          Invisible on Google. Unreachable on the phone. That&apos;s how jobs get lost.
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mt-16">

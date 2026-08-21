@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 
 const navLinks = [
+  { href: '/lead-generating-websites', label: 'Websites' },
   { href: '/#how', label: 'How It Works' },
-  { href: '/#features', label: 'Features' },
   { href: '/services', label: 'Services' },
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/google-reviews', label: 'Reviews' },

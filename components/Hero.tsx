@@ -39,17 +39,17 @@ export default function Hero() {
             className="anim-2 font-display text-white mb-2 leading-none tracking-wide"
             style={{ fontSize: 'clamp(3.5rem, 6vw, 5.5rem)', letterSpacing: '0.02em' }}
           >
-            Stop losing<br />jobs to<br />
+            Websites that<br />deliver<br />
             <span
               className="font-serif"
               style={{ color: '#d97706', fontStyle: 'italic', fontSize: '1.1em' }}
             >
-              voicemail.
+              leads.
             </span>
           </h1>
 
           <p className="anim-3 text-base leading-relaxed mt-5 mb-9 max-w-md" style={{ color: '#888' }}>
-            Our AI bot texts back every missed call within seconds, books the appointment automatically, and chases Google reviews after every job. Runs 24/7 — no staff, no effort.
+            We build SEO-driven websites with quote calculators and booking systems that turn Google searches into enquiries — then our AI captures every call, books the job, and chases the review. Built for UK small businesses.
           </p>
 
           <div className="anim-4 flex flex-wrap gap-3">
@@ -58,10 +58,10 @@ export default function Hero() {
               className="inline-flex items-center px-7 py-3.5 rounded text-sm font-bold tracking-wide transition-all duration-200 hover:brightness-110 hover:-translate-y-px"
               style={{ background: '#d97706', color: '#fff' }}
             >
-              Book a 15-Min Demo →
+              Get a Free Website Plan →
             </Link>
             <Link
-              href="/#how"
+              href="/lead-generating-websites"
               className="inline-flex items-center px-7 py-3.5 rounded text-sm font-semibold transition-all duration-200 hover:text-white"
               style={{
                 background: 'transparent',
@@ -69,7 +69,7 @@ export default function Hero() {
                 color: '#e8e8e8',
               }}
             >
-              See How It Works
+              How We Get You Leads
             </Link>
           </div>
 
@@ -94,7 +94,7 @@ export default function Hero() {
               ))}
             </div>
             <p className="text-xs" style={{ color: '#888' }}>
-              Trusted by <strong style={{ color: '#e8e8e8' }}>roofers, kitchen fitters & dentists</strong> across the UK
+              Trusted by <strong style={{ color: '#e8e8e8' }}>cleaning companies, fire protection firms & trades</strong> across the UK
             </p>
           </div>
         </div>

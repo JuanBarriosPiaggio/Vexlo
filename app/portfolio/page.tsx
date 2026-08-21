@@ -181,7 +181,11 @@ export default function PortfolioPage() {
               <span className="font-serif" style={{ color: '#d97706', fontStyle: 'italic' }}>win you work.</span>
             </h1>
             <p className="text-lg leading-relaxed mb-10" style={{ color: '#888', maxWidth: '560px' }}>
-              We design and build bespoke websites for UK businesses — with booking systems, software integrations, and custom admin tools that most agencies can&apos;t deliver. Here&apos;s a look at recent projects.
+              We design and build bespoke websites for UK businesses — with booking systems, software integrations, and custom admin tools that most agencies can&apos;t deliver. Every site here is{' '}
+              <Link href="/lead-generating-websites" style={{ color: '#d97706', fontWeight: 700 }}>
+                engineered to generate leads
+              </Link>
+              , not just look good.
             </p>
             <Link
               href="/enquiry"

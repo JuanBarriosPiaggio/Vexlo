@@ -4,20 +4,38 @@ import Link from 'next/link'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 
 export const metadata: Metadata = {
-  title: 'Services — AI Voice Assistants & Workflow Automation | Vexlo',
-  description: "Explore Vexlo's AI automation services: missed call text-back, automated booking, Google review automation, and custom workflow automation for UK trades and clinics.",
+  title: 'Services — Lead Generating Websites, SEO & Business Automation | Vexlo',
+  description: "Explore Vexlo's services: lead-generating website design with quote calculators and booking systems, business listings management, missed call text-back, Google review automation, and custom workflow automation for UK small businesses.",
   keywords: [
-    'AI voice assistant services UK',
+    'lead generating website design UK',
+    'web design services small business UK',
+    'quote calculator website service',
+    'booking system website UK',
+    'business listings management service',
     'missed call text back service',
-    'automated booking system',
     'Google review automation service',
     'workflow automation UK',
-    'AI phone bot service',
   ],
   alternates: { canonical: `${siteUrl}/services` },
 }
 
-const services: { icon: string; title: string; description: string; features: string[]; href?: string }[] = [
+const services: { icon: string; title: string; description: string; features: string[]; href?: string; hrefLabel?: string }[] = [
+  {
+    icon: '💼',
+    title: 'Websites That Deliver Leads',
+    description: 'SEO-driven websites with instant quote calculators, online booking, and software integrations — engineered to turn Google searches into enquiries. Our clients saw first organic leads around 2 months after launch.',
+    features: ['SEO architecture from day one', 'Custom quote calculators', 'Booking systems with confirmations', 'Simpro & CRM integrations'],
+    href: '/lead-generating-websites',
+    hrefLabel: 'How it works →',
+  },
+  {
+    icon: '📍',
+    title: 'Business Listings Management',
+    description: 'Your business listed accurately and consistently across 55+ high-authority UK directories — so Google trusts your data and ranks you higher in local search.',
+    features: ['Full listings audit', '55+ UK directories', 'NAP consistency enforced', 'Ongoing monthly monitoring'],
+    href: '/listings',
+    hrefLabel: 'Get a free audit →',
+  },
   {
     icon: '⚡',
     title: 'Missed Call Text-Back',
@@ -55,11 +73,12 @@ const services: { icon: string; title: string; description: string; features: st
     features: ['CRM integrations', 'Invoice automation', 'Follow-up sequences', 'Custom triggers & actions'],
   },
   {
-    icon: '💼',
-    title: 'Web Design & Development',
-    description: 'Bespoke websites with booking systems, quote calculators, software integrations (like Simpro), and custom admin tools — built to rank and convert.',
-    features: ['Custom booking systems', 'Simpro & CRM integrations', 'Bespoke admin modules', 'SEO built in from day one'],
+    icon: '🖥️',
+    title: 'Bespoke Modules & Admin Tools',
+    description: 'Custom-built functionality for the way your business actually runs — admin dashboards, bespoke workflows, and integrations with the software you already use.',
+    features: ['Bespoke admin modules', 'Custom internal tools', 'Software integrations', 'Built around your process'],
     href: '/portfolio',
+    hrefLabel: 'See our work →',
   },
 ]
 
@@ -87,7 +106,7 @@ export default function ServicesPage() {
             </span>
           </h1>
           <p className="text-base leading-relaxed" style={{ color: '#888', maxWidth: '480px', margin: '0 auto' }}>
-            Every tool Vexlo offers works silently in the background — capturing leads, booking jobs, and building your reputation while you focus on the work.
+            It starts with a website engineered to generate leads — then every other tool works silently in the background: capturing calls, booking jobs, and building your reputation while you focus on the work.
           </p>
         </div>
       </section>
@@ -118,7 +137,7 @@ export default function ServicesPage() {
                   className="inline-block mt-5 text-xs font-bold transition-colors hover:text-white"
                   style={{ color: '#d97706' }}
                 >
-                  See our work →
+                  {s.hrefLabel || 'Learn more →'}
                 </Link>
               )}
             </div>

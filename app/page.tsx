@@ -9,33 +9,31 @@ import LeadConnectorBooking from '@/components/LeadConnectorBooking'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 
 export const metadata: Metadata = {
-  title: 'Vexlo — Stop Losing Jobs to Voicemail | AI Missed Call Bot for UK Trades',
-  description: 'Vexlo AI texts back every missed call in 4 seconds, books the appointment, and gets your Google reviews — 24/7. Built for roofers, kitchen fitters, and dental practices across the UK.',
+  title: 'Vexlo — Websites That Deliver Leads for UK Small Businesses',
+  description: 'Vexlo builds SEO-driven websites with quote calculators and booking systems that generate real enquiries — then AI captures every call, books the job, and chases the Google review. Built for UK small businesses.',
   keywords: [
+    'lead generating website UK',
+    'website that generates leads',
+    'web design for small business UK',
+    'SEO website small business',
+    'website with quote calculator UK',
+    'website with booking system UK',
+    'local SEO web design UK',
+    'web design for trades UK',
+    'web design for cleaning companies UK',
     'missed call text back UK',
     'AI receptionist for tradespeople',
-    'AI phone agent UK',
     'automated appointment booking trades',
     'Google review automation UK',
-    'AI for roofers',
-    'AI for plumbers',
-    'AI for electricians',
-    'AI for kitchen fitters',
-    'AI for dentists',
-    'AI for salons barbers',
-    'AI for physio clinics',
-    'AI for estate agents',
-    'AI for cleaning companies',
-    'lead capture automation UK trades',
-    'missed call automation UK',
-    'AI bot no setup fee UK',
+    'business listings management UK',
+    'lead capture automation UK',
   ],
   alternates: { canonical: siteUrl },
   openGraph: {
     url: siteUrl,
-    title: 'Vexlo — Stop Losing Jobs to Voicemail',
-    description: 'AI bot texts back every missed call in 4 seconds, books the job, chases reviews. 24/7.',
-    images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'Vexlo AI Receptionist' }],
+    title: 'Vexlo — Websites That Deliver Leads',
+    description: 'SEO-driven websites with quote calculators and booking systems that generate real enquiries — plus AI that captures every call and review.',
+    images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'Vexlo — Websites That Deliver Leads' }],
   },
 }
 
@@ -173,6 +171,69 @@ export default function Home() {
       <ScrollReveal />
       <Hero />
       <Benefits />
+
+      {/* WEBSITES THAT DELIVER LEADS */}
+      <section id="websites" style={{ background: '#0a0a0a', padding: '100px 40px' }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="section-tag">Websites</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2
+                className="font-display text-white mb-5"
+                style={{ fontSize: 'clamp(2.5rem, 4vw, 3.8rem)', lineHeight: 1, letterSpacing: '0.02em' }}
+              >
+                We build the website.{' '}
+                <span className="font-serif" style={{ color: '#d97706', fontStyle: 'italic' }}>
+                  Then we make it work.
+                </span>
+              </h2>
+              <p className="text-base leading-relaxed mb-4" style={{ color: '#888' }}>
+                Most small business websites are brochures that never produce a lead. Ours are engineered differently: SEO architecture from day one, instant quote calculators, online booking, and consistent listings across 55+ UK directories.
+              </p>
+              <p className="text-base leading-relaxed mb-8" style={{ color: '#888' }}>
+                Our clients Tenanclean and Fyrup saw their first organic leads around 2 months after launch — and lead flow has compounded every month since. No promises we can&apos;t keep. Just how real SEO works.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/lead-generating-websites"
+                  className="inline-flex items-center px-7 py-3.5 rounded text-sm font-bold tracking-wide text-white transition-all duration-200 hover:brightness-110 hover:-translate-y-px"
+                  style={{ background: '#d97706' }}
+                >
+                  Websites That Deliver Leads →
+                </Link>
+                <Link
+                  href="/portfolio"
+                  className="inline-flex items-center px-7 py-3.5 rounded text-sm font-semibold transition-all duration-200 hover:text-white"
+                  style={{ border: '1px solid #2a2a2a', color: '#e8e8e8' }}
+                >
+                  See Our Work
+                </Link>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 gap-4">
+              {[
+                { icon: '🔍', title: 'Found on Google', text: 'Service pages, area pages, and articles targeting the exact searches your customers make.' },
+                { icon: '🧮', title: 'Priced & booked online', text: 'Custom quote calculators and booking systems turn visitors into enquiries — no phone call needed.' },
+                { icon: '🔗', title: 'Connected to your tools', text: 'Simpro, CRMs, calendars — enquiries flow straight into the software you already run your business on.' },
+                { icon: '🤖', title: 'Nothing slips through', text: 'AI missed-call text-back, automated booking, and review requests keep every lead the site wins.' },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="reveal flex gap-4 items-start p-5 rounded-lg"
+                  style={{ background: '#111111', border: '1px solid #2a2a2a' }}
+                >
+                  <div className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</div>
+                  <div>
+                    <div className="font-bold text-sm mb-1.5" style={{ color: '#fff' }}>{item.title}</div>
+                    <div className="text-sm leading-relaxed" style={{ color: '#888' }}>{item.text}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <HowItWorks />
 
       {/* FEATURES */}
@@ -327,16 +388,16 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               {
-                href: '/articles/how-much-are-missed-calls-costing-your-business',
-                tag: 'Small Business UK',
-                title: 'How Much Are Missed Calls Costing Your UK Business? (The Real Numbers)',
-                excerpt: 'Most businesses have no idea. Here\'s how to calculate your true missed call cost — with numbers specific to your trade.',
+                href: '/articles/why-your-website-isnt-getting-leads',
+                tag: 'Lead Generation',
+                title: 'Why Your Website Isn\u2019t Getting Leads (And How to Fix It)',
+                excerpt: 'The five reasons most small business websites produce nothing — and what a lead-generating website does differently.',
               },
               {
-                href: '/articles/google-reviews-recency-vs-quantity',
-                tag: 'Reputation Management',
-                title: 'Google Reviews: Why Recency Beats Quantity Every Time',
-                excerpt: 'A business with 20 recent reviews will outrank one with 200 old reviews. Here\'s the evidence — and what to do about it.',
+                href: '/articles/does-my-small-business-need-a-website',
+                tag: 'Small Business UK',
+                title: 'Does My Small Business Need a Website? An Honest Answer',
+                excerpt: 'Word of mouth built your business — here\'s where it stops, and what staying invisible online quietly costs you.',
               },
               {
                 href: '/articles/missed-call-text-back-vs-voicemail-which-wins',
@@ -421,21 +482,24 @@ export default function Home() {
             '@context': 'https://schema.org',
             '@type': 'WebPage',
             url: siteUrl,
-            name: 'Vexlo — AI Receptionist & Missed Call Automation for UK Trades',
-            description: 'AI bot texts back every missed call in 4 seconds, books the appointment, chases Google reviews. 24/7. No setup fees.',
+            name: 'Vexlo — Websites That Deliver Leads for UK Small Businesses',
+            description: 'SEO-driven websites with quote calculators and booking systems that generate real enquiries — plus AI missed call capture, review automation, and listings management.',
             mainEntity: {
               '@type': 'Service',
-              name: 'AI Missed Call Automation',
+              name: 'Lead Generating Websites & Business Automation',
               provider: { '@type': 'Organization', name: 'Vexlo', url: siteUrl },
               areaServed: { '@type': 'Country', name: 'United Kingdom' },
               audience: {
                 '@type': 'Audience',
-                audienceType: 'Tradespeople and service businesses in the United Kingdom',
+                audienceType: 'Small businesses, tradespeople and service businesses in the United Kingdom',
               },
               hasOfferCatalog: {
                 '@type': 'OfferCatalog',
-                name: 'AI Automation Services',
+                name: 'Web Design & Automation Services',
                 itemListElement: [
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Lead Generating Website Design', description: 'SEO-driven websites with quote calculators, booking systems and local citations, engineered to generate enquiries for UK small businesses.' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Quote Calculators & Booking Systems', description: 'Instant-price calculators and online booking with automatic email confirmations, built into your website.' } },
+                  { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Business Listings Management', description: 'Consistent business data across 55+ high-authority UK directories for stronger local SEO.' } },
                   { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Missed Call Text-Back', description: 'AI texts back every missed call within 4 seconds, 24/7.' } },
                   { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Automated Appointment Booking', description: 'Self-booking link sent by SMS — no human effort required.' } },
                   { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Google Review Automation', description: 'Automatic review requests sent after every completed job.' } },
@@ -462,6 +526,16 @@ export default function Home() {
             '@context': 'https://schema.org',
             '@type': 'FAQPage',
             mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'How long until a new website starts generating leads?',
+                acceptedAnswer: { '@type': 'Answer', text: 'It is not instant — Google needs time to crawl and index a new site. Vexlo clients Tenanclean and Fyrup saw their first organic leads around 2 months after launch, with lead flow compounding month after month since.' },
+              },
+              {
+                '@type': 'Question',
+                name: 'What makes a Vexlo website different from a normal small business website?',
+                acceptedAnswer: { '@type': 'Answer', text: 'Vexlo websites are engineered to generate leads: SEO architecture with dedicated service and area pages, instant quote calculators, online booking systems, consistent listings across 55+ UK directories, and integrations with tools like Simpro.' },
+              },
               {
                 '@type': 'Question',
                 name: 'How quickly does the AI text back a missed call?',

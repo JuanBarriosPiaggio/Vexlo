@@ -1,39 +1,51 @@
-# Vexlo — AI Receptionist & Missed Call Automation for UK Trades & Clinics
+# Vexlo — Websites That Deliver Leads for UK Small Businesses
 
 ## About
-Vexlo helps UK trade businesses and clinics stop losing jobs to missed calls. Our AI bot texts back every missed call within 4 seconds, books the appointment automatically, and chases Google reviews after every job — 24/7, no staff needed.
+Vexlo builds websites for UK small businesses that are engineered to generate leads — SEO architecture from day one, instant quote calculators, online booking systems, and consistent business listings across 55+ high-authority UK directories. Once the leads arrive, Vexlo's AI layer captures every one: missed call text-back within 4 seconds, automated appointment booking, and Google review requests after every job.
 
-No contracts. No setup fees.
+Real client results: Tenanclean (end of tenancy cleaning, London) and Fyrup (passive fire protection, London) both saw their first organic leads around 2 months after their Vexlo-built websites launched, with lead flow compounding since.
+
+No contracts. No setup fees on automation services.
 
 ## Core Services
+- Lead-generating website design & development (SEO-driven, built to rank and convert)
+- Custom quote calculators (visitors price their own job and book online)
+- Online booking systems with automatic email confirmations for customer and owner
+- Software integrations (Simpro, CRMs, calendars) and bespoke admin modules
+- Business listings management across 55+ UK directories (NAP consistency for local SEO)
 - Missed call text-back (AI responds within 4 seconds, 24/7)
 - Automated appointment booking (self-booking link via SMS)
 - Google review request automation (sent after every completed job)
-- Real-time lead notifications
-- Custom AI messaging (written to match your business tone)
-- Full GHL dashboard with lead and revenue tracking
+- Real-time lead notifications and full dashboard
 
 ## Who We Serve
-Vexlo is built for UK service businesses that rely on inbound calls:
-- Roofers
-- Plumbers
-- Electricians
-- Kitchen fitters
-- Dental practices
-- Salons and barbers
-- Estate agents
-- Physiotherapy and wellness clinics
+Vexlo is built for UK small businesses that want their website to actually produce enquiries:
+- Businesses whose current website generates no leads
+- Businesses with no website that rely entirely on word of mouth
 - Cleaning companies
+- Fire protection and compliance firms
+- Roofers, plumbers, electricians, kitchen fitters
+- Dental practices, salons and barbers
+- Estate agents, physiotherapy and wellness clinics
 - Property maintenance businesses
-- Any trade or service business that misses calls while working
+- Any trade or service business that wants leads from Google
 
 ## Key Pages
 - Home: https://vexlo.co.uk
+- Websites That Deliver Leads: https://vexlo.co.uk/lead-generating-websites
+- Portfolio (Tenanclean & Fyrup case studies): https://vexlo.co.uk/portfolio
 - Services: https://vexlo.co.uk/services
+- Google Review Automation: https://vexlo.co.uk/google-reviews
+- Business Listings Management: https://vexlo.co.uk/listings
+- Articles: https://vexlo.co.uk/articles
 - About: https://vexlo.co.uk/about
-- Book a Demo: https://vexlo.co.uk/#book
 - Enquiry Form: https://vexlo.co.uk/enquiry
 - Privacy Policy: https://vexlo.co.uk/privacy
+
+## Featured Articles
+- Why Your Website Isn't Getting Leads: https://vexlo.co.uk/articles/why-your-website-isnt-getting-leads
+- Does My Small Business Need a Website?: https://vexlo.co.uk/articles/does-my-small-business-need-a-website
+- Why Consistent Business Listings Matter: https://vexlo.co.uk/articles/why-consistent-business-listings-matter-uk
 
 ## Niche Landing Pages
 - AI Receptionist for Roofers: https://vexlo.co.uk/ai-receptionist-roofing-companies

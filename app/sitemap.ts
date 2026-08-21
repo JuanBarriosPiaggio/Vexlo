@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const core = [
     { url: baseUrl, priority: 1.0, changeFrequency: 'weekly' as const },
+    { url: `${baseUrl}/lead-generating-websites`, priority: 1.0, changeFrequency: 'weekly' as const },
     { url: `${baseUrl}/services`, priority: 0.9, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/portfolio`, priority: 0.9, changeFrequency: 'monthly' as const },
 
@@ -40,6 +41,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/articles/how-to-get-more-google-reviews-trades`, priority: 0.8, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/articles/automated-google-review-requests-after-job`, priority: 0.8, changeFrequency: 'monthly' as const },
     { url: `${baseUrl}/articles/why-consistent-business-listings-matter-uk`, priority: 0.8, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/articles/why-your-website-isnt-getting-leads`, priority: 0.85, changeFrequency: 'monthly' as const },
+    { url: `${baseUrl}/articles/does-my-small-business-need-a-website`, priority: 0.85, changeFrequency: 'monthly' as const },
   ]
 
   // Niche landing pages — high SEO priority for trade/service-specific searches

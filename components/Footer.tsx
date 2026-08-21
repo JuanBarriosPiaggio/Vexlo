@@ -11,6 +11,7 @@ export default function Footer() {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-6 text-xs" style={{ color: '#888' }}>
+        <Link href="/lead-generating-websites" className="hover:text-white transition-colors">Websites</Link>
         <Link href="/services" className="hover:text-white transition-colors">Services</Link>
         <Link href="/portfolio" className="hover:text-white transition-colors">Portfolio</Link>
         <Link href="/about" className="hover:text-white transition-colors">About</Link>
@@ -20,7 +21,7 @@ export default function Footer() {
       </div>
 
       <div className="text-xs text-center md:text-right" style={{ color: '#888' }}>
-        AI automation for UK trades &amp; clinics · vexlo.co.uk · hello@mail.vexlo.co.uk
+        Websites &amp; automation that deliver leads for UK small businesses · vexlo.co.uk · hello@mail.vexlo.co.uk
       </div>
     </footer>
   )
