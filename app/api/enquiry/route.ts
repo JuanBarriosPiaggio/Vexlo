@@ -2,20 +2,16 @@ import { NextRequest, NextResponse } from 'next/server'
 import { enquirySchema } from '@/lib/validations'
 import { sendEnquiryEmail } from '@/lib/email'
 import { checkRateLimit } from '@/lib/rate-limit'
+import { saveEnquiry } from '@/lib/enquiries'
 
-// Mark as dynamic to prevent build-time execution
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
 
 export async function POST(request: NextRequest) {
-  // Lazy import MongoDB to avoid build-time execution
-  const { getDb } = await import('@/lib/mongodb')
   try {
-    // Get client IP for rate limiting
     const forwarded = request.headers.get('x-forwarded-for')
     const ip = forwarded ? forwarded.split(',')[0] : request.headers.get('x-real-ip') || 'unknown'
 
-    // Check rate limit
     const rateLimit = checkRateLimit(ip)
     if (!rateLimit.allowed) {
       return NextResponse.json(
@@ -25,9 +21,8 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json()
-    console.log('Received enquiry submission:', { ...body, email: '***' }) // Log without exposing email
+    console.log('Received enquiry submission:', { ...body, email: '***' })
 
-    // Validate input
     const validationResult = enquirySchema.safeParse(body)
     if (!validationResult.success) {
       console.error('Validation failed:', validationResult.error.errors)
@@ -38,47 +33,19 @@ export async function POST(request: NextRequest) {
     }
 
     const data = validationResult.data
+    const record = await saveEnquiry(data)
+    console.log('Enquiry saved to file:', record.id)
 
-    // Save to MongoDB
-    const db = await getDb()
-    const collection = db.collection('enquiries')
-    
-    const enquiry = {
-      fullName: data.fullName,
-      email: data.email,
-      industryType: data.industryType,
-      companyName: data.companyName || null,
-      message: data.message,
-      submittedAt: new Date(),
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }
-    
-    const result = await collection.insertOne(enquiry)
-    console.log('Enquiry saved to MongoDB:', result.insertedId.toString())
-
-    // Send email notification (non-blocking)
     sendEnquiryEmail(data).catch((error) => {
       console.error('Failed to send email notification:', error)
     })
 
     return NextResponse.json(
-      { message: 'Enquiry submitted successfully', id: result.insertedId.toString() },
+      { message: 'Enquiry submitted successfully', id: record.id },
       { status: 201 }
     )
   } catch (error) {
     console.error('Error submitting enquiry:', error)
-    
-    // Provide more helpful error messages
-    if (error instanceof Error) {
-      if (error.message.includes('connection string') || error.message.includes('MONGO_URL')) {
-        return NextResponse.json(
-          { error: 'Database configuration error. Please contact support.' },
-          { status: 500 }
-        )
-      }
-    }
-    
     return NextResponse.json(
       { error: 'Failed to submit enquiry. Please try again.' },
       { status: 500 }

@@ -36,4 +36,10 @@ next-env.d.ts
 # prisma
 /prisma/migrations
 
+# local enquiry store
+/data
+
+# railway cli
+.railway
+
 
