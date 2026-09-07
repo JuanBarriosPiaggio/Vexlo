@@ -1,4 +1,5 @@
 import { mkdir, readFile, writeFile } from 'fs/promises'
+import { tmpdir } from 'os'
 import path from 'path'
 import { randomUUID } from 'crypto'
 import type { EnquiryFormData } from './validations'
@@ -10,7 +11,7 @@ export type EnquiryRecord = Omit<EnquiryFormData, 'companyName'> & {
 }
 
 function dataDir() {
-  return process.env.DATA_DIR || path.join(process.cwd(), 'data')
+  return process.env.DATA_DIR || path.join(tmpdir(), 'vexlo')
 }
 
 function filePath() {
