@@ -73,7 +73,7 @@ export default function PrivacyPage() {
               },
               {
                 title: 'Contact Us',
-                content: 'If you have any questions about this Privacy Policy, please contact us at hello@mail.vexlo.co.uk',
+                content: 'If you have any questions about this Privacy Policy, please contact us at info@vexlo.co.uk',
               },
             ].map((section, i) => (
               <div key={i}>

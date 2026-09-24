@@ -21,7 +21,7 @@ export default function Footer() {
       </div>
 
       <div className="text-xs text-center md:text-right" style={{ color: '#888' }}>
-        Websites &amp; automation that deliver leads for UK small businesses · vexlo.co.uk · hello@mail.vexlo.co.uk
+        Websites &amp; automation that deliver leads for UK small businesses · vexlo.co.uk · info@vexlo.co.uk
       </div>
     </footer>
   )

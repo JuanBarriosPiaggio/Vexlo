@@ -55,7 +55,7 @@ const sections = [
   {
     title: '6. Minimum Terms & Cancellation',
     content:
-      'Certain services carry a minimum subscription period as confirmed at the time of sign-up. The Listings Management service requires a 3-month minimum commitment from the date of first billing. To cancel your subscription, you must notify us in writing by email to hello@mail.vexlo.co.uk before your next billing date. Cancellation takes effect at the end of the current billing period — you will retain access to your services until that date. Cancellation during a minimum term will not relieve you of your obligation to pay the fees due for the remainder of that term.',
+      'Certain services carry a minimum subscription period as confirmed at the time of sign-up. The Listings Management service requires a 3-month minimum commitment from the date of first billing. To cancel your subscription, you must notify us in writing by email to info@vexlo.co.uk before your next billing date. Cancellation takes effect at the end of the current billing period — you will retain access to your services until that date. Cancellation during a minimum term will not relieve you of your obligation to pay the fees due for the remainder of that term.',
   },
   {
     title: '7. Your Responsibilities',
@@ -144,7 +144,7 @@ const sections = [
   {
     title: '21. Contact Us',
     content:
-      'If you have any questions about these Terms, please contact us at hello@mail.vexlo.co.uk or by writing to Vexlo, United Kingdom. We aim to respond to all enquiries within 2 business days.',
+      'If you have any questions about these Terms, please contact us at info@vexlo.co.uk or by writing to Vexlo, United Kingdom. We aim to respond to all enquiries within 2 business days.',
   },
 ]
 
@@ -166,7 +166,7 @@ export default function TermsPage() {
           </p>
           <p className="text-sm mb-12 leading-relaxed" style={{ color: '#555' }}>
             Please read these Terms carefully before using any Vexlo service. By using our services you agree to be bound by them. If you have questions, email us at{' '}
-            <a href="mailto:hello@mail.vexlo.co.uk" style={{ color: '#d97706' }}>hello@mail.vexlo.co.uk</a>.
+            <a href="mailto:info@vexlo.co.uk" style={{ color: '#d97706' }}>info@vexlo.co.uk</a>.
           </p>
 
           <div style={{ borderTop: '1px solid #2a2a2a', paddingTop: '3rem' }}>
