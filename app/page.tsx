@@ -154,17 +154,6 @@ const niches = [
   },
 ]
 
-const pricingFeatures = [
-  'Missed call text-back (24/7)',
-  'Automated appointment booking',
-  'Google review request automation',
-  'Custom message setup — we write it for you',
-  'Full GHL dashboard access',
-  'Real-time lead notifications',
-  'Onboarding call included',
-  'Live in under 48 hours',
-]
-
 export default function Home() {
   return (
     <>
@@ -305,60 +294,6 @@ export default function Home() {
                 </div>
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PRICING */}
-      <section id="pricing" style={{ background: '#0a0a0a', padding: '100px 40px' }}>
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="section-tag" style={{ textAlign: 'center' }}>Pricing</div>
-          <h2
-            className="font-display text-white"
-            style={{ fontSize: 'clamp(2.5rem, 4vw, 3.8rem)', lineHeight: 1, letterSpacing: '0.02em' }}
-          >
-            Simple. No surprises.
-          </h2>
-
-          <div
-            className="max-w-lg mx-auto mt-16 rounded-2xl overflow-hidden"
-            style={{ border: '1px solid #2a2a2a', boxShadow: '0 40px 80px rgba(0,0,0,0.4)' }}
-          >
-            <div className="px-10 py-8 text-center" style={{ background: '#d97706' }}>
-              <div
-                className="font-display tracking-widest mb-2"
-                style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.7)' }}
-              >
-                GET STARTED
-              </div>
-              <div className="font-display text-white" style={{ fontSize: '3.5rem', lineHeight: 1 }}>
-                TODAY
-              </div>
-              <div className="mt-1.5 text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>
-                No setup fees. No contracts. Cancel anytime.
-              </div>
-            </div>
-
-            <div className="px-10 py-9" style={{ background: '#111111' }}>
-              <ul className="flex flex-col gap-3.5 mb-8">
-                {pricingFeatures.map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm text-left" style={{ color: '#e8e8e8' }}>
-                    <span style={{ color: '#d97706', fontWeight: 700, flexShrink: 0 }}>✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="/enquiry"
-                className="block w-full text-center py-4 rounded text-sm font-bold tracking-wide transition-all duration-200 text-white hover:brightness-110"
-                style={{ background: '#d97706' }}
-              >
-                BOOK YOUR FREE DEMO →
-              </a>
-              <p className="mt-4 text-xs text-center" style={{ color: '#888' }}>
-                Simple monthly subscription. We&apos;ll confirm all details on your demo call.
-              </p>
-            </div>
           </div>
         </div>
       </section>
