@@ -5,9 +5,9 @@ import Link from 'next/link'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 
 export const metadata: Metadata = {
-  title: 'About — Vexlo AI Automation for UK Trades & Clinics',
-  description: 'Meet the team behind Vexlo. We build AI automation for UK trades and clinics — missed call text-back, automated booking, and Google review generation.',
-  keywords: ['about Vexlo', 'AI automation company UK', 'Juan Barrios Vexlo', 'UK trade automation'],
+  title: 'About — Vexlo Builds Websites That Deliver Leads',
+  description: 'Meet the team behind Vexlo. We build SEO-driven websites with quote calculators and booking systems that turn Google searches into enquiries for UK small businesses.',
+  keywords: ['about Vexlo', 'lead generating websites UK', 'Juan Barrios Vexlo', 'web design for small business UK'],
   alternates: { canonical: `${siteUrl}/about` },
 }
 
@@ -28,9 +28,9 @@ export default function AboutPage() {
             className="font-display text-white mt-2"
             style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)', lineHeight: 1, letterSpacing: '0.02em' }}
           >
-            We built the bot we{' '}
+            Websites that actually{' '}
             <span className="font-serif" style={{ color: '#d97706', fontStyle: 'italic' }}>
-              wished existed.
+              get you work.
             </span>
           </h1>
         </div>
@@ -58,7 +58,7 @@ export default function AboutPage() {
             Let&apos;s talk about your business.
           </h2>
           <p className="mb-10 text-base" style={{ color: '#888' }}>
-            Book a free 15-minute demo. No pressure, no pitch — just a live look at how Vexlo works.
+            Book a free call. We&apos;ll look at your current site — or lack of one — and map out what we&apos;d build.
           </p>
           <Link
             href="/enquiry"

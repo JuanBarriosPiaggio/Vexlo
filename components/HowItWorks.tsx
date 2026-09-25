@@ -1,27 +1,27 @@
 const steps = [
   {
     num: '01',
-    icon: '📞',
-    title: 'Missed Call Detected',
-    text: "Someone calls your number. You're busy. The bot detects the missed call instantly.",
+    icon: '🌐',
+    title: 'Website Built to Rank',
+    text: 'We launch an SEO-driven site with service pages, area pages, and a quote calculator or booking system — so Google has something real to rank.',
   },
   {
     num: '02',
-    icon: '💬',
-    title: 'Auto Text-Back',
-    text: 'Within 4 seconds, the lead gets a personalised SMS with a link to book directly.',
+    icon: '🔍',
+    title: 'Customers Find You',
+    text: 'People searching for what you do in your area land on your site. First organic leads typically start around the 2-month mark, then compound.',
   },
   {
     num: '03',
     icon: '📅',
-    title: 'Appointment Booked',
-    text: 'They pick a slot from your calendar. Confirmation sent automatically. Job in the diary.',
+    title: 'They Price & Book Online',
+    text: 'The calculator or booking form turns a visitor into an enquiry without a phone call. Confirmations go to you and the customer automatically.',
   },
   {
     num: '04',
-    icon: '⭐',
-    title: 'Review Requested',
-    text: "After the job's done, the bot sends a review request. One tap to your Google page.",
+    icon: '🤖',
+    title: 'AI Keeps Every Lead',
+    text: 'If they call instead, the AI texts back in seconds, books the job, and chases a Google review after the work is done.',
   },
 ]
 
@@ -34,10 +34,10 @@ export default function HowItWorks() {
           className="font-display text-white mb-2"
           style={{ fontSize: 'clamp(2.5rem, 4vw, 3.8rem)', lineHeight: 1, letterSpacing: '0.02em' }}
         >
-          Set up once. Runs forever.
+          A website that earns its keep.
         </h2>
-        <p className="mb-16 max-w-md" style={{ color: '#888', fontSize: '1rem', lineHeight: 1.65 }}>
-          Four steps. Fully automated. You just show up to the jobs.
+        <p className="mb-16 max-w-lg" style={{ color: '#888', fontSize: '1rem', lineHeight: 1.65 }}>
+          We build the site that generates the leads — then automation makes sure none of them slip through.
         </p>
 
         <div

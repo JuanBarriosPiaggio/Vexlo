@@ -1,11 +1,11 @@
 {
-  "name": "Vexlo - Business Automation for UK SMBs",
+  "name": "Vexlo — Websites That Deliver Leads",
   "short_name": "Vexlo",
-  "description": "Automate your business operations and save time. Intelligent automation solutions for UK small and medium businesses.",
+  "description": "We build SEO-driven websites with quote calculators and booking systems that turn Google searches into enquiries — then our AI captures every call, books the job, and chases the review. Built for UK small businesses.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#1e40af",
+  "background_color": "#0a0a0a",
+  "theme_color": "#d97706",
   "icons": [
     {
       "src": "/vexlo_logo.png",
@@ -15,4 +15,3 @@
     }
   ]
 }
-

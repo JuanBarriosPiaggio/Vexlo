@@ -10,7 +10,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 
 export const metadata: Metadata = {
   title: 'Vexlo — Websites That Deliver Leads for UK Small Businesses',
-  description: 'Vexlo builds SEO-driven websites with quote calculators and booking systems that generate real enquiries — then AI captures every call, books the job, and chases the Google review. Built for UK small businesses.',
+  description: 'We build SEO-driven websites with quote calculators and booking systems that turn Google searches into enquiries — then our AI captures every call, books the job, and chases the review. Built for UK small businesses.',
   keywords: [
     'lead generating website UK',
     'website that generates leads',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: siteUrl,
     title: 'Vexlo — Websites That Deliver Leads',
-    description: 'SEO-driven websites with quote calculators and booking systems that generate real enquiries — plus AI that captures every call and review.',
+    description: 'We build SEO-driven websites with quote calculators and booking systems that turn Google searches into enquiries — then our AI captures every call, books the job, and chases the review. Built for UK small businesses.',
     images: [{ url: `${siteUrl}/vexlo_logo.png`, width: 1200, height: 630, alt: 'Vexlo — Websites That Deliver Leads' }],
   },
 }
@@ -270,13 +270,13 @@ export default function Home() {
             className="font-display text-white mb-4"
             style={{ fontSize: 'clamp(2.5rem, 4vw, 3.8rem)', lineHeight: 1, letterSpacing: '0.02em' }}
           >
-            Built for any business that{' '}
+            Built for small businesses that need{' '}
             <span className="font-serif" style={{ color: '#d97706', fontStyle: 'italic' }}>
-              takes calls.
+              more leads.
             </span>
           </h2>
           <p className="mb-16 max-w-lg" style={{ color: '#888', fontSize: '1rem', lineHeight: 1.65 }}>
-            If you miss calls while you&apos;re working, Vexlo is for you. Here are just some of the businesses already using it.
+            If your website doesn&apos;t produce enquiries — or you don&apos;t have one yet — this is who we build for.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {niches.map((n, i) => (
@@ -372,9 +372,9 @@ export default function Home() {
               className="font-display text-white"
               style={{ fontSize: 'clamp(2.5rem, 4vw, 3.8rem)', lineHeight: 1, letterSpacing: '0.02em' }}
             >
-              Guides for businesses that{' '}
+              Guides for businesses that need{' '}
               <span className="font-serif" style={{ color: '#d97706', fontStyle: 'italic' }}>
-                take calls.
+                more leads.
               </span>
             </h2>
             <Link
@@ -483,7 +483,7 @@ export default function Home() {
             '@type': 'WebPage',
             url: siteUrl,
             name: 'Vexlo — Websites That Deliver Leads for UK Small Businesses',
-            description: 'SEO-driven websites with quote calculators and booking systems that generate real enquiries — plus AI missed call capture, review automation, and listings management.',
+            description: 'We build SEO-driven websites with quote calculators and booking systems that turn Google searches into enquiries — then our AI captures every call, books the job, and chases the review. Built for UK small businesses.',
             mainEntity: {
               '@type': 'Service',
               name: 'Lead Generating Websites & Business Automation',

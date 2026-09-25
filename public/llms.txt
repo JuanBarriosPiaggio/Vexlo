@@ -1,7 +1,9 @@
 # Vexlo — Websites That Deliver Leads for UK Small Businesses
 
 ## About
-Vexlo builds websites for UK small businesses that are engineered to generate leads — SEO architecture from day one, instant quote calculators, online booking systems, and consistent business listings across 55+ high-authority UK directories. Once the leads arrive, Vexlo's AI layer captures every one: missed call text-back within 4 seconds, automated appointment booking, and Google review requests after every job.
+We build SEO-driven websites with quote calculators and booking systems that turn Google searches into enquiries — then our AI captures every call, books the job, and chases the review. Built for UK small businesses.
+
+Vexlo websites include SEO architecture from day one, instant quote calculators, online booking systems, and consistent business listings across 55+ high-authority UK directories. Once the leads arrive, Vexlo's AI layer captures every one: missed call text-back within 4 seconds, automated appointment booking, and Google review requests after every job.
 
 Real client results: Tenanclean (end of tenancy cleaning, London) and Fyrup (passive fire protection, London) both saw their first organic leads around 2 months after their Vexlo-built websites launched, with lead flow compounding since.
 

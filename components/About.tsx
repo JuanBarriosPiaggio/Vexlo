@@ -3,10 +3,10 @@ import Link from 'next/link'
 
 export default function About() {
   const achievements = [
-    { number: '500+', label: 'Leads captured for clients' },
-    { number: '183', label: 'Google reviews generated in 4 months' },
-    { number: '4 sec', label: 'Average AI response time' },
-    { number: '24/7', label: 'Automation — never sleeps' },
+    { number: '~2 mo', label: 'To first organic leads (real clients)' },
+    { number: '2', label: 'Live sites generating enquiries' },
+    { number: '55+', label: 'Directories backing local SEO' },
+    { number: '24/7', label: 'AI catching every leftover call' },
   ]
 
   return (
@@ -25,13 +25,13 @@ export default function About() {
           </h2>
           <div className="space-y-4 text-sm leading-relaxed" style={{ color: '#888' }}>
             <p>
-              I&apos;m Juan, founder of Vexlo. I built this after watching small business owners — roofers, fitters, clinic owners — lose job after job simply because they couldn&apos;t answer the phone while they were working.
+              I&apos;m Juan, founder of Vexlo. I work with UK small businesses whose websites don&apos;t produce leads — or who don&apos;t have a website at all and think word of mouth is enough.
             </p>
             <p>
-              The solution isn&apos;t hiring more staff. It&apos;s automation that runs silently in the background, capturing every lead and booking every appointment — so you can focus on what you&apos;re good at.
+              We build SEO-driven websites with quote calculators and booking systems that turn Google searches into enquiries. For Tenanclean and Fyrup, the first organic leads arrived around 2 months after launch. Then we add the layer that keeps every lead: missed-call text-back, booking, and Google review requests.
             </p>
             <p>
-              Vexlo is purpose-built for UK trades and clinics. No generic software. No fluff. Just a system that captures leads, books jobs, and builds your reviews — on autopilot.
+              The product is not a pretty brochure. It is a website that earns its keep — and a system behind it so none of the work it wins slips through.
             </p>
           </div>
           <div className="mt-8">
