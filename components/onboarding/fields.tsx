@@ -1,5 +1,7 @@
 'use client'
 
+import { useLayoutEffect, useRef } from 'react'
+
 export function Field({
   label,
   hint,
@@ -34,13 +36,41 @@ export function TextInput(props: React.InputHTMLAttributes<HTMLInputElement>) {
   )
 }
 
-export function TextArea(props: React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
+export function TextArea({
+  className,
+  rows = 3,
+  style,
+  onInput,
+  ...props
+}: React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
+  const ref = useRef<HTMLTextAreaElement>(null)
+
+  function fit(el: HTMLTextAreaElement | null) {
+    if (!el) return
+    el.style.height = 'auto'
+    el.style.height = `${el.scrollHeight}px`
+  }
+
+  useLayoutEffect(() => {
+    const el = ref.current
+    if (!el) return
+    fit(el)
+    const onResize = () => fit(el)
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [props.value])
+
   return (
     <textarea
       {...props}
-      rows={props.rows || 3}
-      className={`px-3 py-2.5 rounded-lg text-sm outline-none w-full resize-y ${props.className || ''}`}
-      style={{ ...inputStyle, ...props.style }}
+      ref={ref}
+      rows={rows}
+      onInput={(e) => {
+        fit(e.currentTarget)
+        onInput?.(e)
+      }}
+      className={`px-3 py-2.5 rounded-lg text-sm outline-none w-full overflow-hidden ${className || ''}`}
+      style={{ ...inputStyle, resize: 'none', ...style }}
     />
   )
 }
