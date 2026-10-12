@@ -143,7 +143,7 @@ export async function buildOnboardingDocx(record: OnboardingRecord) {
                 alignment: AlignmentType.RIGHT,
                 children: [
                   new TextRun({ text: 'vexlo.co.uk  ·  Page ', size: 16, color: MUTED, font: 'Calibri' }),
-                  PageNumber.CURRENT,
+                  new TextRun({ children: [PageNumber.CURRENT], size: 16, color: MUTED, font: 'Calibri' }),
                 ],
               }),
             ],
