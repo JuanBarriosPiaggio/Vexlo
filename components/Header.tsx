@@ -21,6 +21,7 @@ export default function Header() {
   const menuId = useId()
   const pathname = usePathname()
   const isListings = pathname === '/listings'
+  const isOnboarding = pathname.startsWith('/onboarding')
 
   useEffect(() => {
     if (open) document.body.style.overflow = 'hidden'
@@ -58,6 +59,7 @@ export default function Header() {
           />
         </Link>
 
+        {!isOnboarding && (
         <div className="hidden md:flex items-center gap-8 text-sm font-medium" style={{ color: '#888' }}>
           {navLinks.map(({ href, label }) => (
             <Link key={href} href={href} className="transition-colors hover:text-white">
@@ -65,7 +67,9 @@ export default function Header() {
             </Link>
           ))}
         </div>
+        )}
 
+        {!isOnboarding && (
         <div className="flex items-center gap-3">
           <button
             type="button"
@@ -97,9 +101,11 @@ export default function Header() {
             </Link>
           )}
         </div>
+        )}
       </nav>
 
       {/* Mobile menu */}
+      {!isOnboarding && (
       <div
         id={menuId}
         role="dialog"
@@ -155,6 +161,7 @@ export default function Header() {
           )}
         </div>
       </div>
+      )}
     </>
   )
 }
