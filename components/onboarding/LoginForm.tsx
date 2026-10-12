@@ -65,7 +65,6 @@ export default function LoginForm() {
             value={slug}
             onChange={(e) => setSlug(e.target.value)}
             autoComplete="username"
-            placeholder="e.g. tenanclean"
             className="px-4 py-3 rounded-lg text-sm outline-none"
             style={{ background: '#111111', border: '1px solid #2a2a2a', color: '#fff' }}
             required
