@@ -24,6 +24,7 @@ export default function Board({
   const [admin, setAdmin] = useState<AdminSide>(initial.admin)
   const [client, setClient] = useState<ClientSide>(initial.client)
   const [password, setPassword] = useState('')
+  const [savedPassword, setSavedPassword] = useState(initial.password || '')
   const [tab, setTab] = useState<'vexlo' | 'client'>('client')
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState('')
@@ -61,6 +62,7 @@ export default function Board({
         return false
       }
       setPassword('')
+      if (data.client?.password) setSavedPassword(data.client.password)
       setMessage(isAdmin ? 'Saved.' : 'Thanks — your details have been saved.')
       return true
     } catch {
@@ -162,7 +164,12 @@ export default function Board({
           <Field label="GHL location ID">
             <TextInput value={admin.ghlLocationId} onChange={(e) => setA('ghlLocationId', e.target.value)} />
           </Field>
-          <Field label="Reset client password" hint="Leave blank to keep the current password.">
+          <Field label="Client login password" hint="They use this with the project code on the login page.">
+            <div className="font-mono text-sm px-3 py-2.5 rounded-lg" style={{ background: '#0a0a0a', border: '1px solid #2a2a2a', color: '#fff' }}>
+              {savedPassword || 'Not saved — set a new one below.'}
+            </div>
+          </Field>
+          <Field label="Set a new password" hint="Leave blank to keep the current password.">
             <TextInput type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="New password" />
           </Field>
         </Section>

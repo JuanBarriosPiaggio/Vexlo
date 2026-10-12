@@ -68,6 +68,8 @@ export type OnboardingRecord = {
   id: string
   slug: string
   passwordHash: string
+  /** Plaintext so Vexlo can look it up later. Never sent to the client. */
+  password: string | null
   createdAt: string
   updatedAt: string
   clientSubmittedAt: string | null

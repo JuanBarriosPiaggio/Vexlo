@@ -26,11 +26,18 @@ function withLock<T>(fn: () => Promise<T>): Promise<T> {
   return run
 }
 
+function normalize(record: OnboardingRecord): OnboardingRecord {
+  return {
+    ...record,
+    password: record.password ?? null,
+  }
+}
+
 async function readAll(): Promise<OnboardingRecord[]> {
   try {
     const raw = await readFile(filePath(), 'utf8')
     const parsed = JSON.parse(raw)
-    return Array.isArray(parsed) ? parsed : []
+    return Array.isArray(parsed) ? parsed.map(normalize) : []
   } catch (error) {
     const code = (error as NodeJS.ErrnoException).code
     if (code === 'ENOENT') return []
@@ -53,6 +60,7 @@ export function forViewer(record: OnboardingRecord, role: 'admin' | 'client'): P
   if (role === 'admin') return pub
   return {
     ...pub,
+    password: null,
     admin: {
       ...pub.admin,
       internalNotes: '',
@@ -88,6 +96,7 @@ export async function createClient(input: {
   businessName: string
   slug?: string
   passwordHash: string
+  password: string
   services?: AdminSide['services']
 }): Promise<OnboardingRecord> {
   return withLock(async () => {
@@ -101,6 +110,7 @@ export async function createClient(input: {
       id: randomUUID(),
       slug,
       passwordHash: input.passwordHash,
+      password: input.password,
       createdAt: now,
       updatedAt: now,
       clientSubmittedAt: null,
@@ -126,6 +136,7 @@ export async function updateClient(
     admin?: Partial<AdminSide>
     client?: Partial<ClientSide>
     passwordHash?: string
+    password?: string
     markSubmitted?: boolean
   }
 ): Promise<OnboardingRecord | null> {
@@ -138,6 +149,7 @@ export async function updateClient(
       ...current,
       updatedAt: new Date().toISOString(),
       passwordHash: patch.passwordHash || current.passwordHash,
+      password: patch.password !== undefined ? patch.password : current.password,
       admin: patch.admin ? { ...current.admin, ...patch.admin } : current.admin,
       client: patch.client ? { ...current.client, ...patch.client } : current.client,
       clientSubmittedAt: patch.markSubmitted

@@ -36,6 +36,7 @@ export async function POST(request: NextRequest) {
     businessName,
     slug: body?.slug ? String(body.slug) : undefined,
     passwordHash: await hashPassword(password),
+    password,
     services,
   })
 

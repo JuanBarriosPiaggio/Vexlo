@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getSession, hashPassword } from '@/lib/onboarding/auth'
+import { generatePassword, getSession, hashPassword } from '@/lib/onboarding/auth'
 import { forViewer, getClient, toPublic, updateClient } from '@/lib/onboarding/store'
 import { emptyAdmin, emptyClient, type AdminSide, type ClientSide } from '@/lib/onboarding/types'
 
@@ -56,12 +56,15 @@ export async function PATCH(
     if (session!.role === 'client') patch.markSubmitted = true
   }
 
-  if (session!.role === 'admin' && body.password) {
-    const nextPassword = String(body.password).trim()
+  if (session!.role === 'admin' && (body.generatePassword || body.password)) {
+    const nextPassword = body.generatePassword
+      ? generatePassword()
+      : String(body.password).trim()
     if (nextPassword.length < 6) {
       return NextResponse.json({ error: 'Password must be at least 6 characters.' }, { status: 400 })
     }
     patch.passwordHash = await hashPassword(nextPassword)
+    patch.password = nextPassword
   }
 
   const updated = await updateClient(params.slug, patch)

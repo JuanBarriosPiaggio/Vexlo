@@ -19,6 +19,8 @@ export default function AdminHome({ clients }: { clients: PublicOnboarding[] }) 
   const [created, setCreated] = useState<{ url: string; password: string; slug: string } | null>(null)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [passwordBusy, setPasswordBusy] = useState<string | null>(null)
+  const [copied, setCopied] = useState<string | null>(null)
 
   function toggleService(id: OnboardingServiceId) {
     setServices((prev) => (prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]))
@@ -51,6 +53,47 @@ export default function AdminHome({ clients }: { clients: PublicOnboarding[] }) 
       setError('Something went wrong.')
     } finally {
       setLoading(false)
+    }
+  }
+
+  async function copyPassword(slug: string, password: string) {
+    try {
+      await navigator.clipboard.writeText(password)
+      setCopied(slug)
+      window.setTimeout(() => setCopied((current) => (current === slug ? null : current)), 1500)
+    } catch {
+      setError('Could not copy the password.')
+    }
+  }
+
+  async function generatePassword(slug: string, replacing: boolean) {
+    if (replacing && !window.confirm('This replaces the current login password. The old one will stop working.')) {
+      return
+    }
+    setError('')
+    setPasswordBusy(slug)
+    try {
+      const res = await fetch(`/api/onboarding/${encodeURIComponent(slug)}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ generatePassword: true }),
+      })
+      const data = await res.json()
+      if (!res.ok) {
+        setError(data.error || 'Could not set a new password.')
+        return
+      }
+      setList((prev) => prev.map((c) => (c.slug === slug ? data.client : c)))
+      setCreated({
+        url: `${window.location.origin}/onboarding/${data.client.slug}`,
+        password: data.client.password,
+        slug: data.client.slug,
+      })
+      setCopied(null)
+    } catch {
+      setError('Could not set a new password.')
+    } finally {
+      setPasswordBusy(null)
     }
   }
 
@@ -106,7 +149,7 @@ export default function AdminHome({ clients }: { clients: PublicOnboarding[] }) 
         </button>
         {created && (
           <div className="p-4 rounded-xl text-sm" style={{ background: 'rgba(217,119,6,0.08)', border: '1px solid rgba(217,119,6,0.3)' }}>
-            <p className="font-bold mb-2" style={{ color: '#fff' }}>Send this to the client — the password is shown once.</p>
+            <p className="font-bold mb-2" style={{ color: '#fff' }}>Send this to the client. The password also stays on this list so you can look it up later.</p>
             <p style={{ color: '#e8e8e8' }}><strong>Link:</strong> {created.url}</p>
             <p style={{ color: '#e8e8e8' }}><strong>Project code:</strong> {created.slug}</p>
             <p style={{ color: '#e8e8e8' }}><strong>Password:</strong> {created.password}</p>
@@ -126,15 +169,54 @@ export default function AdminHome({ clients }: { clients: PublicOnboarding[] }) 
               className="p-5 rounded-xl flex items-center justify-between gap-4"
               style={{ background: '#111111', border: '1px solid #2a2a2a' }}
             >
-              <Link href={`/onboarding/${c.slug}`} className="min-w-0 flex-1" style={{ textDecoration: 'none' }}>
-                <div className="font-bold text-sm" style={{ color: '#fff' }}>
-                  {c.client.businessName || c.slug}
+              <div className="min-w-0 flex-1">
+                <Link href={`/onboarding/${c.slug}`} style={{ textDecoration: 'none' }}>
+                  <div className="font-bold text-sm" style={{ color: '#fff' }}>
+                    {c.client.businessName || c.slug}
+                  </div>
+                  <div className="text-xs mt-1" style={{ color: '#888' }}>
+                    {c.slug} · {c.admin.services.join(', ') || 'no services tagged'}
+                  </div>
+                </Link>
+                <div className="text-xs mt-2" style={{ color: '#e8e8e8' }}>
+                  {c.password ? (
+                    <>
+                      Password:{' '}
+                      <span className="font-mono font-bold" style={{ color: '#fff' }}>
+                        {c.password}
+                      </span>
+                    </>
+                  ) : (
+                    <span style={{ color: '#888' }}>
+                      Password was not saved — generate a new one to log in as them.
+                    </span>
+                  )}
                 </div>
-                <div className="text-xs mt-1" style={{ color: '#888' }}>
-                  {c.slug} · {c.admin.services.join(', ') || 'no services tagged'}
-                </div>
-              </Link>
-              <div className="flex items-center gap-3 shrink-0">
+              </div>
+              <div className="flex flex-wrap items-center justify-end gap-3 shrink-0">
+                {c.password && (
+                  <button
+                    type="button"
+                    onClick={() => copyPassword(c.slug, c.password!)}
+                    className="text-xs font-bold"
+                    style={{ color: '#d97706' }}
+                  >
+                    {copied === c.slug ? 'Copied' : 'Copy password'}
+                  </button>
+                )}
+                <button
+                  type="button"
+                  onClick={() => generatePassword(c.slug, Boolean(c.password))}
+                  disabled={passwordBusy === c.slug}
+                  className="text-xs font-bold"
+                  style={{ color: c.password ? '#888' : '#d97706' }}
+                >
+                  {passwordBusy === c.slug
+                    ? 'Setting…'
+                    : c.password
+                      ? 'New password'
+                      : 'Generate password'}
+                </button>
                 <DownloadWordButton slug={c.slug} compact />
                 <span
                   className="text-xs font-bold px-2.5 py-1 rounded-full"
