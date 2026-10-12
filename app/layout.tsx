@@ -6,6 +6,7 @@ import Footer from '@/components/Footer'
 import CookieConsent from '@/components/CookieConsent'
 import Analytics from '@/components/Analytics'
 import Cursor from '@/components/Cursor'
+import ChatWidget from '@/components/ChatWidget'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vexlo.co.uk'
 
@@ -182,13 +183,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           src="https://link.msgsndr.com/js/form_embed.js"
           strategy="afterInteractive"
         />
-        <Script
-          id="leadconnector-loader"
-          src="https://widgets.leadconnectorhq.com/loader.js"
-          strategy="afterInteractive"
-          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="69e3a18206d5d5421be1022e"
-        />
+        <ChatWidget />
       </body>
     </html>
   )
