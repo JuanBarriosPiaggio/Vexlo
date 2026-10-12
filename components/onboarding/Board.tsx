@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
+import DownloadWordButton from './DownloadWordButton'
 import LogoutButton from './LogoutButton'
 import { Field, Section, TextArea, TextInput } from './fields'
 import {
@@ -40,8 +41,7 @@ export default function Board({
     setClient((prev) => ({ ...prev, [key]: value }))
   }
 
-  async function save(e: React.FormEvent) {
-    e.preventDefault()
+  async function persist(): Promise<boolean> {
     setSaving(true)
     setError('')
     setMessage('')
@@ -58,15 +58,22 @@ export default function Board({
       const data = await res.json()
       if (!res.ok) {
         setError(data.error || 'Could not save.')
-        return
+        return false
       }
       setPassword('')
       setMessage(isAdmin ? 'Saved.' : 'Thanks — your details have been saved.')
+      return true
     } catch {
       setError('Something went wrong.')
+      return false
     } finally {
       setSaving(false)
     }
+  }
+
+  async function save(e: React.FormEvent) {
+    e.preventDefault()
+    await persist()
   }
 
   const vexloColumn = (
@@ -314,7 +321,12 @@ export default function Board({
             {isAdmin ? `Share: ${inviteUrl}` : 'Only you and Vexlo can see this page.'}
           </p>
         </div>
-        <LogoutButton />
+        <div className="flex items-center gap-4">
+          {isAdmin && (
+            <DownloadWordButton slug={initial.slug} onBeforeDownload={persist} />
+          )}
+          <LogoutButton />
+        </div>
       </div>
 
       <div className="flex md:hidden gap-2 mb-4">

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import DownloadWordButton from './DownloadWordButton'
 import LogoutButton from './LogoutButton'
 import { Field, TextInput } from './fields'
 import {
@@ -120,27 +121,29 @@ export default function AdminHome({ clients }: { clients: PublicOnboarding[] }) 
         {list.map((c) => {
           const status = ONBOARDING_STATUSES.find((s) => s.id === c.admin.status)?.label || c.admin.status
           return (
-            <Link
+            <div
               key={c.id}
-              href={`/onboarding/${c.slug}`}
-              className="p-5 rounded-xl flex items-center justify-between gap-4 hover:-translate-y-0.5 transition-transform"
-              style={{ background: '#111111', border: '1px solid #2a2a2a', textDecoration: 'none' }}
+              className="p-5 rounded-xl flex items-center justify-between gap-4"
+              style={{ background: '#111111', border: '1px solid #2a2a2a' }}
             >
-              <div>
+              <Link href={`/onboarding/${c.slug}`} className="min-w-0 flex-1" style={{ textDecoration: 'none' }}>
                 <div className="font-bold text-sm" style={{ color: '#fff' }}>
                   {c.client.businessName || c.slug}
                 </div>
                 <div className="text-xs mt-1" style={{ color: '#888' }}>
                   {c.slug} · {c.admin.services.join(', ') || 'no services tagged'}
                 </div>
+              </Link>
+              <div className="flex items-center gap-3 shrink-0">
+                <DownloadWordButton slug={c.slug} compact />
+                <span
+                  className="text-xs font-bold px-2.5 py-1 rounded-full"
+                  style={{ background: 'rgba(217,119,6,0.15)', color: '#d97706' }}
+                >
+                  {status}
+                </span>
               </div>
-              <span
-                className="text-xs font-bold px-2.5 py-1 rounded-full"
-                style={{ background: 'rgba(217,119,6,0.15)', color: '#d97706' }}
-              >
-                {status}
-              </span>
-            </Link>
+            </div>
           )
         })}
       </div>
